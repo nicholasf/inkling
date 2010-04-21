@@ -1,9 +1,9 @@
 require 'rails/generators'
 
- class CfFooGenerator < Rails::Generators::Base
+ class InklingGenerator < Rails::Generators::Base
    include Rails::Generators::Migration
 
-   desc "Initializes CF Foo and generates migrations"
+   desc "Initializes Inkling and generates migrations"
 
    def self.source_root
       @source_root ||= File.join(File.dirname(__FILE__), 'templates')
@@ -18,6 +18,6 @@ require 'rails/generators'
    end
 
    def create_migration_file
-     migration_template 'create_cf_users.rb', 'db/migrate/create_cf_users_table.rb'
+     migration_template 'create_inkling_users.rb', 'db/migrate/create_inkling_users.rb'
    end
  end

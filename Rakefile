@@ -13,6 +13,3 @@ rescue
   puts "Jeweler or one of its dependencies is not installed."
 end
 
-task :test do
-  
-end

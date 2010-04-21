@@ -1,9 +1,8 @@
 require "inkling"
 require "rails"
 
-module CfFoo
+module Inkling
   class Engine < Rails::Engine
-    engine_name :cf_foo
-
+    engine_name :inkling
   end
 end

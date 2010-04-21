@@ -8,15 +8,23 @@ Gem::Specification.new do |s|
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.date = %q{2010-04-20}
+  s.date = %q{2010-04-21}
+  s.extra_rdoc_files = [
+    "README.txt"
+  ]
   s.files = [
-    "app/models/inkling/folder.rb",
+    "app/models/inkling/extension.rb",
+     "app/models/inkling/folder.rb",
      "app/models/inkling/role.rb",
+     "app/models/inkling/site.rb",
+     "app/models/inkling/type.rb",
      "app/models/inkling/user.rb",
+     "lib/generators/inkling/inkling_generator.rb",
+     "lib/generators/inkling/templates/create_inkling_users.rb",
      "lib/inkling.rb",
+     "lib/inkling/content.rb",
      "lib/inkling/engine.rb",
-     "lib/generators/inkling/cf_foo_generator.rb",
-     "lib/generators/inkling/templates/create_inkling_users.rb"
+     "lib/mob.rb"
   ]
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]

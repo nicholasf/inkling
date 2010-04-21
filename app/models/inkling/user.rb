@@ -1,6 +1,6 @@
 include 'mob'
 
-module CMF
+module Inkling
   class User < Mob::User
   end
 end

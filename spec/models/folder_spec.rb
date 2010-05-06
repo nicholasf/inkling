@@ -7,7 +7,8 @@ describe Inkling::Folder do
   end
 
   it "should accept nested folders" do
-    @folder.save
+    @root.save
+    debugger
     child = Inkling::Folder.create(:name => "child")
     @root.children.size.should eql 1
     @root.children.include?(child).should be true

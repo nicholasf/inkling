@@ -1,4 +1,4 @@
-class CreateInklingFolders < ActiveRecord::Migration
+class CreateInklingUsers < ActiveRecord::Migration
   def self.up
     create_table :inkling_folders do |t|
       t.string :name, :null => false
@@ -11,6 +11,6 @@ class CreateInklingFolders < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :inkling_folders
+    drop_table :inkling_users
   end
 end

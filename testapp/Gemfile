@@ -13,6 +13,11 @@ gem "pg"
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'inkling', :path => '/Users/nicholas/code/src/tfw/inkling_project/inkling'
 
+gem 'rspec', :require => 'spec', :group => [:test, :development]
+gem 'rspec-rails', :group => [:test, :development]
+
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

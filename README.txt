@@ -6,7 +6,9 @@ Inkling will be a Content Framework for Rails 3.
 TODO
 ----
 
-Inkling
+Inkling stories
+
+1. as a dev I have provided content type recognition
 2. As a dev I have provided CRUD permissioning which is stored by roles on folders.
 3. As a dev I have provided a user & community/group & role API.
 4. As a dev I have provided a clean & popular authentication layer.

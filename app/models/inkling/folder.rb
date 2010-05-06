@@ -1,7 +1,12 @@
+require 'better_nested_set'
+
 module Inkling
   class Folder < ActiveRecord::Base
+    include SymetrieCom::Acts::NestedSet
 
-    acts_as_nested_set :scope => 
+    set_table_name 'inkling_folders'
+
+    acts_as_nested_set :scope => :parent_id
 
     has_many :items, :as => :content
   end

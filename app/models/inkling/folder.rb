@@ -6,7 +6,7 @@ module Inkling
 
     set_table_name 'inkling_folders'
 
-    acts_as_nested_set :scope => :parent_id
+    acts_as_nested_set
 
     has_many :items, :as => :content
   end

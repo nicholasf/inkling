@@ -1,5 +1,13 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
+#a test content type for including within a folder
+class Foo < ActiveRecord::Base
+    include Inkling::Content
+    belongs_to :content, :polymorphic => true
+
+    self.abstract_class = true
+end
+
 describe Inkling::Folder do
 
   before(:each) do
@@ -16,7 +24,9 @@ describe Inkling::Folder do
 
   it "should be able to order folders and items of content" do
     child = Inkling::Folder.create(:name => "child")
-        
+    foo = Foo.new
+
+    debugger
   end
 
 end

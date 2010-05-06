@@ -6,8 +6,8 @@ module Inkling
 
     set_table_name 'inkling_folders'
 
-    acts_as_nested_set
-
-    has_many :items, :as => :content
+    has_many :folder_entries
+    has_many :content_items, :through => :folder_entries
+    belongs_to :content, :polymorphic => true
   end
 end

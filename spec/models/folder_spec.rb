@@ -1,20 +1,14 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-#a test content type for including within a folder
-class Foo < ActiveRecord::Base
-    include Inkling::Content
-    belongs_to :content, :polymorphic => true
-
-    self.abstract_class = true
-end
-
 describe Inkling::Folder do
 
   before(:each) do
-    @root = Inkling::Folder.create(:name => "root")
+    @root = Folder.new
+    
+#    @root = Inkling::Folder.create(:name => "root")
   end
 
-  it "should accept nested folders" do
+  it "should accept nested folder entries" do
     @root.save
     child = Inkling::Folder.create(:name => "child")
     child.move_to_child_of @root
@@ -26,7 +20,6 @@ describe Inkling::Folder do
     child = Inkling::Folder.create(:name => "child")
     foo = Foo.new
 
-    debugger
   end
 
 end

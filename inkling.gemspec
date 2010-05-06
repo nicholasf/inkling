@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.date = %q{2010-04-24}
+  s.date = %q{2010-05-06}
   s.extra_rdoc_files = [
     "README.txt"
   ]
@@ -19,7 +19,10 @@ Gem::Specification.new do |s|
      "app/models/inkling/site.rb",
      "app/models/inkling/type.rb",
      "app/models/inkling/user.rb",
+     "lib/better_nested_set.rb",
+     "lib/better_nested_set_helper.rb",
      "lib/generators/inkling/inkling_generator.rb",
+     "lib/generators/inkling/templates/create_inkling_folders.rb",
      "lib/generators/inkling/templates/create_inkling_users.rb",
      "lib/inkling.rb",
      "lib/inkling/content.rb",
@@ -30,6 +33,10 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A content framework engine for Rails 3}
+  s.test_files = [
+    "spec/models/folder_spec.rb",
+     "spec/spec_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

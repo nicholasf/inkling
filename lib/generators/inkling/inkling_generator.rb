@@ -5,19 +5,26 @@ require 'rails/generators'
 
    desc "Initializes Inkling and generates migrations"
 
-   def self.source_root
-      @source_root ||= File.join(File.dirname(__FILE__), 'templates')
-   end
+   #this is ugly, but I'll take it for now if it works
+#   invoke "migration", %(create_inkling_users )
 
-   def self.next_migration_number(dirname)
-     if ActiveRecord::Base.timestamped_migrations
-       Time.now.utc.strftime("%Y%m%d%H%M%S")
-     else
-       "%.3d" % (current_migration_number(dirname) + 1)
-     end
-   end
+  def self.source_root
+    @source_root ||= File.join(File.dirname(__FILE__), 'templates')
+    puts " *******"
+  end
 
-   def create_migration_file
-     migration_template 'create_inkling_users.rb', 'db/migrate/create_inkling_users.rb'
-   end
+  def self.next_migration_number(dirname)
+    puts "hello!"
+    if ActiveRecord::Base.timestamped_migrations
+      Time.now.utc.strftime("%Y%m%d%H%M%S")
+    else
+      "%.3d" % (current_migration_number(dirname) + 1)
+    end
+  end
+
+  def create_migration_file
+    puts "I'm creating!"
+    migration_template 'create_inkling_users.rb', 'db/migrate/create_inkling_users.rb'
+    migration_template 'create_inkling_folders.rb', 'db/migrate/create_inkling_folders.rb'
+  end
  end

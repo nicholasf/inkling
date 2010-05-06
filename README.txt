@@ -9,7 +9,6 @@ TODO
 Inkling stories
 
 1. as a dev I have provided content type recognition
-1a.  as a dev I have defined how content types are recognized.
 
 2. As a dev I have provided CRUD permissioning which is stored by roles on folders.
 2a. As a dev I have CRUD for folders.
@@ -23,6 +22,12 @@ have basic CMS functionality with inkling-content).
 
 Inkling-Content (currently Inkling page)
 1. As a dev I have created a polished page type with ckeditor for WYSIWYG.
+
+
+Outstanding Issues
+------------------
+
+* Engine generator isn't being hooked into initialization process for generating migrations. Check on this.
 
 
 Docs.
@@ -62,8 +67,8 @@ COPYRIGHT (c) 2010 Nicholas Faiz, Tree Falling In The Woods Pty Ltd.
 Inkling code is copyrighted to Tree Falling In The Woods, Pty Ltd. and available under the MIT License.
 It includes software from other projects, listed below, all available through the MIT license.
 
-* Ruby on Rails
-* better_nested_set - http://github.com/chris/better_nested_set - Copyright (c) 2006 Jean-Christophe Michel, Symétrie 
+* Ruby on Rails - http://rubyonrails.org - David Heinemeier Hansson, etc..
+* better_nested_set - http://github.com/chris/better_nested_set - Copyright (c) 2006 Jean-Christophe Michel, Symétrie
 
 The MIT License
 

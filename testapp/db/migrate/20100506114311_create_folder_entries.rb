@@ -1,7 +1,6 @@
 class CreateFolderEntries < ActiveRecord::Migration
   def self.up
-    create_table :folder_entries do
-      t.string :name, :null => false
+    create_table :folder_entries do |t|
       t.integer :folder_id
       t.integer :parent_id
       t.integer :lft

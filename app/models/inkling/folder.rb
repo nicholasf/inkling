@@ -21,7 +21,7 @@ module Inkling
       end
 
       if content_obj.is_a? Inkling::FolderEntry
-        
+#        debugger
         content_obj.move_to_child_of(self.folder_entry)
       else
         raise StandardError, "Folders can only hold content."

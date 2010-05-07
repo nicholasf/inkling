@@ -2,5 +2,6 @@
 
 class Foo < ActiveRecord::Base
   include Inkling::Content
-  belongs_to :content, :polymorphic => true
+
+  has_one :folder_entry, :as => :content
 end

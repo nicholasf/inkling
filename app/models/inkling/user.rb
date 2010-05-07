@@ -1,4 +1,4 @@
-include 'mob'
+require 'mob'
 
 module Inkling
   class User < Mob::User

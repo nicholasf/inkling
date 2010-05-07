@@ -11,22 +11,22 @@ module Mob
 
   module Permissable
     include Mob
-    #checks for a .can_ call on permissions. Only users and roles are permissable
-#     def method_missing(method, *args, &block)
-#       if method.to_s.split(/_/)[0].to_s == "can"
-#         return can(method)
-#       end
-#
-#       super(method, *args, &block)
-#     end
-#
-#     def can(method)
-#       statement = clean_mob_method(method, 'can')
-#
-#       perm = Permission.find_by_name(statement)
-#       return perm.users.include?(self)
-#     end
-#  end
+     #checks for a .can_ call on permissions. Only users and roles are permissable
+     def method_missing(method, *args, &block)
+       if method.to_s.split(/_/)[0].to_s == "can"
+         return can(method)
+       end
+
+       super(method, *args, &block)
+     end
+
+     def can(method)
+       statement = clean_mob_method(method, 'can')
+
+       perm = Permission.find_by_name(statement)
+       return perm.users.include?(self)
+     end
+  end
 
   module Identifiable
     include Mob

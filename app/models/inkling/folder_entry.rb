@@ -9,7 +9,8 @@ module Inkling
 
     acts_as_nested_set
 
-    belongs_to :folder
-    has_many :entries, :as => :content
+    belongs_to :content, :polymorphic => true
+#    belongs_to :folder
+#    has_many :entries, :as => :content
   end
 end

@@ -1,8 +1,7 @@
 class CreateInklingFolders < ActiveRecord::Migration
   def self.up
     create_table :inkling_folders do |t|
-      t.string :name, :null => false
-      t.references :content, :polymorphic => true      
+      t.string :name, :null => false    
       t.timestamps
     end
   end

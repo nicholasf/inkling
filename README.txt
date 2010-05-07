@@ -37,13 +37,15 @@ Inkling stories
 1. as a dev I have provided content type recognition
 
 2. As a dev I have provided CRUD permissioning which is stored by roles on folders.
-2a. As a dev I have CRUD for folders.
+2a. As a dev I have CRUD for folders
 
 3. As a dev I have provided a user & community/group & role API.
 4. As a dev I have provided a clean & popular authentication layer.
 5. As a dev I have provided a simple API for workflow, which may be extended, but will initially be draft/publish and role restricted.
 6. As a dev I can create a content extension, which groups content types, and have it recognized in the system. (this can wait until you
 have basic CMS functionality with inkling-content).
+7. As a dev I have planned for a themeable layer, possibly the admin UI.
+
 
 
 Inkling-Content (currently Inkling page)
@@ -54,7 +56,7 @@ Outstanding Issues
 ------------------
 
 * Engine generator isn't being hooked into initialization process for generating migrations. Check on this.
-
+* validator on folder_entry to ensure that only folders can be nested
 
 
 Security
@@ -81,6 +83,18 @@ workflows [:name, :id] -> workflow_states [:name, :position(list)] -> workflow_r
 workflow_assignments [:workflow_id, :content_id]
 
 Each workflow_state, in order, must be progressed, in order, by each workflow_role. Workflows are applied to folders.
+
+
+Theming
+-------
+
+Theming is three things, (1) the location of layouts and views and (2) the information architecture of content blocks, (3)
+CSS.
+
+(1) - look into load paths for views. Mephisto did this. Rails 3 will make it easier.
+(2) - prototype via scaffold or a rough view for the moment. When you have admin functionality mapped, clean up
+with neat grouping of menus/partial rendering, etc., document, and it should be themable, in theory.
+(3) - Simply use clear classes, etc.?
 
 
 Licensing

@@ -11,7 +11,7 @@ module Inkling
 
     belongs_to :content, :polymorphic => true
 
-    validates :folders_nest_content
+#    validate :folders_nest_content
 
 #    def folders_nest_content
 #      unless self.content.is_a? Folder

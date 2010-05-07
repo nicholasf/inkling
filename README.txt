@@ -35,6 +35,7 @@ TODO
 Inkling stories
 
 1. as a dev I have provided content type recognition
+1a. once prototyped, create class methods for models to become content - e.g acts_as_content
 
 2. As a dev I have provided CRUD permissioning which is stored by roles on folders.
 2a. As a dev I have CRUD for folders
@@ -44,7 +45,9 @@ Inkling stories
 5. As a dev I have provided a simple API for workflow, which may be extended, but will initially be draft/publish and role restricted.
 6. As a dev I can create a content extension, which groups content types, and have it recognized in the system. (this can wait until you
 have basic CMS functionality with inkling-content).
-7. As a dev I have planned for a themeable layer, possibly the admin UI.
+7. As a dev I have CRUD for the site object's informative properties.
+7a. As a dev I have multi-site capabilities
+8. As a dev I have planned for a themeable layer, possibly the admin UI.
 
 
 
@@ -83,6 +86,18 @@ workflows [:name, :id] -> workflow_states [:name, :position(list)] -> workflow_r
 workflow_assignments [:workflow_id, :content_id]
 
 Each workflow_state, in order, must be progressed, in order, by each workflow_role. Workflows are applied to folders.
+
+Site
+----
+Multi-site functionality will wrap everything.
+
+A site:
+
+sites[:name, :path, :description, :user_id], 
+site_users [:site_id, :user_id], site_groups[:site_id, group_id], site_roles[:site_id, role_id]
+
+Roles, users, and groups will be universal, but will be configured to have site access. So you can reuse them across sites.
+
 
 
 Theming

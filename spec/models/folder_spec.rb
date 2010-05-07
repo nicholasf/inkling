@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Inkling::Folder do
 
   before(:each) do
+    clean
     @root = Inkling::Folder.new(:name => "root")
   end
 

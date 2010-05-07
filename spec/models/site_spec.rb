@@ -14,7 +14,6 @@ describe Inkling::Site do
     site.valid?.should be true
     site2 = Inkling::Site.new
     site2.name = "blurg"
-#    debugger
     site2.valid?.should be false
   end
 end

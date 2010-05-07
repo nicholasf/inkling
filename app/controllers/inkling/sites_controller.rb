@@ -6,6 +6,11 @@ class Inkling::SitesController < ApplicationController
     @sites = Site.all
   end
 
+  def new
+    puts "** ok it's being created ..."
+    @site = Inkling::Site.new
+  end
+
   def show    
   end
 

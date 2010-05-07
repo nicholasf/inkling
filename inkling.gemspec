@@ -23,6 +23,10 @@ Gem::Specification.new do |s|
      "app/models/inkling/site.rb",
      "app/models/inkling/type.rb",
      "app/models/inkling/user.rb",
+     "app/views/inkling/sites/_form.html.erb",
+     "app/views/inkling/sites/edit.html.erb",
+     "app/views/inkling/sites/index.html.erb",
+     "app/views/inkling/sites/new.html.erb",
      "config/routes.rb",
      "lib/better_nested_set.rb",
      "lib/better_nested_set_helper.rb",
@@ -39,7 +43,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A content framework engine for Rails 3}
   s.test_files = [
-    "spec/models/folder_entry_spec.rb",
+    "spec/controllers/sites_spec.rb",
+     "spec/models/folder_entry_spec.rb",
      "spec/models/folder_spec.rb",
      "spec/models/site_spec.rb",
      "spec/spec_helper.rb"

@@ -1,8 +1,12 @@
+
+
+
+
 <% form_for @site do |f| %>
     <% unless @site.new_record? %>
         <%= f.hidden_field :id %>
     <% end %>
-    
+
 
     <%= f.text_field :name, :label => "name" %>
     <%= f.text_area :description, :label => "description" %>

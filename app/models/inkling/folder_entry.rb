@@ -10,7 +10,13 @@ module Inkling
     acts_as_nested_set
 
     belongs_to :content, :polymorphic => true
-#    belongs_to :folder
-#    has_many :entries, :as => :content
+
+    validates :folders_nest_content
+
+#    def folders_nest_content
+#      unless self.content.is_a? Folder
+#
+#      end
+#    end
   end
 end

@@ -12,14 +12,6 @@ describe Inkling::Folder do
     child.save
     @root << child
     @root.folder_entry.children.size.should eql 1
-#    debugger
     @root.folder_entry.children.include?(child.folder_entry).should be true
-  end
-
-#  it "should be able to order folders and items of content" do
-#    child = Inkling::Folder.create(:name => "child")
-#    foo = Foo.new
-#
-#  end
-#
+  end  
 end

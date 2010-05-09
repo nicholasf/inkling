@@ -102,6 +102,11 @@ blockquote {
 	padding: 0px 0px 20px 0px;
 }
 
+#menu {
+    float: right;
+	width: 200px;
+    border: dashed;    
+}
 
 #footer p {
 	text-transform: uppercase;

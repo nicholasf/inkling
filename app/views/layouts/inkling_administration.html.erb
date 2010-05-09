@@ -13,22 +13,19 @@
 	<div id="logo">
 		<h1><a href="/">Inkling</a></h1>
 	</div>
-
-
-	<div id="navigation">
-		<ul>
-			<li><a href="<%= folders_path %>" class="first">Folders</a></li>
-		</ul>
-	</div>
 </div>
-<div id="content">
-	<div id="page">
+<div id="primary_menu">
+    <ul>
+        <li><a href="<%= folders_path %>" class="first">Folders</a></li>
+    </ul>
+</div>
+<div id="main">
     <%= yield %>
-	</div>
-  <div id=""> 
-  </div>
+</div>
+<div id="secondary_menu">
+    <%= yield :secondary_menu %>
 </div>
 <div id="footer">
-</div>
+
 </body>
 </html>

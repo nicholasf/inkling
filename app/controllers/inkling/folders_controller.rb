@@ -1,3 +1,7 @@
-class Inkling::SitesController < Inkling::BaseController
+class Inkling::FoldersController < Inkling::BaseController
+
+  def index
+    @folders = Inkling::Folder.all
+  end
 
 end

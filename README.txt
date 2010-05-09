@@ -47,6 +47,8 @@ Inkling stories
 have basic CMS functionality with inkling-content).
 7. As a dev I have CRUD for the site object's informative properties.
 7a. As a dev I have multi-site capabilities
+7b. As a dev I have worked out how to add parameters to the Application object which can be looked up in routes.rb (to turn multi-site on or off).
+
 8. As a dev I have planned for a themeable layer, possibly the admin UI.
 
 
@@ -93,7 +95,7 @@ Multi-site functionality will wrap everything.
 
 A site:
 
-sites[:name, :path, :description, :user_id], 
+sites[:name, :path, :description, :user_id],
 site_users [:site_id, :user_id], site_groups[:site_id, group_id], site_roles[:site_id, role_id]
 
 Roles, users, and groups will be universal, but will be configured to have site access. So you can reuse them across sites.

@@ -13,5 +13,8 @@ rescue
   puts "Jeweler or one of its dependencies is not installed."
 end
 
-
-
+#task :seed do
+#  if Preferences.all.empty?
+#    Preferences.new.save!
+#  end
+#end

@@ -1,4 +1,4 @@
-class Inkling::SitesController < ApplicationController
+class Inkling::SitesController < Inkling::BaseController
 
   before_filter :get_site, :except => [:index, :new]
 
@@ -11,7 +11,7 @@ class Inkling::SitesController < ApplicationController
     @site = Inkling::Site.new
   end
 
-  def show    
+  def show
   end
 
   private

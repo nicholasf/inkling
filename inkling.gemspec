@@ -8,17 +8,19 @@ Gem::Specification.new do |s|
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.date = %q{2010-05-07}
+  s.date = %q{2010-05-09}
   s.extra_rdoc_files = [
     "README.txt"
   ]
   s.files = [
-    "app/controllers/inkling/folders_controller.rb",
+    "app/controllers/inkling/base_controller.rb",
+     "app/controllers/inkling/folders_controller.rb",
      "app/controllers/inkling/sites_controller.rb",
      "app/models/inkling/extension.rb",
      "app/models/inkling/folder.rb",
      "app/models/inkling/folder_entry.rb",
      "app/models/inkling/foo.rb",
+     "app/models/inkling/preferences.rb",
      "app/models/inkling/role.rb",
      "app/models/inkling/site.rb",
      "app/models/inkling/type.rb",
@@ -27,6 +29,7 @@ Gem::Specification.new do |s|
      "app/views/inkling/sites/edit.html.erb",
      "app/views/inkling/sites/index.html.erb",
      "app/views/inkling/sites/new.html.erb",
+     "app/views/layouts/inkling_administration.html.erb",
      "config/routes.rb",
      "lib/better_nested_set.rb",
      "lib/better_nested_set_helper.rb",

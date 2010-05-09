@@ -11,12 +11,21 @@ gem "pg"
 
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-#gem 'inkling', :path => '/Users/nicholas/code/src/tfw/inkling_project/inkling'
-gem 'inkling', :path => '/Users/nick/code/src/tfw/inkling-project/inkling'
+gem 'inkling', :path => '/Users/nicholas/code/src/tfw/inkling_project/inkling'
+#gem 'inkling', :path => '/Users/nick/code/src/tfw/inkling-project/inkling'
 
 gem 'rspec', :require => 'spec', :group => [:test, :development]
 gem 'rspec-rails', :group => [:test, :development]
 
+#inkling specific gems here
+#cucumber
+gem 'capybara'
+#gem 'database_cleaner'
+gem 'cucumber-rails'
+gem 'cucumber', '0.7.2'
+#gem 'rspec-rails', '2.0.0.beta.8'
+gem 'spork'
+gem 'launchy'    # So you can do Then show me the page
 
 
 # Use unicorn as the web server

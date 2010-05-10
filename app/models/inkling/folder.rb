@@ -3,7 +3,7 @@ require 'better_nested_set'
 module Inkling
   class Folder < ActiveRecord::Base
     include SymetrieCom::Acts::NestedSet
- 
+
     has_many :content_items, :through => :folder_entries
     has_one :folder_entry, :as => :content
 
@@ -18,8 +18,9 @@ module Inkling
         content_obj = content_obj.folder_entry
       end
 
+      puts "#{content_obj}"
+      puts "#{content_obj.class}"
       if content_obj.is_a? Inkling::FolderEntry
-#        debugger
         content_obj.move_to_child_of(self.folder_entry)
       else
         raise StandardError, "Folders can only hold content."

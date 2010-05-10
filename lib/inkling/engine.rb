@@ -2,8 +2,6 @@ require "inkling"
 require "rails"
 require "better_nested_set"
 require "ruby-debug"
-#require "spec"
-#require "spec-rails"
 
 
 module Inkling

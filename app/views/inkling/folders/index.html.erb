@@ -1,6 +1,8 @@
-folder index
 
 <% content_for :secondary_menu do %>
     <%= render(:partial => "secondary_menu") %>
 <% end %>
 
+<% for folder in @folders  %>
+  <%= link_to folder.name, edit_folder_path(folder) %> <br/>
+<% end %>

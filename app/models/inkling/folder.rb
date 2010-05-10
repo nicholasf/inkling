@@ -3,8 +3,7 @@ require 'better_nested_set'
 module Inkling
   class Folder < ActiveRecord::Base
     include SymetrieCom::Acts::NestedSet
-
-    belongs_to :site    
+ 
     has_many :content_items, :through => :folder_entries
     has_one :folder_entry, :as => :content
 

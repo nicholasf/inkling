@@ -1,0 +1,12 @@
+
+<%= error_messages_for 'folder'%>
+
+<%= form_for @folder do |f| %>
+  <% unless @folder.new_record? %>
+    <%= f.hidden_field :id %>
+  <% end %>
+
+  <%= f.text_field :name, :label => "Name" %>
+
+  <%= submit_tag 'Save' %>
+<% end %>

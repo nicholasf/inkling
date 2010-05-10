@@ -8,7 +8,7 @@ framework for building CRUD applications - which will easily plug into Inkling a
 Inkling will have its own set of Content Types, so it can function as a readymade CMS - see inkling-page.
 
 
-* Docs
+* Docs - I'm generating doc. as I go. No functionality is finished yet ...
 
 Content Type
 ------------
@@ -18,10 +18,11 @@ To create a Content Type:
 
 * the model should be polymorphic and include Inkling::Content.
 
-class Foo
-    include Inkling::Content
-    belongs_to :content, :polymorphic => true
+class Foo < ActiveRecord::Base
+  acts_as_content
 end
+
+For the controller ... 
 
 If you are interested in seeing the planning of the project - see issues.txt
 

@@ -97,15 +97,30 @@ blockquote {
 	color: #C8C8C8;
 }
 
+#primary-menu {
+	width: 900px;
+	height: 51px;
+	margin: 0px auto;
+	padding: 0px;
+}
+
+#primary-menu ul {
+	margin: 0px;
+	list-style: none;
+}
+
+#primary-menu li {
+	display: inline;
+}
 
 #content {
 	padding: 0px 0px 20px 0px;
 }
 
-#menu {
+#secondary-menu {
     float: right;
-	width: 200px;
-    border: dashed;    
+	  width: 200px;
+    border: dashed;
 }
 
 #footer p {

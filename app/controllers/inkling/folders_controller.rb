@@ -15,13 +15,13 @@ class Inkling::FoldersController < Inkling::BaseController
   def edit; end
 
   def create
-    @folder = Inkling::Folder.new(params[:inkling_folder])
+    @folder = Inkling::Folder.create(params[:inkling_folder])
 
-    begin
-      @folder.save
-    rescue StandardError => boom
-      puts boom.to_s
-    end
+#    begin
+#      @folder.save
+#    rescue StandardError => boom
+#      puts boom.to_s
+#    end
 
     render :action => :edit
   end

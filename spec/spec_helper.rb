@@ -1,27 +1,25 @@
-ENV['RAILS_ENV'] ||= 'test'
-require 'rubygems'
-require 'spec'
-require 'spec/rails'
-require 'ruby-debug'
-require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
-require 'inkling'
+# This file is copied to ~/spec when you run 'ruby script/generate rspec'
+# from the project root directory.
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path(File.dirname(__FILE__) + "/../config/environment") #nf patching generated spec_helper
+#require File.dirname(__FILE__) + "/../config/environment" unless defined?(Rails)
+require 'rspec/rails'
 
+# Requires supporting files with custom matchers and macros, etc,
+# in ./support/ and its subdirectories.
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-#this is a hack which I'll take away once spec/rails works on Rails 3
-#at which stage I can set up transactional fixtures
-#until then I'm cleaning the db up manually
+Rspec.configure do |config|
+  # == Mock Framework
+  #
+  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
+  #
+  # config.mock_with :mocha
+  # config.mock_with :flexmock
+  # config.mock_with :rr
+  config.mock_with :rspec
 
-module Monotonous
-  def clean
-    Inkling::Site.delete_all
-    Inkling::Folder.delete_all
-    Inkling::FolderEntry.delete_all
-    Inkling::Foo.delete_all
-#    Inkling::Role.delete_all
-#    Inkling::Type.delete_all
-    Inkling::User.delete_all
-#    Inkling::Extension.delete_all
-  end
+  # If you'd prefer not to run each of your examples within a transaction,
+  # uncomment the following line.
+  # config.use_transactional_examples = false
 end
-
-include Monotonous

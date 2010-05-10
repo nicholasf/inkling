@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Inkling::Folder do
 
   before(:each) do
-    clean
+#    clean
     @root = Inkling::Folder.new(:name => "root")
   end
 
@@ -14,5 +14,5 @@ describe Inkling::Folder do
     @root << child
     @root.folder_entry.children.size.should eql 1
     @root.folder_entry.children.include?(child.folder_entry).should be true
-  end  
+  end
 end

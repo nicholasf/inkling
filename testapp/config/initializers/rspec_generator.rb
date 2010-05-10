@@ -1,0 +1,1 @@
+../../../config/initializers/rspec_generator.rb

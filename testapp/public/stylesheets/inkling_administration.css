@@ -43,9 +43,8 @@ ul, ol {
 	margin-left: 3em;
 }
 
-a {
-	color: #9CC54F;
-}
+/*a {*/
+/*}*/
 
 blockquote {
 	margin-left: 3em;
@@ -53,7 +52,6 @@ blockquote {
 }
 
 #header {
-	width: 900px;
 	height: 120px;
 	margin: 0 auto;
 	padding: 0px;
@@ -61,7 +59,6 @@ blockquote {
 
 
 #logo {
-	width: 900px;
 	height: 64px;
 	margin: 0 auto;
 	padding-top: 12px;
@@ -74,7 +71,6 @@ blockquote {
 	text-transform: uppercase;
 	font-weight: normal;
 	font-size: 36px;
-	color: #A9D540
 }
 
 #logo p {
@@ -83,7 +79,6 @@ blockquote {
 	text-transform: uppercase;
 	font-size: 12px;
 	font-weight: normal;
-	color: #C8C8C8;
 }
 
 #logo span {
@@ -94,11 +89,9 @@ blockquote {
 
 #logo a {
 	text-decoration: none;
-	color: #C8C8C8;
 }
 
 #primary-menu {
-	width: 900px;
 	height: 51px;
 	margin: 0px auto;
 	padding: 0px;
@@ -113,18 +106,17 @@ blockquote {
 	display: inline;
 }
 
-#content {
-	padding: 0px 0px 20px 0px;
+#page {
+	margin: 0px auto;
+	padding: 40px 0px 20px 0px;
 }
 
 #secondary-menu {
-    float: right;
-	  width: 200px;
-    border: dashed;
+  float: right;
+  width: 200px;
 }
 
 #footer p {
 	text-transform: uppercase;
 	font-size: 10px;
-	color: #90908E;
 }

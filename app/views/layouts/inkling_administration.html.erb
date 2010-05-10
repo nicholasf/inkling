@@ -5,6 +5,8 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
+  
+  <%= stylesheet_link_tag "inkling_administration" %>
 </head>
 <body>
 
@@ -21,12 +23,14 @@
     </ul>
 </div>
 
-<div id="main">
-    <%= yield %>
-</div>
+<div id="page">
+  <div id="main">
+      <%= yield %>
+  </div>
 
-<div id="secondary-menu">
-    <%= yield :secondary_menu %>
+  <div id="secondary-menu">
+      <%= yield :secondary_menu %>
+  </div>
 </div>
 
 <div id="footer">

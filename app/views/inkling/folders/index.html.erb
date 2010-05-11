@@ -19,10 +19,17 @@
     <% i = 0
        folder = entry.content %>
     <li>
-      (+) <%= link_to folder.name, edit_folder_path(folder) %> <a href="#" onclick="toggle_content_form(<%=i%>)">Add Content</a>
+      (+) <%= link_to folder.name, edit_folder_path(folder) %>
+          <% unless @content_types.empty? %>
+              <a href="#" onclick="toggle_content_form(<%=i%>)">Add Content</a>
 
-      <div id="content-form-<%=i%>" style="display:none">
-        content form 
+              <div id="content-form-<%=i%>" style="display:none">
+
+                <%= form_tag "" do |f| %>
+                    <%= f.select("content_type", "content_type", @content_types) %>
+
+              <% end %>
+          <% end %>
       </div>
     </li>
 

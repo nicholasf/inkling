@@ -18,7 +18,7 @@
     <% i = 0
        folder = entry.content %>
     <li>
-      (+) <%= link_to folder.name, edit_folder_path(folder) %>
+      (+) <%= link_to folder.name, edit_inkling_admin_folder_path(folder) %>
           <% unless @content_types.empty? %>
               <a href="#" onclick="toggle_content_form(<%=i%>)">Add Content</a>
 

@@ -4,7 +4,8 @@
 <% end %>
 
 <ul>
-  <% for folder in @folders  %>
+  <% for entry in @root_folder_entries  %>
+    <% folder = entry.content %>
     <li>(+) <%= link_to folder.name, edit_folder_path(folder) %> (new content)</li>
 
     <% folder_entries = folder.folder_entry.children

@@ -38,11 +38,15 @@
    database: inkling_test
    pool: 5
 
+ cucumber:
+   adapter: postgresql
+   encoding: unicode
+   database: inkling_test
+   pool: 5
+
  production:
    adapter: postgresql
    encoding: unicode
    database: inkling_production
    pool: 5
 
-cucumber:
-  <<: *test

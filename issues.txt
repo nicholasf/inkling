@@ -1,4 +1,16 @@
 
+for content creation proxying ...
+
+the content type should name itself:
+
+acts_as_content 'Inkling Page'
+
+The parameter appears in the drop down.
+
+The Inkling::Page class name is split down into inkling_page then, for content creation, it redirects to new_admin_inkling_page_path(..)
+
+The content developer must supply these routes.
+
 
 * Dev. Notes
 

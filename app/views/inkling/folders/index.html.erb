@@ -7,7 +7,6 @@
       else
         content_form.style.display = "none"
   }
-
 </script>
 
 <% content_for :secondary_menu do %>
@@ -24,10 +23,9 @@
               <a href="#" onclick="toggle_content_form(<%=i%>)">Add Content</a>
 
               <div id="content-form-<%=i%>" style="display:none">
-
-                <%= form_tag "" do |f| %>
-                    <%= f.select("content_type", "content_type", @content_types) %>
-
+                <%= form_tag(proxy_content_creation_path, :method => :post) do %>
+                    <%= hidden_field_tag :folder_id, folder.id %>
+                    <%= select_tag(:content_type, options_from_collection_for_select(@content_types, :to_s, :to_s), :onchange=>"this.form.submit()") %>
               <% end %>
           <% end %>
       </div>

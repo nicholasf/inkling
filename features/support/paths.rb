@@ -10,6 +10,8 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the folder admin page/
+      '/inkling/admin/folders'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

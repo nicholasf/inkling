@@ -3,6 +3,17 @@
     <%= render(:partial => "secondary_menu") %>
 <% end %>
 
-<% for folder in @folders  %>
-  <%= link_to folder.name, edit_folder_path(folder) %> <br/>
-<% end %>
+<ul>
+  <% for folder in @folders  %>
+    <li>(+) <%= link_to folder.name, edit_folder_path(folder) %> (new content)</li>
+
+    <% folder_entries = folder.folder_entry.children
+       next if folder_entries.empty? %>
+      <ul>
+        <% for folder_entry in folder_entries %>
+          <% if folder_entry.content.is_a? Inkling::Folder %>(+)<%end%>
+          co link - <%= folder_entry.content %>
+        <% end %>
+      </ul>
+  <% end %>
+</ul>

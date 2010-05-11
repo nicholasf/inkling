@@ -3,7 +3,7 @@ class Inkling::FoldersController < Inkling::BaseController
   before_filter :get_folder, :except => [:index, :new, :create]
 
   def index
-    @folders = Inkling::Folder.all
+    @folders = Inkling::Folder.find(:conditions => 'parent_id is null')
   end
 
   def show; end
@@ -16,25 +16,11 @@ class Inkling::FoldersController < Inkling::BaseController
 
   def create
     @folder = Inkling::Folder.create(params[:inkling_folder])
-
-#    begin
-#      @folder.save
-#    rescue StandardError => boom
-#      puts boom.to_s
-#    end
-
     render :action => :edit
   end
 
   def update
     @folder = Folder.update_attributes(params[:inkling_folder])
-
-    begin
-      @folder.save
-    rescue StandardError => boom
-      puts boom.to_s
-    end
-
     render :action => :edit
   end
 

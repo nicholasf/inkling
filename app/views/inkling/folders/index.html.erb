@@ -1,3 +1,14 @@
+<script type="text/javascript">
+  function toggle_content_form(id){
+      content_form = document.getElementById("content-form-" + id)
+
+      if (content_form.style.display == "none")
+        content_form.style.display = "block"
+      else
+        content_form.style.display = "none"
+  }
+
+</script>
 
 <% content_for :secondary_menu do %>
     <%= render(:partial => "secondary_menu") %>
@@ -5,8 +16,15 @@
 
 <ul>
   <% for entry in @root_folder_entries  %>
-    <% folder = entry.content %>
-    <li>(+) <%= link_to folder.name, edit_folder_path(folder) %> (new content)</li>
+    <% i = 0
+       folder = entry.content %>
+    <li>
+      (+) <%= link_to folder.name, edit_folder_path(folder) %> <a href="#" onclick="toggle_content_form(<%=i%>)">Add Content</a>
+
+      <div id="content-form-<%=i%>" style="display:none">
+        content form 
+      </div>
+    </li>
 
     <% folder_entries = folder.folder_entry.children
        next if folder_entries.empty? %>
@@ -16,5 +34,6 @@
           co link - <%= folder_entry.content %>
         <% end %>
       </ul>
+     <% i += 1 %>
   <% end %>
 </ul>

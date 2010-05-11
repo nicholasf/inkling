@@ -8,6 +8,5 @@ Rails.application.routes.draw do |map|
     end
   end
 
-  puts "finished loading folder routes ****"
   match 'proxy_content_creation' => 'inkling/content_proxy#proxy', :as => :proxy_content_creation
 end

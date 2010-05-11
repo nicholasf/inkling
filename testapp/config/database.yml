@@ -43,3 +43,6 @@
    encoding: unicode
    database: inkling_production
    pool: 5
+
+cucumber:
+  <<: *test

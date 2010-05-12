@@ -1,4 +1,4 @@
-class Inkling::Admin::FoldersController < Inkling::Admin::BaseController
+class Admin::Inkling::FoldersController < Admin::Inkling::BaseController
 
   before_filter :get_folder, :except => [:index, :new, :create]
 

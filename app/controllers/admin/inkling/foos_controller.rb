@@ -1,4 +1,4 @@
-class Inkling::Admin::FoldersController < Inkling::Admin::BaseController
+class Admin::Inkling::FoosController < Admin::Inkling::BaseController
 
   def index
   end

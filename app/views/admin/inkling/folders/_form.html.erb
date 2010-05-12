@@ -1,7 +1,7 @@
 
 <%= error_messages_for 'folder'%>
 
-<%= form_for @folder do |f| %>
+<%= form_for [:admin, @folder] do |f| %>
   <% unless @folder.new_record? %>
     <%= f.hidden_field :id %>
   <% end %>

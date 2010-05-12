@@ -12,19 +12,29 @@ Inkling will have its own set of Content Types, so it can function as a readymad
 
 Content Type
 ------------
-For an example of a content type, see inkling_page.
+For an example of a content type, see inkling_content or Inkling::Foo (in this project).
+
+A generator for content types will be built at some stage, in the meantime, CTs follow some norms in Rails.
 
 To create a Content Type:
 
-* the model should be polymorphic and include Inkling::Content.
+* the model should act_as_content
 
-class Foo < ActiveRecord::Base
-  acts_as_content
+class Acme::Mp3 < ActiveRecord::Base
+  acts_as_content 'mp3'
 end
 
-For the controller ... 
+The string arg. is optional, but provides a friendly name to use in the admin UI - a content creator will have the option to create an
+'mp3'and not an 'Acme::Mp3'.
 
-If you are interested in seeing the planning of the project - see issues.txt
+Two controllers are presumed to exist:
+
+class Admin::Mp3sController < Admin::Inkling::BaseController; end
+class Mp3sController < Inkling::BaseController; end
+
+The admin controller presumes CRUD methods (and routes) available for the model. The other controller is simply in charge
+of rendering, and relies upon the 'show' method being implemented. When Inkling receives a request for an mp3 which is situated
+in a folder somewhere in its site, it will call to the show method with an id.
 
 
 Licensing

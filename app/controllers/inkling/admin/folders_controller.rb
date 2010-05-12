@@ -4,8 +4,8 @@ class Inkling::Admin::FoldersController < Inkling::Admin::BaseController
 
   def index
     @root_folder_entries = Inkling::FolderEntry.find(:all, :conditions =>"content_type = 'Inkling::Folder' and parent_id is null")
-    @content_types = [""]
-    @content_types += Inkling::Content::Types.listed
+#    @content_types = [""]
+    @content_types = Inkling::Content::Types.listed
     @folder_entry = Inkling::FolderEntry.new
   end
 

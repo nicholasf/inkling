@@ -10,9 +10,9 @@ module Inkling
           Inkling::Content::Types.register(self)
           has_one :folder_entry, :as => :content
 
-          attr_accessor :friendly_name
+          cattr_accessor :friendly_name
 
-          @friendly_name = (friendly_name or self)
+          self.friendly_name = (friendly_name or self)
         end
       end
     end

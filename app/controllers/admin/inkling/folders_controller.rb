@@ -4,7 +4,6 @@ class Admin::Inkling::FoldersController < Admin::Inkling::BaseController
 
   def index
     @root_folder_entries = Inkling::FolderEntry.find(:all, :conditions =>"content_type = 'Inkling::Folder' and parent_id is null")
-#    @content_types = [""]
     @content_types = Inkling::Content::Types.listed
     @folder_entry = Inkling::FolderEntry.new
   end
@@ -23,7 +22,7 @@ class Admin::Inkling::FoldersController < Admin::Inkling::BaseController
   end
 
   def update
-    @folder = Folder.update_attributes(params[:inkling_folder])
+    @folder = Inkling::Folder.update_attributes(params[:inkling_folder])
     render :action => :edit
   end
 

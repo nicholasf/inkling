@@ -1,0 +1,12 @@
+
+<%= error_messages_for 'foo'%>
+
+<%= form_for [:admin, @foo] do |f| %>
+  <% unless @foo.new_record? %>
+    <%= f.hidden_field :id %>
+  <% end %>
+
+  <%= f.text_field :name, :label => "Name" %>
+
+  <%= submit_tag 'Save' %>
+<% end %>

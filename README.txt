@@ -4,11 +4,11 @@ Inkling will be a Content Framework for Rails 3. As opposed to a CMS, a CF focus
 These services will be security, site structure and content categorization, versioning, & workflow. Rails provides a rich
 framework for building CRUD applications - which will easily plug into Inkling as Content Types.
 
+Inkling follows the opinions of Rails to let devs develop their own Content Types - models with controllers for
+creating and displaying content - and plug them into the framework.
 
-Inkling will have its own set of Content Types, so it can function as a readymade CMS - see inkling-page.
-
-
-* Docs - I'm generating doc. as I go. No functionality is finished yet ...
+Inkling will also have its own set of Content Types, so it can function as a readymade CMS - see inkling_content. The essential idea
+is to provide the framework, and let Rails developers be clever about what they wish to plug into it.
 
 Content Type
 ------------

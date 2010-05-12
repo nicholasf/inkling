@@ -5,11 +5,11 @@ class Inkling::Admin::ContentProxyController < Inkling::Admin::BaseController
     folder_id = params[:folder_id]
 
     bits = content_type.split("::")
-    path = "new_admin_"
-    bits.inject{|path, bit| path += "#{bit.downcase}_"}
+    path = bits.inject{|memo, bit| "#{memo.downcase}_#{bit.downcase}"}
 
-    puts "*****#{path}"
-
+    proxy_path = "new_admin_#{path}_path(:folder_id=>#{folder_id})"
+    puts proxy_path
+    debugger
     redirect_to eval(path)
   end
 end

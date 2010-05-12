@@ -4,8 +4,7 @@ Rails.application.routes.draw do |map|
   namespace :admin do
     namespace :inkling do
       resources :folders, :controller => 'folders'
-      resources :inkling_folders, :controller => 'inkling_folders' #the inkling prefix is needed for any form operation
-      resources :inkling_foos, :controller => 'inkling_foos'
+      resources :foos, :controller => 'foos'
     end
   end
 

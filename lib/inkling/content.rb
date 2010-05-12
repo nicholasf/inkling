@@ -1,7 +1,20 @@
 module Inkling
   module Content
-    def self.included(base)
-      Inkling::Content::Types.register(base)
+    module ActsAs
+      def self.included(base)
+         base.extend(ClassMethods)
+      end
+
+      module ClassMethods
+        def acts_as_content(friendly_name)
+          Inkling::Content::Types.register(self)
+          has_one :folder_entry, :as => :content
+
+          attr_accessor :friendly_name
+
+          @friendly_name = (friendly_name or self)
+        end
+      end
     end
 
     class Types
@@ -12,5 +25,6 @@ module Inkling
         @@listed << type
       end
     end
+
   end
 end

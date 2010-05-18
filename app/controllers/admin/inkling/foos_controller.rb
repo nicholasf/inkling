@@ -1,6 +1,6 @@
 class Admin::Inkling::FoosController < Admin::Inkling::BaseController
 
-  before_filter :get_folder, :except => [:index, :new, :create]
+  before_filter :get_foo, :except => [:index, :new, :create]
 
   def index
     @foos = Inkling::Foo.all

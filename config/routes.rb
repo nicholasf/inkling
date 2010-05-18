@@ -9,4 +9,9 @@ Rails.application.routes.draw do |map|
   end
 
   match 'proxy_content_creation' => 'admin/inkling/content_proxy#proxy', :as => :proxy_content_creation
+
+  namespace :inkling do
+    match '/*folder_path' => "proxy_show#proxy"
+   # match '/*folder_path(.:format)' => "proxy_show#proxy"
+  end
 end

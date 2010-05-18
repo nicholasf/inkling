@@ -53,6 +53,12 @@ of rendering, and relies upon the 'show' method being implemented. When Inkling 
 in a folder somewhere in its site, it will call to the show method with an id.
 
 
+Contributors
+------------
+
+Thanks to
+* Clifford Heath (working on command line Content Type scaffold generator).
+
 Licensing
 ---------
 

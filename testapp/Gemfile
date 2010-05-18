@@ -2,22 +2,17 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.beta3'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+#choose a db adaptor.
+#gem "pg"
+#gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem "pg"
 gem "ruby-debug", :group => [:test, :development]
 
-
-gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'inkling', :path => '../'
 
-gem "rspec-rails", ">= 2.0.0.beta.8", :group => [:test, :development]
 
-#inkling specific gems here
-#cucumber
+gem "rspec-rails", ">= 2.0.0.beta.8", :group => [:test, :development]
 gem 'capybara'
-#gem 'database_cleaner'
 gem 'cucumber-rails'
 gem 'cucumber', '0.7.2'
 gem 'spork'

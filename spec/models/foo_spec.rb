@@ -6,6 +6,7 @@ describe Inkling::Foo do
 
   it "should use a before_save callback, :position_in_folder, to create a folder_entry under parent_folder_id" do
     foo = Inkling::Foo.create(:parent_folder_id => root.id, :name => "foo")
-    foo.folder_entry.parent.should eql root
+    foo.reload
+    foo.folder_entry.parent.should eql root.folder_entry
   end
 end

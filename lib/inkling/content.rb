@@ -1,8 +1,3 @@
-#require 'rails/generators/named_base'
-#require 'rails/generators/migration'
-#require 'rails/generators/active_model'
-#require 'active_record'
-
 module Inkling
   module Content
     module ActsAs
@@ -23,14 +18,14 @@ module Inkling
 
           class_eval <<-EOV
             has_one :folder_entry, :as => :content
-            before_save :position_in_folder
             include Inkling::Content::InstanceMethods
+            after_save :position_in_folder
           EOV
         end
       end      
     end
 
-    module InstanceMethods
+    module InstanceMethods      
       #We abstract the idea of folder entries from the content developer, so they only handle folders.
       #There is a mutator set on each content object - parent_folder_id - which can be set in the form
       #but is not saved in the database. This callback looks for it and handles the creation of a
@@ -40,11 +35,17 @@ module Inkling
         return if folder_entry and folder_entry.parent.id == parent_folder_id
 
         #otherwise we have a parent_folder_id which does not match the folder_entry on the object
-        parent_folder = Inkling::Folder.find(self.parent_folder_id)
-        folder_entry = Inkling::FolderEntry.create(:parent_id => parent_folder.id)
+        parent_folder = Inkling::Folder.find(parent_folder_id)
+
+        folder_entry = Inkling::FolderEntry.create
         folder_entry.content = self
+        self.folder_entry = folder_entry
+        folder_entry.move_to_child_of parent_folder.folder_entry
         folder_entry.save!
-      end      
+#        debugger
+#puts "#{folder_entry.parent_id} is interred & matches #{parent_folder_id}"
+
+      end
     end
 
     class Types

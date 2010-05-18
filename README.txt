@@ -57,7 +57,7 @@ Contributors
 ------------
 
 Thanks to
-* Clifford Heath (contributing the command line binary that will be used to generate Content Type engines). May, 2010. 
+* Clifford Heath (contributing installation docs + the command line binary that will be used to generate Content Type engines). May, 2010.
 
 Licensing
 ---------
@@ -66,7 +66,7 @@ COPYRIGHT (c) 2010 Nicholas Faiz, Tree Falling In The Woods Pty Ltd.
 
 
 Inkling code is copyrighted to Tree Falling In The Woods, Pty Ltd. and available under the MIT License.
-It includes software from other projects, listed below, all available through the MIT license.
+It includes software from other projects, other people, listed below, all available through the MIT license.
 
 * Ruby on Rails - http://rubyonrails.org - David Heinemeier Hansson, etc..
 * better_nested_set - http://github.com/chris/better_nested_set - Copyright (c) 2006 Jean-Christophe Michel, Symétrie

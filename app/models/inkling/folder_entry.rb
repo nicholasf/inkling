@@ -15,8 +15,8 @@ module Inkling
     def check_path
       return if self.new_record? #ugly, but it occurs when a folder is creating its own folder_entry, so we do it, for kicks.
 
-      path = self.parent ? "#{self.parent.path}" : ""
-      path += "/#{self.content.name}"
+      path = self.parent ? "#{self.parent.path}/" : "/"
+      path += "#{self.content.name}"
       self.path = path
     end
   end

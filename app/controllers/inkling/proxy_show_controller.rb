@@ -1,14 +1,14 @@
 class Inkling::ProxyShowController < Inkling::BaseController
 
   def proxy
-    folder_entry = Inkling::FolderEntry.find_by_path(params[:folder_path])
+    folder_entry = Inkling::FolderEntry.find_by_path("/" + params[:folder_path])
     content = folder_entry.content
-    content_type = content.class
+    content_type = content.class.name
 
     bits = content_type.split("::")
     path = bits.inject{|memo, bit| "#{memo}_#{bit}"}
 
-    @proxy_path = "inkling_#{path}_path".downcase
+    @proxy_path = "#{path}_path".downcase
     redirect_to eval(@proxy_path)
   end
 end

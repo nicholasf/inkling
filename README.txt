@@ -21,7 +21,7 @@ You'll also need pg if you use the default Postgres database.
 
 Make sure you have these gems installed:
 cucumber-rails
-ruby-debug 
+ruby-debug
 bundler (requires launchy, capybara, spork)
 
 To run the testapp from a git clone, you will also need to have installed an inkling gem to keep Bundler happy. The installed gem doesn't get used, but must exist in your gem path (the actual path is overridden to point at the local directory).
@@ -57,7 +57,7 @@ Contributors
 ------------
 
 Thanks to
-* Clifford Heath (working on command line Content Type scaffold generator).
+* Clifford Heath (contributing the command line binary that will be used to generate Content Type engines). May, 2010. 
 
 Licensing
 ---------

@@ -1,6 +1,6 @@
 Under construction.
 
-Inkling will be a Content Framework for Rails 3. As opposed to a CMS, a CF focuses on building services for Content Types which the developer supplies.
+Inkling is a Content Framework for Rails 3. As opposed to a CMS, a CF focuses on building services for Content Types which the developer supplies.
 These services will be security, site structure and content categorization, versioning, & workflow. Rails provides a rich
 framework for building CRUD applications - which will easily plug into Inkling as Content Types.
 
@@ -9,6 +9,22 @@ creating and displaying content - and plug them into the framework.
 
 Inkling will also have its own set of Content Types, so it can function as a readymade CMS - see inkling_content. The essential idea
 is to provide the framework, and let Rails developers be clever about what they wish to plug into it.
+
+Installing
+----------
+
+Inkling uses Rails 3, which is still in prerelease. It requires ruby 1.8.7 at least. You'll need to google for the current installation procedure, because it's continually changing. When you've worked through that, you also need to install the pre-release version of RSpec from http://github.com/rspec/rspec-rails/
+
+gem install rspec-rails --pre
+
+You'll also need pg if you use the default Postgres database.
+
+Make sure you have these gems installed:
+cucumber-rails
+ruby-debug 
+bundler (requires launchy, capybara, spork)
+
+To run the testapp from a git clone, you will also need to have installed an inkling gem to keep Bundler happy. The installed gem doesn't get used, but must exist in your gem path (the actual path is overridden to point at the local directory).
 
 Content Type
 ------------

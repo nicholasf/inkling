@@ -14,7 +14,7 @@ gem 'inkling', :path => '../'
 gem "rspec-rails", ">= 2.0.0.beta.8", :group => [:test, :development]
 gem 'capybara'
 gem 'cucumber-rails'
-gem 'cucumber', '0.7.2'
+gem 'cucumber', '>= 0.7.2'
 gem 'spork'
 gem 'launchy'    # So you can do Then show me the page
 

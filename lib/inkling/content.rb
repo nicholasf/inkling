@@ -10,12 +10,10 @@ module Inkling
           Inkling::Content::Types.register(self)
           cattr_accessor :friendly_name
 
-
-          attr_accessor :parent_folder_id #smoke and mirrors
-
           self.friendly_name = (friendly_name or self)
 
           class_eval <<-EOV
+            attr_accessor :parent_folder_id #smoke and mirrors
             has_one :folder_entry, :as => :content
             include Inkling::Content::InstanceMethods
             after_save :position_in_folder

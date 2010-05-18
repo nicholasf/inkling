@@ -6,7 +6,7 @@ module Inkling
 
     has_many :content_items, :through => :folder_entries
 
-    after_create :create_tree
+#    after_create :create_tree
 
     def <<(content_obj)
       if content_obj == self or (content_obj.is_a? Inkling::FolderEntry and content_obj.content == self)
@@ -17,20 +17,11 @@ module Inkling
         content_obj = content_obj.folder_entry
       end
 
-      puts "#{content_obj}"
-      puts "#{content_obj.class}"
       if content_obj.is_a? Inkling::FolderEntry
         content_obj.move_to_child_of(self.folder_entry)
       else
         raise StandardError, "Folders can only hold content."
       end
-    end
-
-    #trigger on callback on creation. Creates a new better_nested_set.
-    def create_tree
-      folder_entry = Inkling::FolderEntry.create()
-      folder_entry.content = self
-      folder_entry.save!
     end
   end
 end

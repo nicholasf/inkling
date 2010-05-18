@@ -22,6 +22,17 @@ The content developer must supply these routes.
 
 TODO
 ----
+  <% unless ["create", "index", "new"].include?(params[:action]) %>
+      <% puts "this is annoying 3" %>
+      <% debugger %>
+      <% puts "this is annoying" %>
+    <li>
+      <% puts "this is annoying 4" %>
+      <%= link_to 'Delete',  admin_inkling_foo_path(@foo), :method => :delete, :confirm => "Are you sure? Deletion is permanent." %>
+    </li>
+  <% end %>
+
+
 
 Inkling stories
 

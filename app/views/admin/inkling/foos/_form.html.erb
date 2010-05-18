@@ -6,7 +6,7 @@
     <%= f.hidden_field :id %>
   <% end %>
 
-  <%= f.hidden_field :folder_id => params[:folder_id] if params[:folder_id] %>
+  <%= f.hidden_field :parent_folder_id => params[:folder_id] if params[:folder_id] %>
 
   <%= f.text_field :name, :label => "Name" %>
 

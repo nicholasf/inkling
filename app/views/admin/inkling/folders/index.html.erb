@@ -24,7 +24,7 @@
 
               <div id="content-form-<%=i%>" style="display:none">
                 <%= form_tag(proxy_content_creation_path, :method => :post) do %>
-                    <%= hidden_field_tag :folder_id, folder.id %>
+                    <%= hidden_field_tag :parent_folder_id, folder.id %>
                     <%= select_tag(:content_type,
                                    options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),
                                    :onchange=>"this.form.submit()") %>

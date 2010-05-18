@@ -12,6 +12,7 @@ Rails.application.routes.draw do |map|
 
   namespace :inkling do
     match '/*folder_path' => "proxy_show#proxy"
+    resources :foos, :controller => 'foos', :only => [:show]
    # match '/*folder_path(.:format)' => "proxy_show#proxy"
   end
 end

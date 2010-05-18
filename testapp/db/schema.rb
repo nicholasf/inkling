@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20100508041648) do
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
+    t.string   "path"
     t.integer  "content_id"
     t.string   "content_type"
     t.datetime "created_at"

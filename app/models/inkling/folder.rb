@@ -28,11 +28,8 @@ module Inkling
     def create_tree
       folder_entry = Inkling::FolderEntry.create()
       folder_entry.content = self
+      puts "saving ..."
       folder_entry.save!
-    end
-
-    def self.find_content()
-      
     end
   end
 end

@@ -3,7 +3,6 @@ module Inkling
     module ActsAs
       def self.included(base)
         base.extend(ClassMethods)
-#        base.extend(InstanceMethods)
       end
 
       module ClassMethods
@@ -22,10 +21,10 @@ module Inkling
             after_save :position_in_folder
           EOV
         end
-      end      
+      end
     end
 
-    module InstanceMethods      
+    module InstanceMethods
       #We abstract the idea of folder entries from the content developer, so they only handle folders.
       #There is a mutator set on each content object - parent_folder_id - which can be set in the form
       #but is not saved in the database. This callback looks for it and handles the creation of a

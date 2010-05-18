@@ -13,7 +13,9 @@ module Inkling
     before_save :check_path
 
     def check_path
-      path = "#{self.parent.path}" if self.parent
+      return if self.new_record? #ugly, but it occurs when a folder is creating its own folder_entry, so we do it, for kicks.
+
+      path = self.parent ? "#{self.parent.path}" : ""
       path += "/#{self.content.name}"
       self.path = path
     end

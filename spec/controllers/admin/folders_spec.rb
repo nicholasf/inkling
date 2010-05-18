@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe Inkling::Admin::FoldersController do
+describe Admin::Inkling::FoldersController do
 
   let(:folder) {Inkling::Folder.new :name => "folder1"}
 

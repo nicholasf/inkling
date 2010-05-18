@@ -1,4 +1,4 @@
-class Admin::Inkling::ContentProxyController < Admin::Inkling::BaseController
+class Admin::Inkling::ProxyAdminController < Admin::Inkling::BaseController
 
   def proxy
     content_type = params[:content_type]

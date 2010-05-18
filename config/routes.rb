@@ -8,7 +8,7 @@ Rails.application.routes.draw do |map|
     end
   end
 
-  match 'proxy_content_creation' => 'admin/inkling/content_proxy#proxy', :as => :proxy_content_creation
+  match 'proxy_admin_create' => 'admin/inkling/proxy_admin#proxy', :as => :proxy_admin_creation
 
   namespace :inkling do
     match '/*folder_path' => "proxy_show#proxy"

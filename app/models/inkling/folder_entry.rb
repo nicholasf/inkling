@@ -10,13 +10,12 @@ module Inkling
     acts_as_nested_set
 
     belongs_to :content, :polymorphic => true
+    before_save :check_path
 
-#    validate :folders_nest_content
-
-#    def folders_nest_content
-#      unless self.content.is_a? Folder
-#
-#      end
-#    end
+    def check_path
+      path = "#{self.parent.path}" if self.parent
+      path += "/#{self.content.name}"
+      self.path = path
+    end
   end
 end

@@ -30,5 +30,9 @@ module Inkling
       folder_entry.content = self
       folder_entry.save!
     end
+
+    def self.find_content()
+      
+    end
   end
 end

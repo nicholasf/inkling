@@ -5,6 +5,7 @@ class CreateFolderEntries < ActiveRecord::Migration
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
+      t.string :path
       t.references :content, :polymorphic => true
       t.timestamps
     end

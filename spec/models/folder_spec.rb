@@ -12,7 +12,7 @@ describe Inkling::Folder do
   end
 
   it "should position inside a folder if passed a parent_folder_id" do
-    child = Inkling::Folder.create(:name => "child", :parent_folder_id => root.id)
-    child.folder.path.should == "/root/child"
+    child2 = Inkling::Folder.create(:name => "child2", :parent_folder_id => root.id)
+    child2.path.should == "/root/child2"
   end
 end

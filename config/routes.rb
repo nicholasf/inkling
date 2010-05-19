@@ -9,9 +9,8 @@ class ContentTypeConstraint
 
   def self.matches?(request)
     path = request.path.gsub("/inkling")
-    entry = FolderEntry.find_by_path(path)
-    entry = FolderEntry.find_by_path(path)
-    true if entry.is_a? @type
+    entry = Inkling::FolderEntry.find_by_path(path)
+    true if entry.content.is_a? @type
   end
 
 end

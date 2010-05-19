@@ -1,5 +1,5 @@
 class Inkling::BaseController < ApplicationController
 
-  layout 'inkling'
+  layout 'inkling/content'
 
 end

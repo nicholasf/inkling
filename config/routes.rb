@@ -1,22 +1,27 @@
 
 class ContentTypeConstraint
-
   attr_accessor :type
 
   def initialize(type)
-    @type = type
+    @type = type.values.first
   end
 
-  def self.matches?(request)
-    path = request.path.gsub("/inkling")
+  def matches?(request)
+    path = request.path.gsub("/inkling", "")
     entry = Inkling::FolderEntry.find_by_path(path)
-    true if entry.content.is_a? @type
-  end
 
+#    puts "\n #{entry.content.class.name} \n"
+    if entry
+      result = entry.content.is_a? @type
+      puts "***  #{result}  ****"
+      result
+    else
+      false
+    end
+  end
 end
 
 Rails.application.routes.draw do |map|
-
   namespace :admin do
     namespace :inkling do
       resources :folders, :controller => 'folders'
@@ -28,6 +33,10 @@ Rails.application.routes.draw do |map|
 
   namespace :inkling do
     constraints ContentTypeConstraint.new(:type => Inkling::Foo) do match '/*folder_path' => "foos#show" end
+
+    #the default 404
+    match '/*folder_path(.:format)' => "/404.html"
+
 
 #    resources :foos, :controller => 'foos', :only => [:show]
    # match '/*folder_path(.:format)' => "proxy_show#proxy"

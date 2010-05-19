@@ -1,9 +1,11 @@
 class Inkling::FoosController < Inkling::BaseController
 
-  def show; end
+  def show
+    folder_entry = Inkling::FolderEntry.find_by_path("/" + params[:folder_path])
+    @foo = folder_entry.content
+  end
 
   private
   def get_foo
-    @foo = Inkling::Foo.find(params[:id])
   end
 end

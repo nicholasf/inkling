@@ -2,18 +2,16 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Inkling::FolderEntry do
 
+  let(:fe) {Inkling::FolderEntry.create()}
+  let(:content) {Inkling::Foo.create(:name => "foo")}
 
-#  it "should update its path (based on content obj name) before a save " do
-#    fe = Inkling::FolderEntry.create()
-#    content = Inkling::Foo.create(:name => "foo")
-#    fe.content = content
-#    fe.save
-#    fe.path.should == "/foo"
-#  end
+  it "should update its path (based on content obj name) before a save " do
+    fe.content = content
+    fe.save
+    fe.path.should == "/foo"
+  end
 
-  it "should build its path from its ancestors" do
-    fe = Inkling::FolderEntry.create()
-    content = Inkling::Foo.create(:name => "foo")
+  it "should update the path of a folder entry, if it has content" do
     fe.content = content
     fe.save
     fe.path.should == "/foo"
@@ -24,6 +22,11 @@ describe Inkling::FolderEntry do
     fe2.content = content2
     fe2.save
     fe2.path.should == "/foo/foo2"
+  end
+
+  it "should not update the path if it does not have content" do
+    fe.save
+    fe.path.should == nil
   end
 
 #  it "should update the path of a folder entry, if it has content" do

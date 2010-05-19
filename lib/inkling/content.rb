@@ -25,8 +25,8 @@ module Inkling
     module InstanceMethods
       #We abstract the idea of folder entries from the content developer, so they only handle folders.
       #There is a mutator set on each content object - parent_folder_id - which can be set in the form
-      #but is not saved in the database. This callback looks for it and handles the creation of a
-      #folder_entry for the content obj..
+      #but is not saved in the database. This method is registered as a callback to look for it and handles
+      #the creation of a folder_entry for the content obj..
       def position_in_folder
         return if parent_folder_id == nil
         return if folder_entry and folder_entry.parent.id == parent_folder_id

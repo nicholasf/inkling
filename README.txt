@@ -40,6 +40,8 @@ end
 The string arg. is optional, but provides a friendly name to use in the admin UI - a content creator will have the option to create an
 'mp3'and not an 'Acme::Mp3'.
 
+* the model should have a name field, preferably a String. This is used to make it addressable in a URL by site categorization.
+
 Two controllers are presumed to exist:
 
 class Admin::Mp3sController < Admin::Inkling::BaseController; end

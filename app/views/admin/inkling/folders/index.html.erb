@@ -38,7 +38,7 @@
       <ul>
         <% for folder_entry in folder_entries %>
           <% if folder_entry.content.is_a? Inkling::Folder %>(+)<%end%>
-          co link - <%= folder_entry.content %>
+          co link - <%= folder_entry.content.name %>
         <% end %>
       </ul>
      <% i += 1 %>

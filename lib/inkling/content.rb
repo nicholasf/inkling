@@ -17,6 +17,10 @@ module Inkling
             has_one :folder_entry, :as => :content
             include Inkling::Content::InstanceMethods
             after_save :position_in_folder
+
+            def path
+              return self.folder_entry.path if self.folder_entry
+            end
           EOV
         end
       end
@@ -29,7 +33,7 @@ module Inkling
       #the creation of a folder_entry for the content obj..
       def position_in_folder
         return if parent_folder_id == nil
-        return if folder_entry and folder_entry.parent.id == parent_folder_id
+        return if folder_entry and folder_entry.parent and folder_entry.parent.id == parent_folder_id
 
         #otherwise we have a parent_folder_id which does not match the folder_entry on the object
         parent_folder = Inkling::Folder.find(parent_folder_id)

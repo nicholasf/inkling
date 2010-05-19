@@ -28,7 +28,7 @@ module Inkling
     def create_tree
       folder_entry = Inkling::FolderEntry.create()
       folder_entry.content = self
-      puts "saving ..."
+      puts "folder is is #{self.id} and name is #{self.name}"
       folder_entry.save!
     end
   end

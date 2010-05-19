@@ -2,6 +2,7 @@ class Inkling::ProxyShowController < Inkling::BaseController
 
   def proxy
     folder_entry = Inkling::FolderEntry.find_by_path("/" + params[:folder_path])
+debugger
     content = folder_entry.content
     content_type = content.class.name
 

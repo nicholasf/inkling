@@ -2,12 +2,33 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Inkling::FolderEntry do
 
-  before(:each) do
+
+#  it "should update its path (based on content obj name) before a save " do
+#    fe = Inkling::FolderEntry.create()
+#    content = Inkling::Foo.create(:name => "foo")
+#    fe.content = content
+#    fe.save
+#    fe.path.should == "/foo"
+#  end
+
+  it "should build its path from its ancestors" do
+    fe = Inkling::FolderEntry.create()
+    content = Inkling::Foo.create(:name => "foo")
+    fe.content = content
+    fe.save
+    fe.path.should == "/foo"
+
+    fe2 = Inkling::FolderEntry.create()
+    fe2.move_to_child_of fe
+    content2 = Inkling::Foo.create(:name => "foo2")
+    fe2.content = content2
+    fe2.save
+    fe2.path.should == "/foo/foo2"
   end
 
-  it "should update the path of a folder entry, if it has content" do
-        
-  end
+#  it "should update the path of a folder entry, if it has content" do
+#
+#  end
 
 # putting this to one side, til I learn more about better_nested_set
 # want to proceed with prototype

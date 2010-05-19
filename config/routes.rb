@@ -1,4 +1,21 @@
 
+class ContentTypeConstraint
+
+  attr_accessor :type
+
+  def initialize(type)
+    @type = type
+  end
+
+  def self.matches?(request)
+    path = request.path.gsub("/inkling")
+    entry = FolderEntry.find_by_path(path)
+    entry = FolderEntry.find_by_path(path)
+    true if entry.is_a? @type
+  end
+
+end
+
 Rails.application.routes.draw do |map|
 
   namespace :admin do
@@ -11,8 +28,10 @@ Rails.application.routes.draw do |map|
   match 'proxy_admin_create' => 'admin/inkling/proxy_admin#proxy', :as => :proxy_admin_creation
 
   namespace :inkling do
-    resources :foos, :controller => 'foos', :only => [:show]
+    constraints ContentTypeConstraint.new(:type => Inkling::Foo) do match '/*folder_path' => "foos#show" end
+
+#    resources :foos, :controller => 'foos', :only => [:show]
    # match '/*folder_path(.:format)' => "proxy_show#proxy"
-    match '/*folder_path' => "proxy_show#proxy" #this must be last in /inkling/* routing
+#    match '/*folder_path' => "proxy_show#proxy" #this must be last in /inkling/* routing
   end
 end

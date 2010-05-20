@@ -9,10 +9,6 @@
   }
 </script>
 
-<% content_for :secondary_menu do %>
-    <%= render(:partial => "secondary_menu") %>
-<% end %>
-
 <ul>
-  <%= render(:partial => "folder", :collection => @root_entries)
+  <%= render(:partial => "folder", :collection => @roots)
 </ul>

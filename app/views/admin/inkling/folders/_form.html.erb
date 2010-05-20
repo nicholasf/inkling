@@ -5,7 +5,8 @@
   <% unless @folder.new_record? %>
     <%= f.hidden_field :id %>
   <% end %>
-
+  
+  <%= f.hidden_field(:parent_folder_id, :value => params[:parent_folder_id]) if params[:parent_folder_id] %>
   <%= f.text_field :name, :label => "Name" %>
 
   <%= submit_tag 'Save' %>

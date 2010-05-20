@@ -24,3 +24,4 @@ describe Admin::Inkling::FoldersController do
 #    Inkling::Folder.find_by_name("folder_changed").should be nil
 #  end
 end
+s

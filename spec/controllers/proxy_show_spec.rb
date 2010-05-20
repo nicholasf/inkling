@@ -4,7 +4,7 @@ describe Inkling::ProxyShowController do
 
 
   #spec not recognizing route which, when called manually, answers. Leaving this. Might be a Rails 3 thingymagig.
-  
+
   #
 #  it "should proxy a show call to the appropriate controller" do
 #    get 'inkling/1/2/3'

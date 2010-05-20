@@ -3,9 +3,9 @@ class Admin::Inkling::FoldersController < Admin::Inkling::BaseController
   before_filter :get_folder, :except => [:index, :new, :create]
 
   def index
-    @root_folder_entries = Inkling::FolderEntry.find(:all, :conditions =>"content_type = 'Inkling::Folder' and parent_id is null")
-    @content_types = Inkling::Content::Types.listed
-    @folder_entry = Inkling::FolderEntry.new
+#    @root_folder_entries = Inkling::FolderEntry.find(:all, :conditions =>"content_type = 'Inkling::Folder' and parent_id is null")
+#    @content_types = Inkling::Content::Types.listed
+#    @folder_entry = Inkling::FolderEntry.new
   end
 
   def show; end

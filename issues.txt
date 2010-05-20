@@ -1,20 +1,20 @@
-Goal for Tuesday
-----------------
+Goal for Thursday
+-----------------
+Prototype is done. Now identify the minimum for building a beta.
 
-Finish the foo Content Type, and fit it into a generator. This includes rendering and paths, etc..
+* Find a release/iteration naming scheme for beta:
+
+Will be themed by the names of the members of The Inklings, preferably their nicknames: http://en.wikipedia.org/wiki/The_Inklings .
+
+What that's worn out, we'll work through the title of their books, in a randomized order.
 
 
-for content creation proxying ...
+ Beta tickets
 
-the content type should name itself:
+ Presentable Site UI - allowing CO ordering, etc., via js.
+ Content Type generator - including the notion of Content Bundles.
 
-acts_as_content 'Inkling Page'
 
-The parameter appears in the drop down.
-
-The Inkling::Page class name is split down into inkling_page then, for content creation, it redirects to new_admin_inkling_page_path(..)
-
-The content developer must supply these routes.
 
 
 * Dev. Notes

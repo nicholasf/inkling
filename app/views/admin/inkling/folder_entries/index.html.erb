@@ -1,0 +1,18 @@
+<script type="text/javascript">
+  function toggle_content_form(id){
+      content_form = document.getElementById("content-form-" + id)
+
+      if (content_form.style.display == "none")
+        content_form.style.display = "block"
+      else
+        content_form.style.display = "none"
+  }
+</script>
+
+<% content_for :secondary_menu do %>
+    <%= render(:partial => "secondary_menu") %>
+<% end %>
+
+<ul>
+  <%= render(:partial => "folder", :collection => @root_entries)
+</ul>

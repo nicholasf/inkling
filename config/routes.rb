@@ -10,10 +10,8 @@ class ContentTypeConstraint
     path = request.path.gsub("/inkling", "")
     entry = Inkling::FolderEntry.find_by_path(path)
 
-#    puts "\n #{entry.content.class.name} \n"
     if entry
       result = entry.content.is_a? @type
-      puts "***  #{result}  ****"
       result
     else
       false
@@ -24,6 +22,7 @@ end
 Rails.application.routes.draw do |map|
   namespace :admin do
     namespace :inkling do
+      resources :folder_entries, :controller => 'folder_entries', :only => [:index]
       resources :folders, :controller => 'folders'
       resources :foos, :controller => 'foos'
     end

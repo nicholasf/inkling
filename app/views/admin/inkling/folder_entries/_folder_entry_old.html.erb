@@ -1,0 +1,25 @@
+<% folder = folder_entry.content %>
+<li>  render(:partial folder)
+
+(+) <%= link_to folder.name, edit_admin_inkling_folder_path(folder) %>
+    <% unless @content_types.empty? %>
+        <a href="_folder_entry.html.erb#" onclick="toggle_content_form(<%= folder_entry_counter %>)">Add Content</a>
+
+        <div id="content-form-<%= folder_entry_counter %>" style="display:none">
+          <%= form_tag(proxy_admin_creation_path, :method => :post) do %>
+              <%= hidden_field_tag :parent_folder_id, folder.id %>
+              <%= select_tag(:content_type,
+                             options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),
+                             :onchange=>"this.form.submit()") %>
+          <% end %>
+        </div>
+     <% end %>
+</li>
+
+<% folder_entries = folder_entry.children %>
+<ul>
+  <% for entry in folder_entries %>
+    <% if entry.content.is_a? Inkling::Folder %>(+)<%end%>
+    co link - <%= entry.content.name %>
+  <% end %>
+</ul>

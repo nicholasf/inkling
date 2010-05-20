@@ -65,6 +65,7 @@ Outstanding Issues
 * Engine generator isn't being hooked into initialization process for generating migrations. Check on this.
 * validator on folder_entry to ensure that only folders can be nested
 * copying static assets - css, images - into the hosting application with a generator.
+* testapp/db/seeds.rb needs to be moved into the engine (like migrations)
 
 Security
 --------

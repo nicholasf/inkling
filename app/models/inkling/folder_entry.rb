@@ -12,6 +12,9 @@ module Inkling
     belongs_to :content, :polymorphic => true
     before_save :check_path
 
+#    validates_presence_of :content_type
+#    validates_presence_of :content_id, :message => "A folder_entry must"
+
     def check_path
       return if self.new_record? #ugly, but it occurs when a folder is creating its own folder_entry, so we do it, for kicks.
       return if self.content.nil?
@@ -20,5 +23,7 @@ module Inkling
       path += "#{self.content.name}"
       self.path = path
     end
+
+
   end
 end

@@ -9,6 +9,9 @@
   }
 </script>
 
+<%= render(:partial => "folder_entry", :object => @root) %>
+
 <ul>
-  <%= render(:partial => "folder", :collection => @roots)
+  <%= render(:partial => "folder_entry", :collection => @root.children) %>
 </ul>
+

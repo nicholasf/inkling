@@ -22,10 +22,19 @@ end
 Rails.application.routes.draw do |map|
   namespace :admin do
     namespace :inkling do
-      match "/" => 'folder_entries#index'     
-      resources :folder_entries, :controller => 'folder_entries', :only => [:index]
-      resources :folders, :controller => 'folders'
-      resources :foos, :controller => 'foos'
+      match "/" => 'folder_entries#index'
+#      match '/folder_entries/sort' => 'folder_entries#sort'
+
+      resources :folder_entries, :only => [:index] do
+#        member do
+#          get :sort
+#        end
+        collection do
+          post :sort
+        end
+      end
+      resources :folders
+      resources :foos
     end
   end
 

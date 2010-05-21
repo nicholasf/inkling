@@ -7,6 +7,11 @@ class Admin::Inkling::FolderEntriesController < Admin::Inkling::BaseController
     @folder_entry = Inkling::FolderEntry.new
   end
 
+  def sort
+#    debugger
+#  puts params
+  end
+
   private
   def get_root
     @root = Inkling::Folder.find_by_name("/").folder_entry

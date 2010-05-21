@@ -2,7 +2,7 @@ Under construction.
 
 Inkling is a Content Framework for Rails 3.
 
-* As an engine, it can be added to an existing Rails 3 application to function as a CMS (or otherwise).
+* As an engine, it can be added to an existing Rails 3 application to function as a CMS (or a system to manage whatever content objects you create).
 * As a Content Framework, it supplies a set of services for content types which you define (see acts_as_content below). Content services are - security, site structure and content categorization, versioning, & workflow.
 
 Content Types are grouped together by a Content Bundle (as an engine). A separate project, inkling_content, will bundle standard content types for CMSing. So, you can use a readymade CMS engine with Inkling & Inkling Content, or use Inkling with your own bundle, or, whatever combination ...

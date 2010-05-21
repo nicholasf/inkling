@@ -10,47 +10,79 @@
   <li><span class="handle">[drag]</span>2</li>
 </ul>
 
+
+<h2>beneath ... </h2>
+<br/><br/>
+
 <%= render(:partial => "folder_entry", :object => @root) %>
 
-<ul>
+<ul id="tag-tree">
   <%= render(:partial => "folder_entry", :collection => @root.children) %>
 </ul>
 
 
 <% content_for :js do %>
-
   <% javascript_tag do %>
+    function parseTree(ul){
+        var tags = [];
+        ul.children("li").each(function(){
+            var subtree =    $(this).children("ul");
+            if(subtree.size() > 0)
+                tags.push([$(this).attr("id"), parseTree(subtree)]);
+            else
+                tags.push($(this).attr("id"));
+        });
+        return tags;
+    }
+
     $(document).ready(function(){
-    $('#folder_entries').sortable({
-      axis: 'y',
-      dropOnEmpty: false,
-      handle: '.handle',
-      cursor: 'crosshair',
-      items: 'li',
-      opacity: 0.4,
-      scroll: true,
-      update: function(){
-        $.ajax({
-          type: 'post',
-          data: $('#folder_entries').sortable('serialize') + '&id=<%=folder_entry.id-%>',
-          dataType: 'script',
-          complete: function(request){
-            $('#folder_entries').effect('highlight');
-            },
-          url: '/admin/inkling/folder_entries/sort'})
-        }
-      });
+
+        $("li.tree_item span").droppable({
+            tolerance        : "pointer",
+            hoverClass        : "tree-hover",
+            drop            : function(event, ui){
+                var dropped = ui.draggable;
+                dropped.css({top: 0, left: 0});
+                var me = $(this).parent();
+                if(me == dropped)
+                    return;
+                var subbranch = $(me).children("ul");
+                if(subbranch.size() == 0) {
+                    me.find("span").after("<ul></ul>");
+                    subbranch = me.find("ul");
+                }
+                var oldParent = dropped.parent();
+                subbranch.eq(0).append(dropped);
+                var oldBranches = $("li", oldParent);
+                if (oldBranches.size() == 0) { $(oldParent).remove(); }
+            }
+        });
+
+        $("li.tree-item").draggable({
+            opacity: 0.5,
+            revert: true
+        });
+
+        $("#save").click(function(){
+            /*
+            var tree = $.toJSON(parseTree($("#tag-tree")));
+            $.post("@saveTags", {tags: tree}, function(res){
+                $("#printOut").html(res);
+            });
+            */
+            $.debug.print_r(parseTree($("#tag-tree")), "printOut", false);
+        });
     });
 
-
+    // shows the content form
     function toggle_content_form(id){
-        content_form = document.getElementById("content-form-" + id)
-  //    content_form = $("#content-form-" + id)
+    content_form = document.getElementById("content-form-" + id)
+//    content_form = $("#content-form-" + id)
 
-        if (content_form.style.display == "none")
-          content_form.style.display = "block"
-        else
-          content_form.style.display = "none"
+    if (content_form.style.display == "none")
+      content_form.style.display = "block"
+    else
+      content_form.style.display = "none"
     }
   <% end %>
 <% end %>

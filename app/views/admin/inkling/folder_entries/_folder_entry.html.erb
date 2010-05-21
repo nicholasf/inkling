@@ -1,7 +1,13 @@
-<li>
-  <% folder = folder_entry.content %>
+<li id="<%= folder_entry.content.name %>" class="tree-item">
+  <span><%= folder_entry.content.name %> </span>
 
-  (+) <%= link_to folder.name, edit_admin_inkling_folder_path(folder) %>
+  (+)(edit link)
 
-  <%= render(:partial => "content_form", :locals => {:folder => folder}) %>
+  <%= render(:partial => "content_form", :locals => {:folder => folder_entry.content}) %>
+
+  <% if folder_entry.children %>
+    <ul>
+      <%= render(:partial => "folder_entry", :collection => folder_entry.children) %>
+    </ul>
+  <% end %>
 </li>

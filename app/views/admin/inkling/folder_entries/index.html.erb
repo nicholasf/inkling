@@ -17,37 +17,40 @@
 </ul>
 
 
-<script type="text/javascript">
-  $(document).ready(function(){
-  $('#folder_entries').sortable({
-    axis: 'y',
-    dropOnEmpty: false,
-    handle: '.handle',
-    cursor: 'crosshair',
-    items: 'li',
-    opacity: 0.4,
-    scroll: true,
-    update: function(){
-      $.ajax({
-        type: 'post',
-        data: $('#folder_entries').sortable('serialize') + '&id=<%=folder_entry.id-%>',
-        dataType: 'script',
-        complete: function(request){
-          $('#folder_entries').effect('highlight');
-          },
-        url: '/admin/inkling/folder_entries/sort'})
-      }
+<% content_for :js do %>
+
+  <% javascript_tag do %>
+    $(document).ready(function(){
+    $('#folder_entries').sortable({
+      axis: 'y',
+      dropOnEmpty: false,
+      handle: '.handle',
+      cursor: 'crosshair',
+      items: 'li',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $.ajax({
+          type: 'post',
+          data: $('#folder_entries').sortable('serialize') + '&id=<%=folder_entry.id-%>',
+          dataType: 'script',
+          complete: function(request){
+            $('#folder_entries').effect('highlight');
+            },
+          url: '/admin/inkling/folder_entries/sort'})
+        }
+      });
     });
-  });
 
 
-  function toggle_content_form(id){
-      content_form = document.getElementById("content-form-" + id)
-//    content_form = $("#content-form-" + id)
+    function toggle_content_form(id){
+        content_form = document.getElementById("content-form-" + id)
+  //    content_form = $("#content-form-" + id)
 
-      if (content_form.style.display == "none")
-        content_form.style.display = "block"
-      else
-        content_form.style.display = "none"
-  }
-</script>
+        if (content_form.style.display == "none")
+          content_form.style.display = "block"
+        else
+          content_form.style.display = "none"
+    }
+  <% end %>
+<% end %>

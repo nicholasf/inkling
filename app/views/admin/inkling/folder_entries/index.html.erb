@@ -1,30 +1,24 @@
 
 <% @foos = @root.children %>
 
-<ul id="folder_entries">
-  <% for folder_entry in @foos %>
-    <li id='folder_entry_<%=folder_entry.id%>'><span class="handle"><%= folder_entry.content.name %></span></li>
-  <% end %>
-
-  <li><span class="handle">[drag]</span>1</li>
-  <li><span class="handle">[drag]</span>2</li>
-</ul>
-
-
 <h2>beneath ... </h2>
-<br/><br/>
-
-<%= render(:partial => "folder_entry", :object => @root) %>
+<br/>
+<button id="save">Save</button>
+<br/>
 
 <ul id="tag-tree">
-  <%= render(:partial => "folder_entry", :collection => @root.children) %>
+  <%= render(:partial => "folder_entry", :object => @root) %>
 </ul>
+
 
 
 <% content_for :js do %>
   <% javascript_tag do %>
+
     function parseTree(ul){
+    <!--alert(1)-->
         var tags = [];
+    <!--alert(2)-->
         ul.children("li").each(function(){
             var subtree =    $(this).children("ul");
             if(subtree.size() > 0)
@@ -32,12 +26,13 @@
             else
                 tags.push($(this).attr("id"));
         });
+    <!--alert(tags)-->
         return tags;
     }
 
     $(document).ready(function(){
 
-        $("li.tree_item span").droppable({
+        $("li.tree-item span").droppable({
             tolerance        : "pointer",
             hoverClass        : "tree-hover",
             drop            : function(event, ui){
@@ -55,6 +50,8 @@
                 subbranch.eq(0).append(dropped);
                 var oldBranches = $("li", oldParent);
                 if (oldBranches.size() == 0) { $(oldParent).remove(); }
+                <!--vat test = parseTree(me);-->
+                <!--alert(me.id);-->
             }
         });
 
@@ -64,15 +61,22 @@
         });
 
         $("#save").click(function(){
+    var tree = parseTree($("#tag-tree"));
+    //var tree = $.toJSON(parseTree($("#tag-tree")));
+    alert(tree);
             /*
             var tree = $.toJSON(parseTree($("#tag-tree")));
             $.post("@saveTags", {tags: tree}, function(res){
                 $("#printOut").html(res);
             });
             */
-            $.debug.print_r(parseTree($("#tag-tree")), "printOut", false);
+            <!--parseTree($("#tag-tree");-->
+            //$.debug.print_r(parseTree($("#tag-tree")), "printOut", false);
         });
     });
+
+
+
 
     // shows the content form
     function toggle_content_form(id){

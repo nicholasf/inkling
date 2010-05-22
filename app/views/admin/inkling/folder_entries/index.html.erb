@@ -15,10 +15,31 @@
 <% content_for :js do %>
   <% javascript_tag do %>
 
+    $(document).ready(function(){
+    $('#folder_entries').sortable({
+      <!--axis: 'y',-->
+      dropOnEmpty: false,
+      handle: '.handle',
+      cursor: 'crosshair',
+      items: 'li',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $.ajax({
+          type: 'post',
+          data: $('#folder_entries').sortable('serialize') + '&id=<%=folder_entry.id-%>',
+          dataType: 'script',
+          complete: function(request){
+            $('#folder_entries').effect('highlight');
+            },
+          url: '/admin/inkling/folder_entries/sort'})
+        }
+      });
+    });
+    
+
     function parseTree(ul){
-    <!--alert(1)-->
         var tags = [];
-    <!--alert(2)-->
         ul.children("li").each(function(){
             var subtree =    $(this).children("ul");
             if(subtree.size() > 0)
@@ -26,7 +47,6 @@
             else
                 tags.push($(this).attr("id"));
         });
-    <!--alert(tags)-->
         return tags;
     }
 
@@ -50,8 +70,8 @@
                 subbranch.eq(0).append(dropped);
                 var oldBranches = $("li", oldParent);
                 if (oldBranches.size() == 0) { $(oldParent).remove(); }
-                <!--vat test = parseTree(me);-->
-                <!--alert(me.id);-->
+                var list = me.parent();
+                alert(me.attr("id"));
             }
         });
 

@@ -6,11 +6,12 @@ describe Admin::Inkling::FolderEntriesController do
   let(:root2) {Inkling::FolderEntry.create()}
 
   it "should index all root folder_entries" do
+    get :index
     root.reload
     root2.reload
-    get :index
-    assigns['roots'].size.should == 2
+    assigns['content_types'].should == Inkling::Content::Types.listed
     assigns['folder_entry'].new_record?.should == true
+    assigns['root'].should_not be_nil
     response.code.should == "200"
   end
 
@@ -18,6 +19,8 @@ describe Admin::Inkling::FolderEntriesController do
     child = Inkling::FolderEntry.create()
     child.move_to_child_of root
 
-    post :update_tree 
+    post :update_tree, :new_parent => root2.id, :child => child.id, :remote=>true
+    response.code.should == "200"
+    child.parent.should == root2
   end
 end

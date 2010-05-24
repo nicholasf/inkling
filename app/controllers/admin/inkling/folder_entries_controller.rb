@@ -7,9 +7,12 @@ class Admin::Inkling::FolderEntriesController < Admin::Inkling::BaseController
     @folder_entry = Inkling::FolderEntry.new
   end
 
-  def sort
-#    debugger
-#  puts params
+  def update_tree
+    new_parent_id = params[:new_parent]
+    child_id = params[:child]
+    new_parent = Inkling::FolderEntry.find(new_parent_id)
+    child = Inkling::FolderEntry.find(child_id)
+    child.move_to_child_of new_parent
   end
 
   private

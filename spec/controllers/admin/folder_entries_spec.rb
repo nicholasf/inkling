@@ -14,4 +14,10 @@ describe Admin::Inkling::FolderEntriesController do
     response.code.should == "200"
   end
 
+  it "should update the tree via AJAX" do
+    child = Inkling::FolderEntry.create()
+    child.move_to_child_of root
+
+    post :update_tree 
+  end
 end

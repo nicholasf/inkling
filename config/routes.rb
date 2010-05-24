@@ -23,14 +23,10 @@ Rails.application.routes.draw do |map|
   namespace :admin do
     namespace :inkling do
       match "/" => 'folder_entries#index'
-#      match '/folder_entries/sort' => 'folder_entries#sort'
 
       resources :folder_entries, :only => [:index] do
-#        member do
-#          get :sort
-#        end
         collection do
-          post :sort
+          post :update_tree
         end
       end
       resources :folders

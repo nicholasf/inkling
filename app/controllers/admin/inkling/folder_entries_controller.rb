@@ -13,6 +13,9 @@ class Admin::Inkling::FolderEntriesController < Admin::Inkling::BaseController
     new_parent = Inkling::FolderEntry.find(new_parent_id)
     child = Inkling::FolderEntry.find(child_id)
     child.move_to_child_of new_parent
+
+    render :nothing => true
+    return
   end
 
   private

@@ -928,7 +928,7 @@ module SymetrieCom
 
           with_optional_transaction(transact) do
             self.reload(:select => "#{left_col_name}, #{right_col_name}, #{parent_col_name}") # the lft/rgt values could be stale (target is reloaded below)
-            if target.is_a?(base_set_class)
+          if target.is_a?(base_set_class)
 #              target.reload(:select => "#{left_col_name}, #{right_col_name}, #{parent_col_name}") # could be stale
               target.reload #nf patch
             else

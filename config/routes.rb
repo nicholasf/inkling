@@ -1,3 +1,20 @@
+Rails.application.routes.draw do |map|
+  namespace :admin do
+    namespace :inkling do
+      match "/" => 'folder_entries#index'
+
+      resources :folder_entries, :only => [:index] do
+        collection do
+          post :update_tree
+        end
+      end
+      resources :folders
+      resources :foos
+    end
+  end
+end
+
+
 # 
 # class ContentTypeConstraint
 #   attr_accessor :type

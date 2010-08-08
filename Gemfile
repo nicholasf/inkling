@@ -18,6 +18,7 @@ gem 'cucumber', '>= 0.7.2'
 gem 'spork'
 gem 'launchy'    # So you can do Then show me the page
 gem 'jeweler'
+gem 'gemcutter', '>= 0.6.1'
 
 
 # Use unicorn as the web server

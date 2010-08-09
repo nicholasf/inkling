@@ -14,13 +14,9 @@ module Inkling
 
           class_eval <<-EOV
             # attr_accessor :parent_folder_id 
-            has_one :folder_entry, :as => :content
+            has_one :address, :as => :content
             include Inkling::Content::InstanceMethods
             # after_save :position_in_folder
-
-            def path
-              return self.folder_entry.path if self.folder_entry
-            end
           EOV
         end
       end

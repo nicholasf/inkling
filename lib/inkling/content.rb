@@ -13,10 +13,8 @@ module Inkling
           self.friendly_name = (friendly_name or self)
 
           class_eval <<-EOV
-            # attr_accessor :parent_folder_id 
             has_one :address, :as => :content
             include Inkling::Content::InstanceMethods
-            # after_save :position_in_folder
           EOV
         end
       end

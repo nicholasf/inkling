@@ -66,7 +66,7 @@ module Mob
 
     belongs_to :role
 
-    validates_uniqueness_of :display_name
+    validates_uniqueness_of :login
 
     validates_length_of :display_name, :maximum => 40
     validates_length_of :given_name, :maximum => 40, :if => Proc.new {|u| u.given_name}
@@ -74,7 +74,7 @@ module Mob
     validates_length_of :email, :maximum => 60
 
     validates_presence_of :email
-    validates_presence_of :display_name
+    validates_presence_of :login
 
 
     def validate
@@ -132,7 +132,7 @@ module Mob
     end
 
     # Encrypts the password with the user salt
-    def encrypt(password)
+    def encrypt(password, salt)
       self.class.encrypt(password, salt)
     end
 
@@ -150,13 +150,10 @@ module Mob
       return self.id == other.id
     end
 
-   #This should be called externally, because RO allows the creation of users
-   #with blank passwords (as long as the active field
-   #is set to false), we no longer call this internally.
     def encrypt_password
       return if password.blank?
       self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{email}--") if new_record?
-      self.crypted_password = encrypt(password)
+      self.crypted_password = encrypt(password, self.salt)
     end
 
     private

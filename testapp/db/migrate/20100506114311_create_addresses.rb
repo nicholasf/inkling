@@ -1,4 +1,4 @@
-class CreateFolderEntries < ActiveRecord::Migration
+class CreateAddresses < ActiveRecord::Migration
   def self.up
     create_table :addresses do |t|
       t.integer :parent_id

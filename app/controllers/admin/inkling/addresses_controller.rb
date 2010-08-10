@@ -18,7 +18,7 @@ class Admin::Inkling::AddressessController < Admin::Inkling::BaseController
     return
   end
 
-  private
+  # private
   # def get_root
   #   @root = Inkling::Folder.find_by_name("/").folder_entry
   # end

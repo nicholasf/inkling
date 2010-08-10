@@ -1,7 +1,6 @@
 class CreateFolderEntries < ActiveRecord::Migration
   def self.up
-    create_table :folder_entries do |t|
-#      t.integer :folder_id
+    create_table :addresses do |t|
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
@@ -12,6 +11,6 @@ class CreateFolderEntries < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :folder_entries
+    drop_table :addresses
   end
 end

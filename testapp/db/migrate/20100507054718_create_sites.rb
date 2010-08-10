@@ -2,8 +2,8 @@ class CreateSites < ActiveRecord::Migration
   def self.up
     create_table :sites do |t|
       t.string :name
+      t.string :path_prefix
       t.string :description
-      t.integer :user_id
       t.timestamps
     end
   end

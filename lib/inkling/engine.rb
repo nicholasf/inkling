@@ -11,7 +11,7 @@ module Inkling
     engine_name :inkling
     
     # rake_tasks do
-    #   load "inkling/"
+    #   load "tasks/inkling.rake"
     # end
   end
 end

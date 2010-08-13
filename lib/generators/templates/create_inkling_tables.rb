@@ -1,4 +1,4 @@
-class CreateInklingUsers < ActiveRecord::Migration
+class CreateInklingTables < ActiveRecord::Migration
   def self.up
     # create_table :inkling_users do |t|   see http://inkling.lighthouseapp.com/projects/52914-inkling/tickets/10-set_table_name-seems-to-be-broken-in-ar-for-rails-3-rc-1#ticket-10-2
     create_table :users do |t|

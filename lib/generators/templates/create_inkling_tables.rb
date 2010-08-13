@@ -14,9 +14,27 @@ class CreateInklingUsers < ActiveRecord::Migration
      t.string :ip
      t.timestamps
     end
+    
+    create_table :addresses do |t|
+      t.integer :parent_id
+      t.integer :lft
+      t.integer :rgt
+      t.string :path
+      t.references :content, :polymorphic => true
+      t.timestamps
+    end
+    
+    create_table :sites do |t|
+      t.string :name
+      t.string :path_prefix
+      t.string :description
+      t.timestamps
+    end
   end
 
   def self.down
+    drop_table :sites
+    drop_table :addresses
     drop_table :users
   end
 end

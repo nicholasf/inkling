@@ -6,9 +6,7 @@ begin
     gem.summary = "A content framework engine for Rails 3"
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
     gem.version = Inkling::VERSION
-    # other fields that would normally go in your gemspec
-    # like authors, email and has_rdoc can also be included here
-
+    gem.add_dependency("devise")
   end
 rescue
   puts "Jeweler or one of its dependencies is not installed."

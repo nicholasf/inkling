@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100813045235) do
+ActiveRecord::Schema.define(:version => 20100814023440) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "parent_id"
@@ -23,25 +23,29 @@ ActiveRecord::Schema.define(:version => 20100813045235) do
     t.datetime "updated_at"
   end
 
-  create_table "sites", :force => true do |t|
-    t.string   "name"
-    t.string   "path_prefix"
-    t.string   "description"
+  create_table "inkling_users", :force => true do |t|
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "reset_password_token"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                       :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "login",                          :null => false
-    t.string   "email",                          :null => false
-    t.integer  "role_id"
-    t.string   "display_name"
-    t.string   "given_name"
-    t.string   "family_name"
-    t.string   "crypted_password",               :null => false
-    t.string   "salt",             :limit => 40
-    t.datetime "last_seen"
-    t.string   "ip"
+  create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.string   "path_prefix"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

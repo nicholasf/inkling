@@ -7,16 +7,11 @@ Rails.application.routes.draw do |map|
 
   # match 'proxy_admin_create' => 'admin/inkling/proxy_admin#proxy', :as => :proxy_admin_creation
 
-  # devise_for :users, :controllers => { :sessions => "inkling/sessions"}
-  devise_for "users"
-
+  namespace :inkling do
+    devise_for "users", :controllers => { :sessions => "inkling/users/sessions"}, :class_name => "Inkling::User"
+  end
+  
   map.resources "inkling_sites"
-  
-  # 
-  # namespace :inkling do
-  #   devise_for "users", :controllers => { :sessions => "inkling/sessions"}
-  # end
-  
 end
 
 
@@ -29,7 +24,7 @@ class ContentTypeConstraint
 
   def matches?(request)
     path = request.path.gsub("/inkling", "")
-    entry = Inkling::FolderEntry.find_by_path(path)
+    # entry = Inkling::FolderEntry.find_by_path(path)
 
     if entry
       result = entry.content.is_a? @type

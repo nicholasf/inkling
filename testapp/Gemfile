@@ -4,9 +4,11 @@ gem 'rails', '3.0.0.rc'
 
 #choose a db adaptor.
 gem "pg"
+
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem "ruby-debug", :group => [:test, :development]
+gem "devise"
 gem 'inkling', :path => '../'
 gem 'inkling_content'
 

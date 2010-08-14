@@ -57,118 +57,122 @@ module Mob
      end
   end
 
-  require 'digest/sha1'
+  require 'devise'
   class User < ActiveRecord::Base
     include Mob::Identifiable, Mob::Permissable
+    
+    self.abstract_class = true
+    
+    # attr_accessor :password
+    # attr_accessor :confirmation_password
+    # 
+    # belongs_to :role
+    # 
+    # validates_uniqueness_of :login
+    # 
+    # validates_length_of :display_name, :maximum => 40
+    # validates_length_of :given_name, :maximum => 40, :if => Proc.new {|u| u.given_name}
+    # validates_length_of :family_name, :maximum => 40, :if => Proc.new {|u| u.family_name}
+    # validates_length_of :email, :maximum => 60
+    # 
+    # validates_presence_of :email
+    # validates_presence_of :login
 
-    attr_accessor :password
-    attr_accessor :confirmation_password
-
-    belongs_to :role
-
-    validates_uniqueness_of :login
-
-    validates_length_of :display_name, :maximum => 40
-    validates_length_of :given_name, :maximum => 40, :if => Proc.new {|u| u.given_name}
-    validates_length_of :family_name, :maximum => 40, :if => Proc.new {|u| u.family_name}
-    validates_length_of :email, :maximum => 60
-
-    validates_presence_of :email
-    validates_presence_of :login
-
-
-    def validate
-      if new_record? && password && confirmation_password
-        if !(password === confirmation_password)
-          self.errors.add("Passwords are not identical.")
-        end
-      elsif new_record? && active
-        self.errors.add("Creating a user without a password and setting the active field to true")
-      else
-        #it's not a new record, so we have to deal with password reseting
-        if active && !(password === confirmation_password)
-          self.errors.add("Passwords are not identical.")
-        end
-      end
-
-      return true
-    end
-
-   # Authenticates a user by their email address and unencrypted password.  Returns the user or nil.
-    def self.authenticate(email, password)
-      u = find_by_email(email) # need to get the salt
-     # debugger
-      u && u.authenticated?(password) ? u : nil
-    end
-
-    # Encrypts some data with the salt.
-    def self.encrypt(password, salt)
-      Digest::SHA1.hexdigest("--#{salt}--#{password}--")
-    end
-
-    def reset_password!()
-      plain = plain_random_password()
-      self.password = plain
-      self.confirmation_password = plain
-      self.active = false
-      self.save!
-      return plain
-    end
-
-    def activate_with_new_password!(passwd, confirmation_passwd)
-      if passwd === confirmation_passwd
-        self.password = passwd
-        self.confirmation_password = confirmation_passwd
-        self.encrypt_password
-        self.active = true
-        self.save
-      else
-        self.errors.add("Passwords are not identical.")
-      end
-    end
-
-    def in?(role)
-      return self.role == role
-    end
-
-    # Encrypts the password with the user salt
-    def encrypt(password, salt)
-      self.class.encrypt(password, salt)
-    end
-
-    def authenticated?(password)
-      crypted_password == encrypt(password)
-    end
-
-    def is_anonymous?
-      false
-    end
-
-    def ==(other)
-      unless other.is_a?(User) then return false end
-
-      return self.id == other.id
-    end
-
-    def encrypt_password
-      return if password.blank?
-      self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{email}--") if new_record?
-      self.crypted_password = encrypt(password, self.salt)
-    end
-
-    private
-    def plain_random_password()
-      chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
-      newpass = ""
-      limit = 6 + rand(4)
-      1.upto(limit) { |i| newpass << chars[rand(chars.size-1)] }
-      return newpass
-    end
+   # 
+   #  def validate
+   #    if new_record? && password && confirmation_password
+   #      if !(password === confirmation_password)
+   #        self.errors.add("Passwords are not identical.")
+   #      end
+   #    elsif new_record? && active
+   #      self.errors.add("Creating a user without a password and setting the active field to true")
+   #    else
+   #      #it's not a new record, so we have to deal with password reseting
+   #      if active && !(password === confirmation_password)
+   #        self.errors.add("Passwords are not identical.")
+   #      end
+   #    end
+   # 
+   #    return true
+   #  end
+   # 
+   # # Authenticates a user by their email address and unencrypted password.  Returns the user or nil.
+   #  def self.authenticate(email, password)
+   #    u = find_by_email(email) # need to get the salt
+   #   # debugger
+   #    u && u.authenticated?(password) ? u : nil
+   #  end
+   # 
+   #  # Encrypts some data with the salt.
+   #  def self.encrypt(password, salt)
+   #    Digest::SHA1.hexdigest("--#{salt}--#{password}--")
+   #  end
+   # 
+   #  def reset_password!()
+   #    plain = plain_random_password()
+   #    self.password = plain
+   #    self.confirmation_password = plain
+   #    self.active = false
+   #    self.save!
+   #    return plain
+   #  end
+    # 
+    # def activate_with_new_password!(passwd, confirmation_passwd)
+    #   if passwd === confirmation_passwd
+    #     self.password = passwd
+    #     self.confirmation_password = confirmation_passwd
+    #     self.encrypt_password
+    #     self.active = true
+    #     self.save
+    #   else
+    #     self.errors.add("Passwords are not identical.")
+    #   end
+    # end
+    # 
+    # def in?(role)
+    #   return self.role == role
+    # end
+    # 
+    # # Encrypts the password with the user salt
+    # def encrypt(password, salt)
+    #   self.class.encrypt(password, salt)
+    # end
+    # 
+    # def authenticated?(password)
+    #   crypted_password == encrypt(password)
+    # end
+    # 
+    # def is_anonymous?
+    #   false
+    # end
+    # 
+    # def ==(other)
+    #   unless other.is_a?(User) then return false end
+    # 
+    #   return self.id == other.id
+    # end
+    # 
+    # def encrypt_password
+    #   return if password.blank?
+    #   self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{email}--") if new_record?
+    #   self.crypted_password = encrypt(password, self.salt)
+    # end
+    # 
+    # private
+    # def plain_random_password()
+    #   chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
+    #   newpass = ""
+    #   limit = 6 + rand(4)
+    #   1.upto(limit) { |i| newpass << chars[rand(chars.size-1)] }
+    #   return newpass
+    # end
   end
 
   class Role < ActiveRecord::Base
       include Mob::Permissable
-
+    
+    self.abstract_class = true
+    
     has_many :users, :through => :memberships, :source => :user
     validates_uniqueness_of :name
 

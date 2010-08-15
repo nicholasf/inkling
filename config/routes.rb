@@ -11,7 +11,9 @@ Rails.application.routes.draw do |map|
     devise_for "users", :controllers => { :sessions => "inkling/users/sessions", :passwords => "inkling/users/passwords", :confirmations => "inkling/users/confirmations"}, :class_name => "Inkling::User"
   end
   
-  map.resources "inkling_sites"
+  # map.resources "inkling_sites"
+  
+  match 'home', :to => 'admin/inkling/home#dashboard', :as => "user_root"
 end
 
 

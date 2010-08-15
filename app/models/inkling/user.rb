@@ -1,4 +1,3 @@
-require 'mob'
 
 module Inkling
   class User < ActiveRecord::Base

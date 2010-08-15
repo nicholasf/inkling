@@ -1,6 +1,7 @@
 require "inkling"
 require "inkling/content"
 require "devise"
+require 'devise/orm/active_record'
 require "mob"
 
 require "rails"

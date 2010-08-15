@@ -7,6 +7,7 @@ begin
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
     gem.version = Inkling::VERSION
     gem.add_dependency("devise")
+    gem.add_dependency("inherited_resources")
   end
 rescue
   puts "Jeweler or one of its dependencies is not installed."

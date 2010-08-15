@@ -1,5 +1,5 @@
 Testapp::Application.routes.draw do |map|
-  root :to => "home#index"
+  user_root :to => "home#index"
 
   
   

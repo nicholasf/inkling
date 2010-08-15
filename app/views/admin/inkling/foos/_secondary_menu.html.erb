@@ -1,8 +1,0 @@
-<ul>
-  <% unless params[:action] == "index"%> <li><%= link_to 'Index', admin_inkling_foo_path %></li> <% end %>
-  <li><%= link_to 'Create', new_admin_inkling_foo_path %></li>
-
-  <% unless ["create", "index", "new"].include?(params[:action]) %>
-  <% end %>
-
-</ul>

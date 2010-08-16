@@ -1,0 +1,1 @@
+class Inkling::Users::PasswordsController < Devise::PasswordsController ; end

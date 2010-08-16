@@ -10,9 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100508041648) do
+ActiveRecord::Schema.define(:version => 20100816005001) do
 
-  create_table "folder_entries", :force => true do |t|
+  create_table "addresses", :force => true do |t|
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
@@ -23,40 +23,29 @@ ActiveRecord::Schema.define(:version => 20100508041648) do
     t.datetime "updated_at"
   end
 
-  create_table "folders", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "foos", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "inkling_users", :force => true do |t|
-    t.string   "email",                          :null => false
-    t.integer  "role_id"
-    t.string   "display_name"
-    t.string   "given_name"
-    t.string   "family_name"
-    t.string   "crypted_password"
-    t.string   "salt",             :limit => 40
-    t.datetime "last_seen"
-    t.string   "ip"
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "reset_password_token"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                       :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "preferences", :force => true do |t|
-    t.boolean "single_site", :default => true
   end
 
   create_table "sites", :force => true do |t|
     t.string   "name"
+    t.string   "path_prefix"
     t.string   "description"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

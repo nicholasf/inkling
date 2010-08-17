@@ -11,8 +11,7 @@ Rails.application.routes.draw do |map|
 
   namespace :inkling do
     devise_for "users", :controllers => { :sessions => "inkling/users/sessions", :passwords => "inkling/users/passwords", :confirmations => "inkling/users/confirmations"}, :class_name => "Inkling::User"
-  end
-  
+  end  
 end
 
 

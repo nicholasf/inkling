@@ -23,6 +23,16 @@ bundler (requires launchy, capybara, spork)
 
 To run the testapp from a git clone, you will also need to have installed an inkling gem to keep Bundler happy. The installed gem doesn't get used, but must exist in your gem path (the actual path is overridden to point at the local directory).
 
+
+Then run
+
+rails generate inkling
+rake inkling:init
+rails db:migrate
+
+A default admin user will have been created for with username 'admin' and password 'test123'.
+
+
 Content Type
 ------------
 For an example of a content type, see inkling_content or Inkling::Foo (in this project).
@@ -50,6 +60,19 @@ class Mp3sController < Inkling::BaseController; end
 The admin controller presumes CRUD methods (and routes) available for the model. The other controller is simply in charge
 of rendering, and relies upon the 'show' method being implemented. When Inkling receives a request for an mp3 which is situated
 in a folder somewhere in its site, it will call to the show method with an id.
+
+
+Roles
+-----
+
+Inkling only specifies one role - administrator. The hosting app. is able to create more.
+
+Roles & Authentication & Landing Page
+----------------------
+
+Upon successful authentication Inkling checks the roles of a user, and redirects to a path matching the first role (a bit weak, later one role might be primary but this works). This is a technique adapted from Devise (Inkling overrides the after_sign_in method in an initializer). Thus the hosting application should define a administrator_root path.
+
+Similarly, for roles invented by extensions, simply define a myrole_root mapping in your routes for a landing page.
 
 
 Contributors

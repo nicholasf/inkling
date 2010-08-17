@@ -8,6 +8,8 @@ Rails.application.routes.draw do |map|
       match 'proxy_delete' => 'proxying#delete', :as => :proxy_delete
     end
   end
+  
+  match 'home', :to => 'admin/inkling/home#dashboard', :as => "administrator_root"
 
   namespace :inkling do
     devise_for "users", :controllers => { :sessions => "inkling/users/sessions", :passwords => "inkling/users/passwords", :confirmations => "inkling/users/confirmations"}, :class_name => "Inkling::User"

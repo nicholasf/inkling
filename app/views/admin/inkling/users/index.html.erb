@@ -1,1 +1,7 @@
-users index
+<% for user in @users %>
+  <%= user.email %> <br/>
+Roles:
+  <% for role in user.roles %>
+    <%= role.name %>
+  <% end %>
+<% end %>

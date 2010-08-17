@@ -17,13 +17,15 @@
 
 <div id="header">
 	<div id="logo">
-		<h1><a href="#">Inkling</a></h1>
+		<h1><%= link_to 'Inkling', administrator_root_path  %></h1>
 	</div>
 </div>
 
 <div id="primary-menu">
     <ul>
-        <li><%= link_to 'Users' %></li>
+        <li><%= link_to 'Users', admin_inkling_users_path %></li>
+        <li><%= link_to 'Roles', admin_inkling_roles_path %></li>
+        <li><%= link_to 'Addresses should be called Contents', admin_inkling_addresses_path %></li>
     </ul>
 </div>
 

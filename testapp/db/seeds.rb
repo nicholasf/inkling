@@ -6,6 +6,3 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-unless Inkling::Folder.find_by_name("/")
-  Inkling::Folder.create(:name => "/")
-end

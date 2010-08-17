@@ -1,0 +1,13 @@
+<li id="<%= address.id %>" class="tree-item">
+  <span><%= address.content.name %> <%= folder_entry.id %> </span>
+
+  (+)(edit link)
+
+  <%= render(:partial => "content_form", :locals => {:folder => address.content}) %>
+
+  <% if address.children %>
+    <ul>
+      <%= render(:partial => "address", :collection => address.children) %>
+    </ul>
+  <% end %>
+</li>

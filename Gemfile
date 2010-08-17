@@ -15,5 +15,6 @@ gem 'gemcutter', '>= 0.6.1'
 
 gem 'devise'
 gem 'inherited_resources'
+gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
 
 

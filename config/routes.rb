@@ -1,15 +1,11 @@
-
 Rails.application.routes.draw do |map|
-  # namespace :admin do
-  #   namespace :inkling do
-  #   end
-  # end
-
-  # match 'proxy_admin_create' => 'admin/inkling/proxy_admin#proxy', :as => :proxy_admin_creation
-
   namespace :admin do
     namespace :inkling do
       match 'home', :to => 'home#dashboard', :as => "user_root"
+      resources :addresses
+      match 'proxy_new' => 'proxying#new', :as => :proxy_new
+      match 'proxy_edit' => 'proxying#edit', :as => :proxy_edit
+      match 'proxy_delete' => 'proxying#delete', :as => :proxy_delete
     end
   end
 

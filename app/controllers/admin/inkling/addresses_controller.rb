@@ -1,4 +1,4 @@
-class Admin::Inkling::AddressessController < Admin::Inkling::BaseController
+class Admin::Inkling::AddressesController < Admin::Inkling::BaseController
 
   before_filter :get_root
 
@@ -18,8 +18,8 @@ class Admin::Inkling::AddressessController < Admin::Inkling::BaseController
     return
   end
 
-  # private
-  # def get_root
-  #   @root = Inkling::Folder.find_by_name("/").folder_entry
-  # end
+  private
+  def get_root
+    @roots = Inkling::Address.find_by_parent_id(nil)
+  end
 end

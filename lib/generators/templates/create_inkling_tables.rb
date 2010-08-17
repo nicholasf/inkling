@@ -7,7 +7,13 @@ class CreateInklingTables < ActiveRecord::Migration
       t.rememberable
       t.trackable
       t.timestamps
-     t.timestamps
+      t.timestamps
+      t.integer :role_id, :null => false
+    end
+    
+    create_table :inkling_roles do |t|
+      t.string :name, :null => false
+      t.timestamps
     end
     
     create_table :addresses do |t|
@@ -30,6 +36,7 @@ class CreateInklingTables < ActiveRecord::Migration
   def self.down
     drop_table :sites
     drop_table :addresses
-    drop_table :users
+    drop_table :inkling_roles
+    drop_table :inkling_users
   end
 end

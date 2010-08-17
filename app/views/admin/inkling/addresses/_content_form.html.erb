@@ -1,9 +1,8 @@
 <% unless @content_types.empty? %>
-    <a href="#" onclick="toggle_content_form(<%= folder.id %>)">Add Content</a>
+    <a href="#" onclick="toggle_content_form(<%= address.id %>)">Add Content</a>
 
-    <div id="content-form-<%= folder.id %>" style="display:none">
+    <div id="content-form-<%= address.id %>" style="display:none">
       <%= form_tag(proxy_admin_creation_path, :method => :post) do %>
-          <%= hidden_field_tag :parent_folder_id, folder.id %>
           <%= select_tag(:content_type,
                          options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),
                          :onchange=>"this.form.submit()") %>

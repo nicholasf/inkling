@@ -1,13 +1,11 @@
-
-<% @foos = @root.children %>
-
-<h2>beneath ... </h2>
-<br/>
-<button id="save">Save</button>
-<br/>
+<%= form_tag(admin_inkling_proxy_new_path, :method => :post) do %> 
+    <%= select_tag(:content_type,
+                   options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),
+                   :onchange=>"this.form.submit()") %>
+<% end %>
 
 <ul id="tag-tree">
-  <%= render(:partial => "folder_entry", :object => @root) %>
+  <%= render(:partial => "address", :collection => @roots) %>
 </ul>
 
 

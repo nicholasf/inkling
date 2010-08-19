@@ -1,9 +1,6 @@
 Testapp::Application.routes.draw do |map|
   
   match 'home', :to => 'admin/inkling/home#dashboard', :as => "user_root"
-  # match 'home', :to => 'inkling/home#dashboard', :as => "root"
-  root :to => 'admin/inkling/home#dashboard'
-    
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

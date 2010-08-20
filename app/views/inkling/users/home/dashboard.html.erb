@@ -2,8 +2,14 @@ Welcome to Inkling.
 
 <p>
 
-
-<% for file in dashboard_partials %>
-	<%= render(:file => file) %>
+<table width=60% align='center'>
+<% i = 0
+for file in dashboard_partials %>
+	<%if i == 0 %> <tr> <% end %>
+		<td>
+			<%= render(:file => file) %>
+		</td>
+	<%if i == 1 %> </tr> <% end %>
+	<% i += 1 %>
 <% end %>
 

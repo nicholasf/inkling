@@ -1,12 +1,9 @@
-Welcome to Inkling.
-
-<p>
 
 <table width=60% align='center'>
 <% i = 0
 for file in dashboard_partials %>
 	<%if i == 0 %> <tr> <% end %>
-		<td>
+		<td valign=top>
 			<%= render(:file => file) %>
 		</td>
 	<%if i == 1 %> </tr> <% end %>

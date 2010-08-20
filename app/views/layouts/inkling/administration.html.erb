@@ -17,7 +17,11 @@
 
 <div id="header">
 	<div id="logo">
-		<h1><%= link_to 'Inkling', inkling_user_root_path  %></h1>
+		<h1><%= link_to 'Inkling', inkling_user_root_path %></h1>
+	</div>
+	<div id="tabs">
+		<%= link_to 'Home', inkling_user_root_path %> | <%= link_to 'Content Tree', admin_inkling_addresses_path %>
+		
 	</div>
 </div>
 
@@ -27,10 +31,6 @@
 <div id="page">
   <div id="main">
       <%= yield %>
-  </div>
-
-  <div id="secondary-menu">
-      <%= yield :secondary_menu %>
   </div>
 </div>
 

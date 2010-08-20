@@ -1,5 +1,3 @@
-Under construction.
-
 Inkling is a Content Framework for Rails 3.
 
 * As an engine, it can be added to an existing Rails 3 application to function as a CMS (or a system to manage whatever content objects you create).
@@ -31,6 +29,10 @@ rake inkling:init
 rails db:migrate
 
 A default admin user will have been created for with username 'admin' and password 'test123'.
+
+
+EXTENDING INKLING
+
 
 
 Content Type
@@ -74,6 +76,14 @@ Upon successful authentication Inkling checks the roles of a user, and redirects
 
 Similarly, for roles invented by extensions, simply define a myrole_root mapping in your routes for a landing page.
 
+
+
+Integrated Dashboard
+--------------------
+
+Each user lands on the dashboard - app/views/inkling/users/home#dashboard. Inkling scans all engines for this directory, looking for files with _dashboard. and rendering them as partials. Thus, if you want your engine to add its own section to the dashboard, create a partial.
+
+For example, if you have written a blog content type, and want to offer blog links create app/views/inkling/users/home/_blog_dashboard.html.erb (or haml, etc.). This will be rendered within the dashboard.
 
 Contributors
 ------------

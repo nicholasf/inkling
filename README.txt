@@ -70,11 +70,11 @@ Roles
 Inkling only specifies one role - administrator. The hosting app. is able to create more.
 
 Roles & Authentication & Landing Page
-----------------------
+-------------------------------------
 
-Upon successful authentication Inkling checks the roles of a user, and redirects to a path matching the first role (a bit weak, later one role might be primary but this works). This is a technique adapted from Devise (Inkling overrides the after_sign_in method in an initializer). Thus the hosting application should define a administrator_root path.
+Inkling uses Devise, which searches for a user_root_path and then defaults a root_path, in that order. Inkling defines a inkling_user_root route (run 'rake routes') to reach the Inkling dashboard. If you want authenticating users to land here, map user_root or root to this:
 
-Similarly, for roles invented by extensions, simply define a myrole_root mapping in your routes for a landing page.
+match 'home', :to => 'admin/inkling/home#dashboard', :as => "user_root"
 
 
 

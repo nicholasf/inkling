@@ -2,27 +2,8 @@ Welcome to Inkling.
 
 <p>
 
-This is the administrators dashboard, which will have an overview of admin info.. 
 
-<% 
-partials = []
-
-for engine in Rails.application.railties.engines  
-  for path in engine.paths.all_paths
-    path_str = path.first    
-    if path_str =~ /views/
-	  if File.exist?("#{path_str}/inkling/users/home/")
-		for entry in Dir.entries("#{path_str}/inkling/users/home/")
-			if entry =~ /_dashboard\./
-				partials << "#{path_str}/inkling/users/home/#{entry}"		
-			end
-		end
-	  end
-    end    
-  end
-end
-%>
-
-<% for file in partials %>
+<% for file in dashboard_partials %>
 	<%= render(:file => file) %>
 <% end %>
+

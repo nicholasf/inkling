@@ -14,7 +14,6 @@ module Inkling
       path = self.parent ? "#{self.parent.path}/" : "/"
       path += "#{self.content.name}"
       self.path = sluggerize(path)
-      self.save!
     end
 
     #stolen from enki
@@ -31,13 +30,11 @@ module Inkling
     end    
         
     def path_unique?
-      pre_existing = Address.find_by_path(self.path)
+      pre_existing = Inkling::Path.find_by_path(self.path)
 
       if pre_existing and (self.new_record? or (pre_existing.id != self.id))
         self.errors.add("path (#{self.path}) already taken by another object in this website ")
       end
-
-      slug = self.path.sub(/^\//,'').split('/').first
     end
   end
 end

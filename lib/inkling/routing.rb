@@ -12,7 +12,7 @@ module Inkling
         matching_path = Inkling::Path.find_by_path(path)
 
         if matching_path
-          result = entry.content.is_a? @type
+          result = matching_path.content.is_a? @type
           result
         else
           false

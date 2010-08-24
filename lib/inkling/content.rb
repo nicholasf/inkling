@@ -14,26 +14,26 @@ module Inkling
 
           class_eval <<-EOV
             include Inkling::Content::InstanceMethods
-            has_one :address, :as => :content, :dependent => :destroy
+            has_one :path, :as => :content, :dependent => :destroy
             
-            after_create :create_address
-            after_update :trigger_address_path_update
+            after_create :create_path
+            after_update :trigger_path_path_update
           EOV
         end
       end
     end
 
     module InstanceMethods
-      #trigger on callback on creation. Creates an address to represent the ContentType instance
+      #trigger on callback on creation. Creates an path to represent the ContentType instance
       #within the structure
-      def create_address
-        address = Inkling::Address.new
-        address.content = self
-        address.save!
+      def create_path
+        path = Inkling::Path.new
+        path.content = self
+        path.save!
       end
       
-      def trigger_address_path_update
-        address.update_path!
+      def trigger_path_path_update
+        path.update_path!
       end
     end
 

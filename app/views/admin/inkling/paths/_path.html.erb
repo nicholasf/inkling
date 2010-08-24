@@ -1,0 +1,13 @@
+<li id="<%= path.id %>" class="tree-item">
+  <span><%= path.content.name %> <%= path.id %> </span>
+
+  (+)(edit link)
+
+  <%= render(:partial => "content_form", :locals => {:path => path}) %>
+
+  <% if path.children %>
+    <ul>
+      <%= render(:partial => "path", :collection => path.children) %>
+    </ul>
+  <% end %>
+</li>

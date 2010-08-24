@@ -8,7 +8,7 @@ Content Types installed: <%= @content_types.size %>
 
 <p>
   
-Addresses: <%= Inkling::Address.all.size %>
+Addresses: <%= Inkling::Path.all.size %>
 
 <p>
 	
@@ -22,7 +22,7 @@ Addresses: <%= Inkling::Address.all.size %>
 Content Tree:
 
 <ul id="tag-tree">
-  <%= render(:partial => "address", :collection => @roots) %>
+  <%= render(:partial => "path", :collection => @roots) %>
 </ul>
 
 

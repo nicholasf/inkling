@@ -1,7 +1,7 @@
 <% unless @content_types.empty? %>
-    <a href="#" onclick="toggle_content_form(<%= address.id %>)">Add Content</a>
+    <a href="#" onclick="toggle_content_form(<%= path.id %>)">Add Content</a>
 
-    <div id="content-form-<%= address.id %>" style="display:none">
+    <div id="content-form-<%= path.id %>" style="display:none">
       <%= form_tag(admin_inkling_proxy_new_path, :method => :post) do %>
           <%= select_tag(:content_type,
                          options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),

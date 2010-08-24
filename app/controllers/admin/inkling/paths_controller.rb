@@ -4,7 +4,7 @@ class Admin::Inkling::AddressesController < Admin::Inkling::BaseController
 
   def index
     @content_types = Inkling::Content::Types.listed
-    @address = Inkling::Address.new
+    @path = Inkling::Path.new
   end
 
   def update_tree
@@ -20,6 +20,6 @@ class Admin::Inkling::AddressesController < Admin::Inkling::BaseController
 
   private
   def get_root
-    @roots = Inkling::Address.find_all_by_parent_id(nil)
+    @roots = Inkling::Path.find_all_by_parent_id(nil)
   end
 end

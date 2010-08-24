@@ -11,6 +11,6 @@ require "ruby-debug"
 
 module Inkling
   class Engine < Rails::Engine
-    # engine_name :inkling
+    config.inkling = Inkling    
   end
 end

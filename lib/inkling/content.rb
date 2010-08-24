@@ -13,42 +13,51 @@ module Inkling
           self.friendly_name = (friendly_name or self)
 
           class_eval <<-EOV
-            has_one :address, :as => :content
             include Inkling::Content::InstanceMethods
+            has_one :address, :as => :content, :dependent => :destroy
+            
+            after_create :create_address
+            after_update :trigger_address_path_update
           EOV
         end
       end
     end
 
     module InstanceMethods
-      #We abstract the idea of folder entries from the content developer, so they only handle folders.
-      #There is a mutator set on each content object - parent_folder_id - which can be set in the form
-      #but is not saved in the database. This method is registered as a callback to look for it and handles
-      #the creation of a folder_entry for the content obj..
-#       def position_in_folder
-#         return if parent_folder_id == nil
-#         return if folder_entry and folder_entry.parent and folder_entry.parent.id == parent_folder_id
-# 
-#         #otherwise we have a parent_folder_id which does not match the folder_entry on the object
-#         parent_folder = Inkling::Folder.find(parent_folder_id)
-# 
-#         folder_entry = Inkling::FolderEntry.create
-#         folder_entry.content = self
-#         self.folder_entry = folder_entry
-#         folder_entry.move_to_child_of parent_folder.folder_entry
-#         folder_entry.save!
-# #        debugger
-# #puts "#{folder_entry.parent_id} is interred & matches #{parent_folder_id}"
-# 
-#       end
+      #trigger on callback on creation. Creates an address to represent the ContentType instance
+      #within the structure
+      def create_address
+        address = Inkling::Address.new
+        address.content = self
+        address.save!
+      end
+      
+      def trigger_address_path_update
+        address.update_path!
+      end
     end
 
     class Types
-      cattr_accessor :listed
-      @@listed = []
-
+      def self.listed
+        @listed ||= [] 
+      end
+      
+      def self.keys
+        @keys ||= []
+      end
+      
       def self.register(type)
-        @@listed << type
+        if keys.include?(type.name)
+          flush!
+        end
+        
+        keys << type.name
+        listed << type unless listed.index(type)
+      end      
+      
+      def self.flush!
+        @keys = []
+        @listed = []
       end
     end
   end

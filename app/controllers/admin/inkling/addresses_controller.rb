@@ -20,6 +20,6 @@ class Admin::Inkling::AddressesController < Admin::Inkling::BaseController
 
   private
   def get_root
-    @roots = Inkling::Address.find_by_parent_id(nil)
+    @roots = Inkling::Address.find_all_by_parent_id(nil)
   end
 end

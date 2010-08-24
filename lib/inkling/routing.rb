@@ -13,6 +13,7 @@ module Inkling
 
         if matching_path
           result = matching_path.content.is_a? @type
+          request.params[:id] = matching_path.content.id
           result
         else
           false

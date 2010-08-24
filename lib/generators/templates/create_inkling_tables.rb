@@ -20,7 +20,7 @@ class CreateInklingTables < ActiveRecord::Migration
       t.integer :role_id, :null => false
     end
     
-    create_table :addresses do |t|
+    create_table :paths do |t|
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
@@ -39,7 +39,7 @@ class CreateInklingTables < ActiveRecord::Migration
 
   def self.down
     drop_table :sites
-    drop_table :addresses
+    drop_table :paths
     drop_table :inkling_role_memberhips    
     drop_table :inkling_roles
     drop_table :inkling_users

@@ -5,6 +5,8 @@ Rails.application.routes.draw do |map|
       match 'proxy_new' => 'proxying#new', :as => :proxy_new
       match 'proxy_edit' => 'proxying#edit', :as => :proxy_edit
       match 'proxy_delete' => 'proxying#delete', :as => :proxy_delete
+      
+      match 'update_tree' => 'paths#update_tree', :as => :update_tree
     end
   end
   

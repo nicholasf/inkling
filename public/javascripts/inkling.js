@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-    $("li.tree-item a.drag").droppable({
+    $("li.tree-item span").droppable({
         tolerance        : "touch",
         hoverClass       : "tree-hover",
         drop             : function(event, ui){
@@ -26,7 +26,7 @@ $(document).ready(function(){
             var website_id = node_id.split("-")[0]
             var child = node_id.split("-")[1]
 
-            $.post("/websites/" + website_id + "/paths/update_tree", {new_parent: newParent, child: child});
+            $.post("/admin/inkling/paths/update_tree", {new_parent: newParent, child: child});
         }
     });
 

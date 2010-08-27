@@ -31,12 +31,19 @@ module Inkling
     end
 
     module InstanceMethods
-
       
-      def trigger_path_update
-        debugger
-        puts "trigger_path_update!"
-        path.update_path!
+    #   def trigger_path_update
+    #     debugger
+    #     puts "trigger_path_update!"
+    #     path.update_path!
+    #   end
+    
+      def restricts?(path)
+        if path.content
+          path.content.restricts?(path.content) if path.content.responds_to? :restricts?
+        else
+          false
+        end
       end
     end
 

@@ -13,5 +13,9 @@ require "ruby-debug"
 module Inkling
   class Engine < Rails::Engine
     config.inkling = Inkling    
+    
+    initializer "static assets" do |app|
+      app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
+    end
   end
 end

@@ -7,7 +7,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	text-align: justify;
-	font-family: Times New Roman, Helvetica, sans-serif;
+	font-family: Helvetica, sans-serif;
 	font-size: 13px;
 	color: #000000;
 }
@@ -68,7 +68,6 @@ blockquote {
 	margin: 0px;
 	padding: 0px;
 	letter-spacing: -3px;
-	text-transform: uppercase;
 	font-weight: normal;
 	font-size: 36px;
 }

@@ -9,8 +9,9 @@ gem "pg"
 
 gem "ruby-debug", :group => [:test, :development]
 gem "devise"
-gem 'inkling', :path => '../'
 gem 'inkling_content'
+gem 'inkling', :path => '../'
+# gem 'inkling_content'
 
 gem "rspec-rails", ">= 2.0.0.beta.8", :group => [:test, :development]
 gem 'capybara'

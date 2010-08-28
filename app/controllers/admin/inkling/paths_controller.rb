@@ -12,7 +12,6 @@ class Admin::Inkling::PathsController < Admin::Inkling::BaseController
     child_id = params[:child]
     new_parent = Inkling::Path.find(new_parent_id)
     child = Inkling::Path.find(child_id)
-    debugger
     new_parent.restricts?(child)
     child.move_to_child_of new_parent
 

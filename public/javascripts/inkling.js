@@ -19,14 +19,9 @@ $(document).ready(function(){
             var oldParent = dropped.parent();
             subbranch.eq(0).append(dropped);
             var oldBranches = $("li", oldParent);
-
-            var parentNode = me.attr('id')
-            var newParent = parentNode.split("-")[1]
-            var node_id = dropped.attr('id')
-            var website_id = node_id.split("-")[0]
-            var child = node_id.split("-")[1]
-
-            $.post("/admin/inkling/paths/update_tree", {new_parent: newParent, child: child});
+            var newParent = me.attr('id')
+            var child = dropped.attr('id')
+            $.post("/admin/inkling/update_tree", {new_parent: newParent, child: child});
         }
     });
 

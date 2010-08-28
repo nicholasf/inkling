@@ -7,9 +7,10 @@ class Admin::Inkling::PathsController < Admin::Inkling::BaseController
     @path = Inkling::Path.new
   end
 
-  def update_tree
+  def update_tree 
     new_parent_id = params[:new_parent]
     child_id = params[:child]
+    debugger
     new_parent = Inkling::Path.find(new_parent_id)
     child = Inkling::Path.find(child_id)
     new_parent.restricts?(child)

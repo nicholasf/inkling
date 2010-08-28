@@ -17,6 +17,10 @@ module Inkling
           
           send :include, InstanceMethods
         end
+        
+        # def content_icon
+        #   self.to_s.underscore.gsub("/", "_")        
+        # end
       end
     end
 

@@ -146,3 +146,7 @@ button{
 .tree-item span{
   border-bottom: solid 1px #aaa;
 }
+
+form.tree-form {
+	display: inline;
+}

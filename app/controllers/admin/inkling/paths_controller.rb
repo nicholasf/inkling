@@ -10,11 +10,10 @@ class Admin::Inkling::PathsController < Admin::Inkling::BaseController
   def update_tree 
     new_parent_id = params[:new_parent]
     child_id = params[:child]
-    debugger
     new_parent = Inkling::Path.find(new_parent_id)
     child = Inkling::Path.find(child_id)
-    new_parent.restricts?(child)
     debugger
+    new_parent.restricts?(child)
     child.move_to_child_of new_parent
 
     render :nothing => true

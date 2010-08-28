@@ -10,6 +10,17 @@ module Inkling
     before_validation :update_path!, :unless => "self.content.nil?"
     validate :path_unique?
 
+
+    #called before adding a new child path to see if the content object restricts what it's path should nest
+    #if there isn't a restricts() impl. on the content object, false is returned, allowing anything to be nested
+    def restricts?(sub_path)
+      if self.content
+        self.content.restricts?(sub_path.content) if self.content.respond_to? :restricts?
+      else
+        false
+      end
+    end
+
     def update_path!
       path = self.parent ? "#{self.parent.path}/" : "/"
       path += "#{self.content.name}"

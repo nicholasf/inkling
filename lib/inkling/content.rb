@@ -6,44 +6,26 @@ module Inkling
       end
 
       module ClassMethods
-        def acts_as_content(friendly_name)
+        def acts_as_content(friendly_name = self.class.name)
+
           Inkling::Content::Types.register(self)
           cattr_accessor :friendly_name
-
           self.friendly_name = (friendly_name or self)
+          has_one :path, :as => :content, :dependent => :destroy
+          after_create :create_path
+          
+          send :include, InstanceMethods
 
-          class_eval <<-EOV
-            include Inkling::Content::InstanceMethods
-            has_one :path, :as => :content, :dependent => :destroy
-            
-            after_create :create_path
-            # after_save :trigger_path_update
-
-            #Creates a path to represent the ContentType instance; the path is used for routing, etc..
-            def create_path
-              path = Inkling::Path.new
-              path.content = self
-              path.save!
-            end
-          EOV
         end
       end
     end
 
     module InstanceMethods
-      
-    #   def trigger_path_update
-    #     debugger
-    #     puts "trigger_path_update!"
-    #     path.update_path!
-    #   end
-    
-      def restricts?(path)
-        if path.content
-          path.content.restricts?(path.content) if path.content.responds_to? :restricts?
-        else
-          false
-        end
+      #Creates a path to represent the ContentType instance; the path is used for routing, etc..
+      def create_path
+        path = Inkling::Path.new
+        path.content = self
+        path.save!
       end
     end
 

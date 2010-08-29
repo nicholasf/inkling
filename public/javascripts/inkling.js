@@ -21,7 +21,7 @@ $(document).ready(function(){
             var oldBranches = $("li", oldParent);
             var newParent = me.attr('id')
             var child = dropped.attr('id')
-            $.post("/admin/inkling/update_tree", {new_parent: newParent, child: child});
+            $.post("/inkling/update_tree", {new_parent: newParent, child: child});
         }
     });
 

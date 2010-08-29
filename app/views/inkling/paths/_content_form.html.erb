@@ -6,5 +6,10 @@
                          options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),
                          :onchange=>"this.form.submit()") %>
       <% end %>
+            
+      <%= link_to 'Show', polymorphic_path(path.content) %>, 
+      <%= link_to 'Edit', edit_polymorphic_path(path.content) %>,  
+      <%= link_to 'Delete', polymorphic_path(path.content), :method => :delete %> 
+      
     </span>
  <% end %>

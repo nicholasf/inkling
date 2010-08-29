@@ -14,7 +14,7 @@ class Inkling::PathsController < Inkling::BaseController
     child = Inkling::Path.find(child_id)
     new_parent.restricts?(child)
     child.move_to_child_of new_parent
-
+    child.save
     render :nothing => true
     return
   end

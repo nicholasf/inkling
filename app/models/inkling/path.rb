@@ -7,7 +7,7 @@ module Inkling
     
     belongs_to :content, :polymorphic => true
 
-    before_validation :update_path!, :unless => "self.content.nil?"
+    before_validation :update_path!
     validate :path_unique?
 
 

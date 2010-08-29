@@ -1,4 +1,4 @@
-class Inkling::Users::HomeController < Inkling::BaseController
+class Inkling::HomeController < Inkling::BaseController
   helper_method :dashboard_partials
   
   

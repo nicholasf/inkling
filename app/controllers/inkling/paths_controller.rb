@@ -1,4 +1,4 @@
-class Inkling::PathsController < Admin::Inkling::BaseController
+class Inkling::PathsController < Inkling::BaseController
 
   before_filter :get_root
 

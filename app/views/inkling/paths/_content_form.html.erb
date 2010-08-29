@@ -1,7 +1,7 @@
 <% unless @content_types.empty? %>
     <a href="#" onclick="toggle_content_form(<%= path.id %>)">+</a>
     <span id="content-form-<%= path.id %>" style="display:none, inline">
-      <% form_tag(admin_inkling_proxy_new_path, :class => "tree-form") do %>
+      <% form_tag(inkling_proxy_new_path, :class => "tree-form") do %>
           <%= select_tag(:content_type,
                          options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),
                          :onchange=>"this.form.submit()") %>

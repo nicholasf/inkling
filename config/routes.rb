@@ -6,6 +6,7 @@ Rails.application.routes.draw do |map|
 
     namespace :admin do
       resources :users, :roles
+      match 'content_types' => 'content_types#index', :as => :content_types
     end
   end
     

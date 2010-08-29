@@ -4,6 +4,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "inkling"
     gem.summary = "A content framework engine for Rails 3"
+    gem.description = "A content framework engine for Rails 3"
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
     gem.version = Inkling::VERSION
     gem.add_dependency("devise")

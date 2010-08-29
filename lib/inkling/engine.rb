@@ -7,8 +7,6 @@ require "mob"
 
 require "rails"
 require "better_nested_set"
-require "ruby-debug"
-
 
 module Inkling
   class Engine < Rails::Engine

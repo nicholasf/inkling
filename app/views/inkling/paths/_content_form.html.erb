@@ -7,6 +7,7 @@
                          :onchange=>"this.form.submit()") %>
       <% end %>
             
+      <%= link_to 'Public View', "/inkling" + path.path %>, 
       <%= link_to 'Show', polymorphic_path(path.content) %>, 
       <%= link_to 'Edit', edit_polymorphic_path(path.content) %>,  
       <%= link_to 'Delete', polymorphic_path(path.content), :method => :delete %> 

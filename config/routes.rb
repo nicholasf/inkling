@@ -1,12 +1,8 @@
 Rails.application.routes.draw do |map|
   namespace :inkling do
     resources :paths
-    match 'update_tree' => 'paths#update_tree', :as => :update_tree
-    
-    # resources :proxying
+    match 'update_tree' => 'paths#update_tree', :as => :update_tree    
     match 'proxy_new' => 'proxying#new', :as => :proxy_new
-    # match 'proxy_edit' => 'proxying#edit', :as => :proxy_edit
-    # match 'proxy_delete' => 'proxying#delete', :as => :proxy_delete
 
     namespace :admin do
       resources :users, :roles

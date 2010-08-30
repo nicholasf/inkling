@@ -8,18 +8,6 @@ Content Types are grouped together by a Content Bundle (as an engine). A separat
 Installing
 ----------
 
-Inkling uses Rails 3, which is still in prerelease. It requires ruby 1.8.7 at least. You'll need to google for the current installation procedure, because it's continually changing. When you've worked through that, you also need to install the pre-release version of RSpec from http://github.com/rspec/rspec-rails/
-
-gem install rspec-rails --pre
-
-You'll also need pg if you use the default Postgres database.
-
-Make sure you have these gems installed:
-cucumber-rails
-ruby-debug
-bundler (requires launchy, capybara, spork)
-
-To run the testapp from a git clone, you will also need to have installed an inkling gem to keep Bundler happy. The installed gem doesn't get used, but must exist in your gem path (the actual path is overridden to point at the local directory).
 
 
 Then run

@@ -1,11 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc2'
+gem 'rails', '3.0.0'
 
 
 # gemspec
 
-gem "ruby-debug", :group => [:test, :development]
+gem "ruby-debug19", :group => [:test, :development] #or change this to ruby-debug if you are still using 1.8.7
+
 gem 'inkling', :path => '../'
 gem "rspec-rails", ">= 2.0.0.beta.8", :group => [:test, :development]
 gem 'capybara'

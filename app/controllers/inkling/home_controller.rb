@@ -1,9 +1,7 @@
-class Inkling::Users::HomeController < Inkling::BaseController
+class Inkling::HomeController < Inkling::BaseController
   helper_method :dashboard_partials
-  
-  
-  
-  #protected
+    
+  # protected
   #these methods would be better in a helper, but it seems helpers have issues loading from engines.
   def render_dashboard_partials
     for file in dashboard_partials
@@ -19,17 +17,16 @@ class Inkling::Users::HomeController < Inkling::BaseController
       for path in engine.paths.all_paths
         path_str = path.first    
         if path_str =~ /views/
-    	    if File.exist?("#{path_str}/inkling/users/home/")
-    		    for entry in Dir.entries("#{path_str}/inkling/users/home/")
+    	    if File.exist?("#{path_str}/inkling/home/")
+    		    for entry in Dir.entries("#{path_str}/inkling/home/")
     			    if entry =~ /_dashboard\./
-    				    partials << "#{path_str}/inkling/users/home/#{entry}"		
+    				    partials << "#{path_str}/inkling/home/#{entry}"		
     			    end
     		    end
     	    end
         end    
       end
     end
-
     partials
   end
 end

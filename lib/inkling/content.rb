@@ -13,10 +13,14 @@ module Inkling
           self.friendly_name = (friendly_name or self)
           has_one :path, :as => :content, :dependent => :destroy
           after_create :create_path
+          after_update :update_path
           
           send :include, InstanceMethods
-
         end
+        
+        # def content_icon
+        #   self.to_s.underscore.gsub("/", "_")        
+        # end
       end
     end
 
@@ -26,6 +30,11 @@ module Inkling
         path = Inkling::Path.new
         path.content = self
         path.save!
+      end
+      
+      def update_path
+        self.path.update_path!
+        self.path.save!
       end
     end
 

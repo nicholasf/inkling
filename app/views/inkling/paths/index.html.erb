@@ -1,26 +1,10 @@
-Content Types installed: <%= @content_types.size %> 
-
-<p>
-
-<% for type in @content_types %>
-  <%= type.friendly_name %> - <%= type %> <br/>
-<% end %>
-
-<p>
-  
-Addresses: <%= Inkling::Path.all.size %>
-
-<p>
-	
-<%= form_tag(admin_inkling_proxy_new_path, :method => :post) do %>
+<%= form_tag(inkling_proxy_new_path, :method => :post) do %>
        <%= select_tag(:content_type,
                       options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),
                       :onchange=>"this.form.submit()") %>
  <% end %>
 
 <p>  
-Content Tree:
-
 <ul id="tag-tree">
   <%= render(:partial => "path", :collection => @roots) %>
 </ul>

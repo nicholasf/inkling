@@ -1,0 +1,21 @@
+<h2>Administration</h2>
+
+<table width=100%>
+  <tr>
+    <td width=70%><%= link_to 'Users', inkling_admin_users_path %></td>
+    <td width=30%><%= Inkling::User.all.size %></td>
+  </tr>
+  <tr>
+    <td><%= link_to 'Roles', inkling_admin_roles_path %></td>
+    <td><%= Inkling::Role.all.size %></td>
+  </tr>
+  <tr>
+    <td><%= link_to 'Workflows' %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%= link_to 'Content Types', inkling_admin_content_types_path %></td>
+    <td><%= Inkling::Content::Types.listed.size %></td>
+  </tr>
+</table>
+

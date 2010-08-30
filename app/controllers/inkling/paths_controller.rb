@@ -4,6 +4,7 @@ class Inkling::PathsController < Inkling::BaseController
 
   def index
     @content_types = Inkling::Content::Types.listed
+    @content_types ||= []
     @path = Inkling::Path.new
   end
 

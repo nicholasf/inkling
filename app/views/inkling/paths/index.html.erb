@@ -1,8 +1,10 @@
-<%= form_tag(inkling_proxy_new_path, :method => :post) do %>
-       <%= select_tag(:content_type,
-                      options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert (0, "")),
-                      :onchange=>"this.form.submit()") %>
- <% end %>
+
+<% if @content_types.any? 	
+	form_tag(inkling_proxy_new_path, :method => :post) do %>
+       <%= select_tag(:content_type, options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}), :onchange=>"this.form.submit()") %>
+ <% end 
+end %>
+
 
 <p>  
 <ul id="tag-tree">

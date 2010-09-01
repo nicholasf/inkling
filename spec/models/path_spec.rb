@@ -6,7 +6,8 @@ describe Inkling::Path do
 
   it "should update the path based on its parent" do
     foo2 = ContentTypes::Foo.create(:name => "2")
-    foo2.path move_to_child_of foo.path    
+    foo2.path.move_to_child_of foo.path  
+    foo2.save  
     foo2.path.path.should == "/1/2"
   end
 end

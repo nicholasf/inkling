@@ -11,7 +11,7 @@ module Inkling
           Inkling::Content::Types.register(self)
           cattr_accessor :friendly_name
           self.friendly_name = (friendly_name or self)
-          has_one :path, :as => :content, :dependent => :destroy
+          has_one :path, :as => :content, :dependent => :destroy, :class_name => "Inkling::Path"
           after_create :create_path
           after_update :update_path
           
@@ -27,8 +27,10 @@ module Inkling
     module InstanceMethods
       #Creates a path to represent the ContentType instance; the path is used for routing, etc..
       def create_path
+        puts 1
         path = Inkling::Path.new
         path.content = self
+        puts 2
         path.save!
       end
       

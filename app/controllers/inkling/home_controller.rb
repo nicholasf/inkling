@@ -1,4 +1,6 @@
 class Inkling::HomeController < Inkling::BaseController
+
+  # before_filter :current_user
   helper_method :dashboard_partials
     
   # protected

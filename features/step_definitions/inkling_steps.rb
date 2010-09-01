@@ -1,13 +1,12 @@
 Given /^(?:|I )visit (.+)$/ do |path|
   puts "****#{path} ****"
-  debugger
   visit path
 end
 
 
 #Thens ...
 Then /^show source$/ do
-  puts response.body
+  puts page.body
 end
 
 

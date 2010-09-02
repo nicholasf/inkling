@@ -1,32 +1,7 @@
-$(document).ready(function(){
-
-    $("li.tree-item span").droppable({
-        tolerance        : "pointer",
-        hoverClass        : "tree-hover",
-        drop            : function(event, ui){
-            var dropped = ui.draggable;
-            dropped.css({top: 0, left: 0});
-            var me = $(this).parent();
-            if(me == dropped)
-                return;
-            var subbranch = $(me).children("ul");
-            if(subbranch.size() == 0) {
-                me.find("span").after("<ul></ul>");
-                subbranch = me.find("ul");
-            }
-            var oldParent = dropped.parent();
-            subbranch.eq(0).append(dropped);
-            var oldBranches = $("li", oldParent);
-
-            var newParent = me.attr('id')
-            var child = dropped.attr('id')
-
-            $.post("/admin/inkling/folder_entries/update_tree", {new_parent: newParent, child: child});
-        }
-    });
-
-    $("li.tree-item").draggable({
-        opacity: 0.5,
-        revert: true
-    });
-});
+<!-- <span <%= "id='content-form-#{path.id}' style='display:none, inline'" if path %> > -->
+	<%= form_tag(inkling_proxy_new_path, :class => "tree-form") do %>
+	    <%= select_tag(:content_type,
+	                   options_for_select(@content_types.collect{|c| [ c.friendly_name, c.to_s]}.insert(0, ["",""]),
+	                   :onchange=>"this.form.submit()") %>
+	<% end %>
+<!-- </span> -->

@@ -6,6 +6,8 @@ class Inkling::PathsController < Inkling::BaseController
     @content_types = Inkling::Content::Types.listed
     @content_types ||= []
     @path = Inkling::Path.new
+    # debugger
+    # puts "--"
   end
 
   def update_tree 

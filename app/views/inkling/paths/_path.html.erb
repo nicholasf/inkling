@@ -1,7 +1,13 @@
 <li id="<%= path.id %>" class="tree-item">
   <span><%= path.content.name %> </span>
+  <a href="#" onclick="toggle_content_form(<%= path.id %>)">+</a>
 
   <%= render(:partial => "content_form", :locals => {:path => path}) %>
+
+  <%= link_to 'Public View', "/inkling" + path.path %>, 
+  <%= link_to 'Show', polymorphic_path(path.content) %>, 
+  <%= link_to 'Edit', edit_polymorphic_path(path.content) %>,  
+  <%= link_to 'Delete', polymorphic_path(path.content), :method => :delete %> 
 
   <% if path.children %>
     <ul>

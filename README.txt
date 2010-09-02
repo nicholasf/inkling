@@ -8,15 +8,42 @@ Content Types are grouped together by a Content Bundle (as an engine). A separat
 Installing
 ----------
 
+Some quick instructions for setting up Inkling and Inkling-CMS to get an idea of what's being built.
 
+Clone both projects - inkling and inkling-cms.
+
+Go into inkling, run 'bundle install' (you'll need Ruby 1.9.x).
+rake install
+
+Go into inkling-cms, run 'bundle install' (you'll need Ruby 1.9.x).
+rake install (take note of the route the installation doc tells you that you need to add)
+cd testapp
+bundle install
+
+rails generate inkling
+
+Configure your config/database.yml with a database for the test app.
+rake db:migrate 
+rake inkling:init
+
+Add this to the config/routes.rb in testapp
+
+  match 'home', :to => 'inkling/home#dashboard', :as => "user_root"  
 
 Then run
 
-rails generate inkling
-rake inkling:init
-rails db:migrate
+rails server
 
-A default admin user will have been created for with username 'admin' and password 'test123'.
+And visit
+
+http://localhost:3000/inkling/user/sign_in
+
+Email: admin@localhost.com
+pass: test123
+
+Go to the tree. Choose 'Page' from the drop down. Create the page, then visit it's public URL. 
+
+
 
 
 EXTENDING INKLING

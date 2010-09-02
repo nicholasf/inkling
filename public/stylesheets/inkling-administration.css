@@ -43,14 +43,6 @@ ul, ol {
 	margin-left: 3em;
 }
 
-/*a {*/
-/*}*/
-
-blockquote {
-	margin-left: 3em;
-	margin-right: 3em;
-}
-
 #header {
 	height: 120px;
 	margin: 0 auto;
@@ -90,37 +82,21 @@ blockquote {
 	text-decoration: none;
 }
 
-#primary-menu {
-	height: 51px;
-	margin: 0px auto;
-	padding: 0px;
-}
-
-#primary-menu ul {
-	margin: 0px;
-	list-style: none;
-}
-
-#primary-menu li {
-	display: inline;
-}
-
 #page {
 	margin: 0px auto;
-	padding: 40px 0px 20px 0px;
+	padding: 0px 0px 20px 0px;
 }
 
-#secondary-menu {
-  float: right;
-  width: 200px;
+/*#footer {
+	width: 900px;
+	margin: 0px auto;
+	padding: 5px 0px;
 }
 
 #footer p {
-	text-transform: uppercase;
 	font-size: 10px;
 }
-
-
+*/
 //for the tree
 
 button{

@@ -17,23 +17,24 @@
 
 <div id="header">
 	<div id="logo">
-		<h1><%= link_to 'inkling', inkling_user_root_path %></h1>
+		<h1><%= link_to 'Inkling', inkling_user_root_path %></h1>
 	</div>
 	<div id="tabs">
 		<%= link_to 'Home', inkling_user_root_path %> | <%= link_to 'Tree', inkling_paths_path %>
 	</div>
 </div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="notice"><%= notice %></div>
+<div class="alert"><%= alert %></div>
 
 <div id="page">
   <div id="main">
-      <%= yield %>
+      [ <%= yield %> ]
   </div>
 </div>
-
+1
 <div id="footer">
+  <span id="version" align='center'>Inkling version <%= Inkling::VERSION %></span>
 </div>
 
 <%= yield :js %>

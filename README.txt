@@ -1,29 +1,48 @@
-Inkling is a Content Framework for Rails 3.
+Inkling is a Content Framework for Rails 3, packaged as a Rails engine. It can be used to build knowledge management systems by leveraging Rails conventions.
 
-* As an engine, it can be added to an existing Rails 3 application to function as a CMS (or a system to manage whatever content objects you create).
-* As a Content Framework, it supplies a set of services for content types which you define (see acts_as_content below). Content services are - security, site structure and content categorization, versioning, & workflow.
+Inkling features:
+- An integrated dasbboard
+- Site categorization and object creation via a Content Tree.
+- 'acts_as_content' to incorporate standard ActiveRecord models as content types (for use in Content Tree). Controllers to CRUD your model and render it are loaded automatically by the system (following conventions)
+- Devise authentication
 
-Content Types are grouped together by a Content Bundle (as an engine). A separate project, inkling_content, will bundle standard content types for CMSing. So, you can use a readymade CMS engine with Inkling & Inkling Content, or use Inkling with your own bundle, or, whatever combination ...
+Planned features:
+- security
+- workflows
+- versioning
+
+
+Also see Inkling-CMS: http://github.com/biv/inkling-cms. Inkling-CMS is an engine which uses the Inkling library to provide standard CMS functionality.
+
+Inkling is in beta. See the Roadmap: http://wiki.github.com/biv/inkling/roadmap.
 
 Installing
 ----------
 
 Some quick instructions for setting up Inkling and Inkling-CMS to get an idea of what's being built.
 
-Clone both projects - inkling and inkling-cms.
+Clone inkling and inkling-cms.
 
 Go into inkling, run 'bundle install' (you'll need Ruby 1.9.x).
+
 rake install
+
 
 Go into inkling-cms, run 'bundle install' (you'll need Ruby 1.9.x).
 rake install (take note of the route the installation doc tells you that you need to add)
+
 cd testapp
+
+edit the Gemfile and add the database gem you wish to use, e.g. sqlite.
+
 bundle install
 
 rails generate inkling
 
-Configure your config/database.yml with a database for the test app.
+Configure your config/database.yml with a database for the test app. 
+
 rake db:migrate 
+
 rake inkling:init
 
 Add this to the config/routes.rb in testapp
@@ -44,10 +63,13 @@ pass: test123
 Go to the tree. Choose 'Page' from the drop down. Create the page, then visit it's public URL. 
 
 
+Running The Tests
+-----------------
+
 
 
 EXTENDING INKLING
-
+-----------------
 
 
 Content Type

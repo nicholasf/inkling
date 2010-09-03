@@ -16,6 +16,8 @@ Also see Inkling-CMS: http://github.com/biv/inkling-cms. Inkling-CMS is an engin
 
 Inkling is in beta. See the Roadmap: http://wiki.github.com/biv/inkling/roadmap.
 
+The documentation below is a work in progress and will be revised at some point. The Installing advice is current.
+
 Installing
 ----------
 

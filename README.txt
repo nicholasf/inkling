@@ -1,7 +1,7 @@
 Inkling is a Content Framework for Rails 3, packaged as a Rails engine. It can be used to build knowledge management systems by leveraging Rails conventions.
 
 Inkling features:
-- An integrated dasbboard
+- An integrated, extensible dasbboard
 - Site categorization and object creation via a Content Tree.
 - 'acts_as_content' to incorporate standard ActiveRecord models as content types (for use in Content Tree). Controllers to CRUD your model and render it are loaded automatically by the system (following conventions)
 - Devise authentication

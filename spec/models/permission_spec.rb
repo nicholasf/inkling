@@ -16,11 +16,11 @@ describe Inkling::Permission do
   end
   
   it "should apply CRUD based perm.s via the role to the user on the content type" do
-    create_role_and_membership("content_editor", user)
-    
+    role = create_role_and_membership("content_editor", user)
     permission = Inkling::Permission.create(:path => foo.path, :role => role, :action => :update)
     ability = Inkling::Ability.new(user)
     ability.can?(:update, ContentTypes::Foo).should be_true
+    ability.cannot?(:delete, ContentTypes::Foo).should be_true    
   end
   
   

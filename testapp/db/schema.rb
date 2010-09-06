@@ -10,7 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100906071942) do
+ActiveRecord::Schema.define(:version => 20100906074915) do
+
+  create_table "foos", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "inkling_paths", :force => true do |t|
     t.integer  "parent_id"

@@ -38,7 +38,8 @@ class CreateInklingTables < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :paths
+    drop_table :inkling_paths
+    drop_table :inkling_permissions
     drop_table :inkling_role_memberhips    
     drop_table :inkling_roles
     drop_table :inkling_users

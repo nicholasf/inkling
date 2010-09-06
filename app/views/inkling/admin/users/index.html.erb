@@ -1,7 +1,18 @@
-<% for user in @users %>
-  <%= user.email %> <br/>
-Roles:
-  <% for role in user.roles %>
-    <%= role.name %>
+<!-- <%= link_to "Add User", new_inkling_admin_user_path %>  -->
+<p/>
+<table id="users-table">
+  <tr>
+    <th>Login</th>
+    <th>Roles</th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= user.email %></td>
+      <td>
+        <% for role in user.roles %>
+          <%= role.name.titleize %>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
-<% end %>
+</table>

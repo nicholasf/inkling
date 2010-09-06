@@ -1,0 +1,16 @@
+<% if @inkling_admin_user.errors.any? %>
+    <h2><%= pluralize(@inkling_admin_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+    <% @inkling_admin_user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% semantic_form_for [@inkling_admin_user] do |form| %>
+  <%= form.input :email %>
+  
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>

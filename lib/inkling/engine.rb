@@ -2,6 +2,8 @@ require "inkling"
 require "inkling/content"
 require "inkling/version"
 require "inkling/routing"
+require 'cancan'
+require "inkling/ability"
 require "devise"
 require 'devise/orm/active_record'
 

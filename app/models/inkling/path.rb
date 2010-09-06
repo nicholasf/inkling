@@ -3,8 +3,8 @@ require 'better_nested_set'
 module Inkling
   class Path < ActiveRecord::Base
     include SymetrieCom::Acts::NestedSet
-    acts_as_nested_set
     set_table_name 'inkling_paths'
+    acts_as_nested_set
     
     belongs_to :content, :polymorphic => true
     has_many :permissions

@@ -10,10 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100831091919) do
+ActiveRecord::Schema.define(:version => 20100906071942) do
 
-  create_table "foos", :force => true do |t|
-    t.string "name"
+  create_table "inkling_paths", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.string   "path"
+    t.integer  "content_id"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inkling_permissions", :force => true do |t|
+    t.integer  "path_id"
+    t.integer  "role_id"
+    t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "inkling_role_memberships", :force => true do |t|
@@ -42,25 +57,6 @@ ActiveRecord::Schema.define(:version => 20100831091919) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "paths", :force => true do |t|
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.string   "path"
-    t.integer  "content_id"
-    t.string   "content_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sites", :force => true do |t|
-    t.string   "name"
-    t.string   "path_prefix"
-    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

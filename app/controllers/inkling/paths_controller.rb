@@ -1,4 +1,5 @@
 class Inkling::PathsController < Inkling::BaseController
+  load_and_authorize_resource
 
   before_filter :get_root
 

@@ -4,8 +4,10 @@ module Inkling
   class Path < ActiveRecord::Base
     include SymetrieCom::Acts::NestedSet
     acts_as_nested_set
+    set_table_name 'inkling_paths'
     
     belongs_to :content, :polymorphic => true
+    has_many :permissions
 
     before_validation :update_path!
     validate :path_unique?

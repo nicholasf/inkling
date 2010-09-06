@@ -13,7 +13,6 @@ group :development, :test do
   gem 'cucumber', '>= 0.7.2'
   gem 'spork'
   gem 'launchy'    # So you can do Then show me the page
-
 end
 
 gem 'jeweler'
@@ -21,5 +20,6 @@ gem 'gemcutter', '>= 0.6.1'
 gem 'devise'
 gem 'inherited_resources'
 gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
+gem 'cancan'
 
  

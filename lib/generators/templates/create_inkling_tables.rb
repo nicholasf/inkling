@@ -20,25 +20,24 @@ class CreateInklingTables < ActiveRecord::Migration
       t.integer :role_id, :null => false
     end
     
-    create_table :paths do |t|
+    create_table :inkling_paths do |t|
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
       t.string :path
       t.references :content, :polymorphic => true
       t.timestamps
-    end
+    end    
     
-    create_table :sites do |t|
-      t.string :name
-      t.string :path_prefix
-      t.string :description
+    create_table :inkling_permissions do |t|
+      t.integer :path_id
+      t.integer :role_id
+      t.string :action
       t.timestamps
-    end
+    end    
   end
 
   def self.down
-    drop_table :sites
     drop_table :paths
     drop_table :inkling_role_memberhips    
     drop_table :inkling_roles

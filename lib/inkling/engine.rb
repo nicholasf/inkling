@@ -4,7 +4,6 @@ require "inkling/version"
 require "inkling/routing"
 require "devise"
 require 'devise/orm/active_record'
-require "mob"
 
 require "rails"
 require "better_nested_set"

@@ -4,7 +4,7 @@
 
   <%= render(:partial => "content_form", :locals => {:path => path}) %>
 
-  <%= link_to 'Public View', "/inkling" + path.path %>, 
+  <%= link_to 'Public View', "/inkling" + path.slug %>, 
   <%= link_to 'Show', polymorphic_path(path.content) %>, 
   <%= link_to 'Edit', edit_polymorphic_path(path.content) %>,  
   <%= link_to 'Delete', polymorphic_path(path.content), :method => :delete %> 

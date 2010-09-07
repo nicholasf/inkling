@@ -27,15 +27,13 @@ module Inkling
     module InstanceMethods
       #Creates a path to represent the ContentType instance; the path is used for routing, etc..
       def create_path
-        puts 1
         path = Inkling::Path.new
         path.content = self
-        puts 2
         path.save!
       end
       
       def update_path
-        self.path.update_path!
+        self.path.update_slug!
         self.path.save!
       end
     end

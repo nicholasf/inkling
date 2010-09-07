@@ -23,4 +23,8 @@ namespace :inkling do
     Inkling::Role.create!(:name => Inkling::Role::ADMIN)
     Rake::Task["inkling:default_admin"].execute
   end
+  
+  
+  desc "Runs specs and cukes."
+  task :megatest => [:environment, :spec, :cucumber]
 end

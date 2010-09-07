@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100906074915) do
+ActiveRecord::Schema.define(:version => 20100907065650) do
 
   create_table "foos", :force => true do |t|
     t.string "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20100906074915) do
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.string   "path"
+    t.string   "slug"
     t.integer  "content_id"
     t.string   "content_type"
     t.datetime "created_at"

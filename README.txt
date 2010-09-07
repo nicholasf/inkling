@@ -67,7 +67,12 @@ Go to the tree. Choose 'Page' from the drop down. Create the page, then visit it
 
 Running The Tests
 -----------------
+Inkling is an engine and needs a Rails application to execute its tests against. Tests (rspec examples and cucumber features) are kept in the top level engine directory, and symlinked into the testapp/spec and testapp/featured directories.
 
+To run the tests:
+
+cd testapp
+rake inkling:megatest #(a custom task which runs the environment, rspec, then features)
 
 
 EXTENDING INKLING

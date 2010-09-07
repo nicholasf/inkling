@@ -9,8 +9,8 @@ module Inkling
     belongs_to :content, :polymorphic => true
     has_many :permissions
 
-    before_validation :update_path!
-    validate :path_unique?
+    before_validation :update_slug!
+    validate :slug_unique?
 
 
     #called before adding a new child path to see if the content object restricts what it's path should nest
@@ -23,10 +23,10 @@ module Inkling
       end
     end
 
-    def update_path!
-      path = self.parent ? "#{self.parent.path}/" : "/"
-      path += "#{self.content.name}"
-      self.path = sluggerize(path)
+    def update_slug!
+      slug = self.parent ? "#{self.parent.slug}/" : "/"
+      slug += "#{self.content.name}"
+      self.slug = sluggerize(slug)
     end
 
     #stolen from enki
@@ -42,11 +42,11 @@ module Inkling
       slug
     end    
         
-    def path_unique?
-      pre_existing = Inkling::Path.find_by_path(self.path)
+    def slug_unique?
+      pre_existing = Inkling::Path.find_by_slug(self.slug)
 
       if pre_existing and (self.new_record? or (pre_existing.id != self.id))
-        self.errors.add("path (#{self.path}) already taken by another object in this website ")
+        self.errors.add("path (#{self.slug}) already taken by another object in this website ")
       end
     end
   end

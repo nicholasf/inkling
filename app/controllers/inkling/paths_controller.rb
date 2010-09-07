@@ -1,5 +1,5 @@
 class Inkling::PathsController < Inkling::BaseController
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   before_filter :get_root
 
@@ -16,11 +16,13 @@ class Inkling::PathsController < Inkling::BaseController
     child_id = params[:child]
     new_parent = Inkling::Path.find(new_parent_id)
     child = Inkling::Path.find(child_id)
-    new_parent.restricts?(child)
-    child.move_to_child_of new_parent
-    child.save
-    render :nothing => true
-    return
+    if new_parent.restricts?(child)
+      @msg = "A #{new_parent.path.content_type.constantize.friendly_name} is not allowed to be above a #{child.path.content_type.constantize.friendly_name}"
+    else
+      child.move_to_child_of new_parent
+      child.save
+      @msg = "Ok."
+    end
   end
 
   private

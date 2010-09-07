@@ -4,11 +4,7 @@ describe Inkling::Permission do
   let(:foo) {ContentTypes::Foo.create(:name => "1")}
   let(:user) {Inkling::User.create!(:email => "admin@localhost.com", :password => "test123", :password_confirmation => "test123")}  
 
-  it "should let an administrator have automatic manage permission over foo" do
-    # let(:admin_role) {Inkling::Role.create(:name => Inkling::Role::ADMIN)}
-    # let(:user) {Inkling::User.create!(:email => "admin@localhost.com", :password => "test123", :password_confirmation => "test123")}  
-    # let(:membership) {Inkling::RoleMembership.create!(:user => user, :role => admin_role)}
-    
+  it "should let an administrator have automatic manage permission over foo" do    
     create_role_and_membership(Inkling::Role::ADMIN, user)
 
     ability = Inkling::Ability.new(user)

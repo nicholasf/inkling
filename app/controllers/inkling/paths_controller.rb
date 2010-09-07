@@ -7,8 +7,6 @@ class Inkling::PathsController < Inkling::BaseController
     @content_types = Inkling::Content::Types.listed
     @content_types ||= []
     @path = Inkling::Path.new
-    # debugger
-    # puts "--"
   end
 
   def update_tree 
@@ -16,8 +14,9 @@ class Inkling::PathsController < Inkling::BaseController
     child_id = params[:child]
     new_parent = Inkling::Path.find(new_parent_id)
     child = Inkling::Path.find(child_id)
-    if new_parent.restricts?(child)
-      @msg = "A #{new_parent.path.content_type.constantize.friendly_name} is not allowed to be above a #{child.path.content_type.constantize.friendly_name}"
+    restriction = new_parent.restricts?(child)
+    if restriction[0]
+      @msg = restriction[1]
     else
       child.move_to_child_of new_parent
       child.save

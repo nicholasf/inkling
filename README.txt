@@ -1,8 +1,8 @@
 Inkling is a Content Framework for Rails 3, packaged as a Rails engine. It can be used to build knowledge management systems by leveraging Rails conventions.
 
 Inkling features:
-- An integrated, extensible dasbboard
-- Site categorization and object creation via a Content Tree.
+- extensible dasbboard
+- content tree.
 - 'acts_as_content' to incorporate standard ActiveRecord models as content types (for use in Content Tree). Controllers to CRUD your model and render it are loaded automatically by the system (following conventions)
 - Devise authentication
 
@@ -101,6 +101,21 @@ class Mp3sController < Inkling::BaseController; end
 The admin controller presumes CRUD methods (and routes) available for the model. The other controller is simply in charge
 of rendering, and relies upon the 'show' method being implemented. When Inkling receives a request for an mp3 which is situated
 in a folder somewhere in its site, it will call to the show method with an id.
+
+Your content type is automatically included in the Content Tree. If you wish to restrict what types of content can be placed directly beneath it,
+implement the restricts method on your content object.
+
+For example,
+
+class Acme::Mp3 < ActiveRecord::Base
+  acts_as_content 'mp3'
+  
+  def restricts(content)
+    unless content.is_a? Acme::MusicVideo
+      [true, "MP3s can only include Music Videos."]
+    end
+  end
+end
 
 
 Roles

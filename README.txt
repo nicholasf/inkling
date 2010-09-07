@@ -93,10 +93,16 @@ The string arg. is optional, but provides a friendly name to use in the admin UI
 
 * the model should have a name field, preferably a String. This is used to make it addressable in a URL by site categorization.
 
-Two controllers are presumed to exist:
+Two controllers are presumed to exist, one to let permitted users manage the object (CRUD):
 
-class Admin::Mp3sController < Admin::Inkling::BaseController; end
-class Mp3sController < Inkling::BaseController; end
+class Inkling::ContentTypes::Mp3sController < Inkling::BaseController
+end
+
+And another with a show method capable of rendering it:
+
+class Inkling::Mp3sController < Inkling::BaseController; end
+
+These namespaces are presumed to exist, although options may appear later for other namespaces.
 
 The admin controller presumes CRUD methods (and routes) available for the model. The other controller is simply in charge
 of rendering, and relies upon the 'show' method being implemented. When Inkling receives a request for an mp3 which is situated

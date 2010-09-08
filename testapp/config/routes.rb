@@ -2,6 +2,12 @@ Testapp::Application.routes.draw do |map|
   
   match 'home', :to => 'inkling/home#dashboard', :as => "user_root"
   
+  namespace :inkling do
+    namespace :content_types do
+      resources :pages
+    end    
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

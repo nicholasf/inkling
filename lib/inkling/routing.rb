@@ -9,7 +9,7 @@ module Inkling
 
       def matches?(request)
         path = request.path.gsub("/inkling", "")
-        matching_path = Inkling::Path.find_by_path(path)
+        matching_path = Inkling::Path.find_by_slug(path)
 
         if matching_path
           result = matching_path.content.is_a? @type.constantize

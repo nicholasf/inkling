@@ -72,6 +72,7 @@ Inkling is an engine and needs a Rails application to execute its tests against.
 To run the tests:
 
 cd testapp
+
 rake inkling:megatest #(a custom task which runs the environment, rspec, then features)
 
 

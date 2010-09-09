@@ -24,15 +24,15 @@ class CreateInklingTables < ActiveRecord::Migration
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
-      t.string :slug
+      t.string :slug, :null => false
       t.references :content, :polymorphic => true
       t.timestamps
     end    
     
     create_table :inkling_permissions do |t|
-      t.integer :path_id
-      t.integer :role_id
-      t.string :action
+      t.integer :content_type
+      t.integer :role_id, :null => false
+      t.string :action, :null => false
       t.timestamps
     end    
   end

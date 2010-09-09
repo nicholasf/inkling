@@ -17,5 +17,9 @@
     <td><%= link_to 'Content Types', inkling_admin_content_types_path %></td>
     <td><%= Inkling::Content::Types.listed.size %></td>
   </tr>
+  <tr>
+    <td><%= link_to 'Permissions', inkling_admin_permissions_path %></td>
+    <td><%= Inkling::Permission.all.size %></td>
+  </tr>
 </table>
 

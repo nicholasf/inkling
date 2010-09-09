@@ -1,0 +1,15 @@
+<% if @inkling_admin_permission.errors.any? %>
+    <h2><%= pluralize(@inkling_admin_permission.errors.count, "error") %> prohibited this permission from being saved:</h2>
+    <ul>
+    <% @inkling_admin_permission.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% semantic_form_for [@inkling_admin_permission] do |form| %>
+  
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>

@@ -1,0 +1,26 @@
+<%= semantic_form_for @inkling_admin_permission do |f| %>
+  <%= f.input :role, :as => :select %>
+  <%= f.input :content_type, :as => :select %>
+
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>
+
+
+<p/>
+<table id="permissions-table">
+  <tr>
+    <th>Action</th>
+    <th>Type</th>
+    <th>Role</th>
+  </tr>
+  <% for permission in @permissions %>
+    <tr>
+      <td><%= permission.action %></td>
+      <td><%= permission.content_type %></td>
+      <td><%= permission.role.name %></td>
+    </tr>  
+  <% end %>
+</table>
+

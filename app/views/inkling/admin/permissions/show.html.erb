@@ -1,0 +1,11 @@
+<table>
+<% @inkling_admin_permission.attributes.each do |a| %>
+  <tr>
+    <th><%= a[0] %></th>
+    <td><%= a[1] %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to "Edit", edit_polymorphic_path(@inkling_admin_permission) %></p>
+<p><%= link_to "Back", polymorphic_path(@inkling_admin_permission) %></p>

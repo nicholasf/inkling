@@ -19,7 +19,7 @@ Create a partial (_.+*_dashboard.+*) in your app and it will be automatically in
 
 Tree:
 
-A tree UI presents the arrangement of all types in the system, letting users drag and drop types, create news ones, edit them, etc..
+A tree UI presents the arrangement of all types in the system, letting users drag and drop inklings, create news ones, edit them, etc..
 
 Permissioning:
 

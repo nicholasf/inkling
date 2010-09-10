@@ -34,7 +34,9 @@ Workflow API: (coming)
 A simple default Workflow - draft -> publish - is included for most objects, but you can define your own and attach them to any inkling type.
 
 
-Inkling is still in beta. See the Roadmap: http://wiki.github.com/biv/inkling/roadmap.
+
+
+For more see the Development Guide (http://wiki.github.com/biv/inkling/developers-guide) and the Roadmap (http://wiki.github.com/biv/inkling/roadmap).
 
 
 The documentation below is a work in progress and will be revised at some point. The Installing advice is current.
@@ -112,7 +114,7 @@ To create a Content Type:
 * the model should act_as_content
 
 class Acme::Mp3 < ActiveRecord::Base
-  acts_as_content 'mp3'
+  acts_as_inkling 'mp3'
 end
 
 The string arg. is optional, but provides a friendly name to use in the admin UI - a content creator will have the option to create an
@@ -141,7 +143,7 @@ implement the restricts method on your content object.
 For example,
 
 class Acme::Mp3 < ActiveRecord::Base
-  acts_as_content 'mp3'
+  acts_as_inkling 'mp3'
   
   def restricts(content)
     unless content.is_a? Acme::MusicVideo

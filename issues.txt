@@ -37,7 +37,7 @@ TODO
 Inkling stories
 
 1. as a dev I have provided content type recognition
-1a. once prototyped, create class methods for models to become content - e.g acts_as_content
+1a. once prototyped, create class methods for models to become content - e.g acts_as_inkling
 
 2. As a dev I have provided CRUD permissioning which is stored by roles on folders.
 2a. As a dev I have CRUD for folders

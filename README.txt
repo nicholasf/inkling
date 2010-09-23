@@ -1,20 +1,43 @@
-Inkling is a Content Framework for Rails 3, packaged as a Rails engine. It can be used to build knowledge management systems by leveraging Rails conventions.
+What is an Inkling? Something polymorphous with ink on it. What is Inkling? A meta-home for such things.
 
-Inkling features:
-- extensible dasbboard
-- content tree.
-- 'acts_as_content' to incorporate standard ActiveRecord models as content types (for use in Content Tree). Controllers to CRUD your model and render it are loaded automatically by the system (following conventions)
-- Devise authentication
+Or, Inkling is a framework for Rails 3 providing a DSL and services for defining your own knowledge management system. It even has one of those - Inkling-CMS: http://github.com/biv/inkling-cms.
 
-Planned features:
-- security
-- workflows
-- versioning
+Feature Overview
+----------------
+
+Types:
+
+Have your own ActiveRecord object 'acts_as_inkling' and it will be included in the system with services like menuing, security, routing, workflows, and versioning.
+
+Namespacing:
+
+Because Inkling and its extensions are engines with sane namespacing, they'll work happily with other Ruby libraries which have things called Users or Permissions, etc.! All tables are namespaced - e.g. inkling_users - to avoid collision with other tables - e.g. the user table of an ecommerce app..
+
+Dashboard:
+
+Create a partial (_.+*_dashboard.+*) in your app and it will be automatically included in the dashboard. So you can extend the interface for your own users and integrate whatever you like.
+
+Tree:
+
+A tree UI presents the arrangement of all types in the system, letting users drag and drop inklings, create news ones, edit them, etc..
+
+Permissioning:
+
+There's one default role, the administrator, that can do everything. But you can create others, and give them permissions (to, say, create but not delete images). You can also create new permissions and new roles for your own extensions. (Inkling uses CanCan)
+
+Devise Authentication:
+
+The authentication system can be turned on or off (you would turn it off to integrate it within your own app's authentication). It uses Devise (see http://github.com/plataformatec/devise)
+
+Workflow API: (coming)
+
+A simple default Workflow - draft -> publish - is included for most objects, but you can define your own and attach them to any inkling type.
 
 
-Also see Inkling-CMS: http://github.com/biv/inkling-cms. Inkling-CMS is an engine which uses the Inkling library to provide standard CMS functionality.
 
-Inkling is in beta. See the Roadmap: http://wiki.github.com/biv/inkling/roadmap.
+
+For more see the Development Guide (http://wiki.github.com/biv/inkling/developers-guide) and the Roadmap (http://wiki.github.com/biv/inkling/roadmap).
+
 
 The documentation below is a work in progress and will be revised at some point. The Installing advice is current.
 
@@ -91,7 +114,7 @@ To create a Content Type:
 * the model should act_as_content
 
 class Acme::Mp3 < ActiveRecord::Base
-  acts_as_content 'mp3'
+  acts_as_inkling 'mp3'
 end
 
 The string arg. is optional, but provides a friendly name to use in the admin UI - a content creator will have the option to create an
@@ -120,7 +143,7 @@ implement the restricts method on your content object.
 For example,
 
 class Acme::Mp3 < ActiveRecord::Base
-  acts_as_content 'mp3'
+  acts_as_inkling 'mp3'
   
   def restricts(content)
     unless content.is_a? Acme::MusicVideo

@@ -10,17 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100907065650) do
+ActiveRecord::Schema.define(:version => 20100927065121) do
 
-  create_table "foos", :force => true do |t|
-    t.string "name"
+  create_table "inkling_can_can_actions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "inkling_paths", :force => true do |t|
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.string   "slug"
+    t.string   "slug",         :null => false
     t.integer  "content_id"
     t.string   "content_type"
     t.datetime "created_at"
@@ -28,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20100907065650) do
   end
 
   create_table "inkling_permissions", :force => true do |t|
-    t.integer  "path_id"
-    t.integer  "role_id"
-    t.string   "action"
+    t.integer  "type_id"
+    t.integer  "role_id",           :null => false
+    t.integer  "can_can_action_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,6 +44,12 @@ ActiveRecord::Schema.define(:version => 20100907065650) do
 
   create_table "inkling_roles", :force => true do |t|
     t.string   "name",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inkling_types", :force => true do |t|
+    t.string   "class_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

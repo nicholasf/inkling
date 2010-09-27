@@ -1,5 +1,5 @@
 require "inkling"
-require "inkling/content"
+require "inkling/types"
 require "inkling/version"
 require "inkling/routing"
 require 'cancan'

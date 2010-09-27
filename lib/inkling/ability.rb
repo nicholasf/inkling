@@ -13,3 +13,9 @@ class Inkling::Ability
     end
   end
 end
+
+# for role in user.roles
+#   for permission in role.permissions
+#     can permission.action.to_sym, permission.content_type.constantize
+#   end
+# end

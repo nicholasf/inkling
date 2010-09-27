@@ -1,4 +1,4 @@
-What is an Inkling? Something polymorphous with ink on it. What is Inkling? A meta-home for such things.
+What is an Inkling? Something polymorphous with ink on it. What is Inkling? A framework for managing objects with information.
 
 Or, Inkling is a framework for Rails 3 providing a DSL and services for defining your own knowledge management system. It even has one of those - Inkling-CMS: http://github.com/biv/inkling-cms.
 
@@ -7,7 +7,7 @@ Feature Overview
 
 Types:
 
-Have your own ActiveRecord object 'acts_as_inkling' and it will be included in the system with services like menuing, security, routing, workflows, and versioning.
+Have your own ActiveRecord object 'acts_as_content' and it will be included in the system with services like menuing, security, routing, workflows, and versioning.
 
 Namespacing:
 
@@ -105,7 +105,7 @@ EXTENDING INKLING
 
 Content Type
 ------------
-For an example of a content type, see inkling_content or Inkling::Foo (in this project).
+For an example of a content type, see inkling-cms or Inkling::Foo (in this project).
 
 A generator for content types will be built at some stage, in the meantime, CTs follow some norms in Rails.
 
@@ -114,7 +114,7 @@ To create a Content Type:
 * the model should act_as_content
 
 class Acme::Mp3 < ActiveRecord::Base
-  acts_as_inkling 'mp3'
+  acts_as_content 'mp3'
 end
 
 The string arg. is optional, but provides a friendly name to use in the admin UI - a content creator will have the option to create an

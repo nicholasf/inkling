@@ -1,2 +1,2 @@
-ActiveRecord::Base.send :include, Inkling::Content::ActsAs
+ActiveRecord::Base.send :include, Inkling::Types::ActsAs
 

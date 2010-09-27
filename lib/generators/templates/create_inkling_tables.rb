@@ -30,7 +30,7 @@ class CreateInklingTables < ActiveRecord::Migration
     end    
     
     create_table :inkling_types do |t|
-      t.string :class_name
+      t.string :klass_name
       t.timestamps
     end    
     

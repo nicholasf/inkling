@@ -6,7 +6,7 @@ module Inkling
       end
 
       module ClassMethods
-        def acts_as_type(friendly_name = self.class.name)
+        def acts_as_inkling_type(friendly_name = self.class.name)
 
           Inkling::Types::Register(self)
           cattr_accessor :friendly_name

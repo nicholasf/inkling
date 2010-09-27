@@ -3,5 +3,5 @@ class Inkling::Permission < ActiveRecord::Base
   
   belongs_to :role
   belongs_to :can_can_action
-  belongs_to :content_type  
+  belongs_to :type  
 end

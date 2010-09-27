@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100927065121) do
+ActiveRecord::Schema.define(:version => 20100927085213) do
 
   create_table "inkling_can_can_actions", :force => true do |t|
     t.string   "name"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20100927065121) do
   end
 
   create_table "inkling_types", :force => true do |t|
-    t.string   "class_name"
+    t.string   "klass_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

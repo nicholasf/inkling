@@ -1,7 +1,7 @@
 namespace :inkling do
 
-  desc "Triggers db:migrate:reset and inkling:init"
-  task :rebuild => ["inkling:destroy_migrations", "inkling:generate", "db:migrate:reset", "inkling:init"]
+  desc "Hard reset (caveat raker). Destroys db, recreates it, regenerates all migrations, migrates, and initializes with inkling data"
+  task :rebuild => ["inkling:destroy_migrations", "inkling:generate", "db:drop", "db:create", "db:migrate", "inkling:init"]
 
   task :destroy_migrations do 
     system("rm -rf db/migrate/*")

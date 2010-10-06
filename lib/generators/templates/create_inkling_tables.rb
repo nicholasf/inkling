@@ -46,11 +46,18 @@ class CreateInklingTables < ActiveRecord::Migration
       t.timestamps
     end    
 
-    create_table :inkling_logs do |t|
-      t.string :actor, :null => false
-      t.integer :can_can_action_id
+    create_table :inkling_themes do |t|
+      t.string :name, :null => false
+      t.text :body
+      t.string :extension, :null => false, :default => ".html.erb"
       t.timestamps
     end    
+
+    # create_table :inkling_logs do |t|
+    #   t.string :actor, :null => false
+    #   t.integer :can_can_action_id
+    #   t.timestamps
+    # end    
 
   end
 

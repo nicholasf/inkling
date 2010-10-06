@@ -45,6 +45,13 @@ class CreateInklingTables < ActiveRecord::Migration
       t.integer :can_can_action_id
       t.timestamps
     end    
+
+    create_table :inkling_logs do |t|
+      t.string :actor, :null => false
+      t.integer :can_can_action_id
+      t.timestamps
+    end    
+
   end
 
   def self.down

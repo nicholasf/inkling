@@ -1,0 +1,12 @@
+Content Types installed: <%= Inkling::Types::Register.listed.size %> 
+<p>
+
+<% for type in Inkling::Types::Register.listed %>
+  <%= type.friendly_name %> - <%= type %> <br/>
+<% end %>
+
+<p>
+  
+Paths: <%= Inkling::Path.all.size %>
+
+<p>

@@ -29,16 +29,35 @@ class CreateInklingTables < ActiveRecord::Migration
       t.timestamps
     end    
     
-    create_table :inkling_permissions do |t|
-      t.integer :content_type
-      t.integer :role_id, :null => false
-      t.string :action, :null => false
+    create_table :inkling_types do |t|
+      t.string :klass_name
       t.timestamps
     end    
+    
+    create_table :inkling_can_can_actions do |t|
+      t.string :name
+      t.timestamps
+    end    
+    
+    create_table :inkling_permissions do |t|
+      t.integer :type_id
+      t.integer :role_id, :null => false
+      t.integer :can_can_action_id
+      t.timestamps
+    end    
+
+    create_table :inkling_logs do |t|
+      t.string :actor, :null => false
+      t.integer :can_can_action_id
+      t.timestamps
+    end    
+
   end
 
   def self.down
     drop_table :inkling_paths
+    drop_table :inkling_can_can_actions
+    drop_table :inkling_types    
     drop_table :inkling_permissions
     drop_table :inkling_role_memberhips    
     drop_table :inkling_roles

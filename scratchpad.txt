@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- <span <%= "id='content-form-#{path.id}' style='display:none, inline'" if path %> > -->
 	<%= form_tag(inkling_proxy_new_path, :class => "tree-form") do %>
 	    <%= select_tag(:content_type,
@@ -6,4 +7,32 @@
 	<% end %>
 <!-- </span> -->
 
+=======
+Milestones
+
+0 - 20%
+
+1 - 25%
+
+2 - 20%
+
+3 - 20%
+
+4 - 15%
+
+
+--
+
+idea for defining permissions.
+
+can permission_action content_type
+
+
+
+tables: permission_actions, content_types, roles, permissions
+
+permissions:
+
+permission_action_id, content_type_id, role_id
+>>>>>>> f5361c41e2af3727fa6a133c73b863d8da7f0968
 

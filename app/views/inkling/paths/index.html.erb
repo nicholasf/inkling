@@ -1,6 +1,12 @@
 <div id="tree-message"></div>
 
-<%= render(:partial => "content_form") unless @content_types.empty? %> (Add top level content)
+<div id="content-form">
+  <% unless @content_types.empty? %>
+    <%= render(:partial => "content_form") %> (Add top level content)
+  <% else %>
+    There are no Inkling Types loaded.
+  <% end %>
+</div>
 
 <p>  
 <ul id="tag-tree">

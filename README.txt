@@ -105,52 +105,6 @@ EXTENDING INKLING
 
 Content Type
 ------------
-For an example of a content type, see inkling_content or Inkling::Foo (in this project).
-
-A generator for content types will be built at some stage, in the meantime, CTs follow some norms in Rails.
-
-To create a Content Type:
-
-* the model should act_as_content
-
-class Acme::Mp3 < ActiveRecord::Base
-  acts_as_inkling 'mp3'
-end
-
-The string arg. is optional, but provides a friendly name to use in the admin UI - a content creator will have the option to create an
-'mp3'and not an 'Acme::Mp3'.
-
-* the model should have a name field, preferably a String. This is used to make it addressable in a URL by site categorization.
-
-Two controllers are presumed to exist, one to let permitted users manage the object (CRUD):
-
-class Inkling::ContentTypes::Mp3sController < Inkling::BaseController
-end
-
-And another with a show method capable of rendering it:
-
-class Inkling::Mp3sController < Inkling::BaseController; end
-
-These namespaces are presumed to exist, although options may appear later for other namespaces.
-
-The admin controller presumes CRUD methods (and routes) available for the model. The other controller is simply in charge
-of rendering, and relies upon the 'show' method being implemented. When Inkling receives a request for an mp3 which is situated
-in a folder somewhere in its site, it will call to the show method with an id.
-
-Your content type is automatically included in the Content Tree. If you wish to restrict what types of content can be placed directly beneath it,
-implement the restricts method on your content object.
-
-For example,
-
-class Acme::Mp3 < ActiveRecord::Base
-  acts_as_inkling 'mp3'
-  
-  def restricts(content)
-    unless content.is_a? Acme::MusicVideo
-      [true, "MP3s can only include Music Videos."]
-    end
-  end
-end
 
 
 Roles

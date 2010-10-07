@@ -6,9 +6,9 @@ module Inkling
       end
 
       module ClassMethods
-        def acts_as_inkling_type(friendly_name = self.class.name)
+        def acts_as_inkling(friendly_name = self.class.name)
 
-          Inkling::Types::Register(self)
+          Inkling::Types::Register.register(self)
           cattr_accessor :friendly_name
           self.friendly_name = (friendly_name or self)
           has_one :path, :as => :content, :dependent => :destroy, :class_name => "Inkling::Path"

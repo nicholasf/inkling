@@ -11,9 +11,11 @@ require "rails"
 require "better_nested_set"
 
 module Inkling
+  MIGRATIONS = [['create_inkling_tables.rb', 'db/migrate/create_inkling_tables.rb']]
+
   class Engine < Rails::Engine
-    config.inkling = Inkling    
-    
+    config.inkling = Inkling
+        
     initializer "static assets" do |app|
       app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
     end

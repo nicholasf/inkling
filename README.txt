@@ -7,7 +7,7 @@ Feature Overview
 
 Types:
 
-Have your own ActiveRecord object 'acts_as_content' and it will be included in the system with services like menuing, security, routing, workflows, and versioning.
+ActiveRecord objects can be adopted by the framework. Define your ActiveRecord with 'act_as_inkling' and it will be included in the system with menuing, security, routing, workflows.
 
 Namespacing:
 

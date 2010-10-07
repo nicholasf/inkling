@@ -1,4 +1,4 @@
-Inkling is a framework for Rails 3 providing a DSL and services for defining your own knowledge management system. 
+Inkling is a Rails 3 framework providing a DSL for defining your own knowledge management system. 
 
 For an example implementation (CMS) see Glossy: http://github.com/biv/glossy
 

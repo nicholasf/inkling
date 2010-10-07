@@ -1,6 +1,6 @@
-What is an Inkling? Something polymorphous with ink on it. What is Inkling? A framework for managing objects with information.
+Inkling is a framework for Rails 3 providing a DSL and services for defining your own knowledge management system. 
 
-Or, Inkling is a framework for Rails 3 providing a DSL and services for defining your own knowledge management system. It even has one of those - Inkling-CMS: http://github.com/biv/inkling-cms.
+For an example implementation (CMS) see Glossy: http://github.com/biv/glossy
 
 Feature Overview
 ----------------

@@ -10,8 +10,9 @@ class Inkling::Theme < ActiveRecord::Base
   after_save :write_file
   after_destroy :delete_file
   
-  @@inkling_path = "tmp/inkling/"
-  @@theme_path = "#{@@inkling_path}themes/"
+  INKLING_TMP = "tmp/inkling/"
+  INKLING_THEMES = "#{INKLING_TMP}themes/"
+  INKLING_THEME_LAYOUTS = "#{INKLING_THEMES}layouts/"
   
   @@default = <<-DEFAULT
 <html>
@@ -57,22 +58,23 @@ class Inkling::Theme < ActiveRecord::Base
     end
     Inkling::Theme.first
   end
-  
-  # def self.site_file
-  #   
-  # end
+
+  def self.site_theme_file
+    "#{INKLING_THEME_LAYOUTS}#{self.site.file_name}"
+  end
     
   def write_file
-    File.open("#{@@theme_path}#{self.file_name}", "w") {|f| f.write(self.body)}
+    File.open("#{INKLING_THEME_LAYOUTS}#{self.file_name}", "w") {|f| f.write(self.body)}
   end
   
   def check_init
-    mkdir(@@inkling_path) unless File.exist?(@@inkling_path)
-    mkdir("#{@@theme_path}") unless File.exist?("#{@@theme_path}") 
+    mkdir(INKLING_TMP) unless File.exist?(INKLING_TMP)
+    mkdir("#{INKLING_THEMES}") unless File.exist?("#{INKLING_THEMES}") 
+    mkdir("#{INKLING_THEME_LAYOUTS}") unless File.exist?("#{INKLING_THEME_LAYOUTS}") 
   end
   
   def delete_file
-    rm("#{@@theme_path}#{self.file_name}")
+    rm("#{INKLING_THEME_LAYOUTS}#{self.file_name}")
   end
   
   def file_name

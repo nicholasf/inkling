@@ -11,7 +11,7 @@ begin
     gem.add_dependency("inherited_resources")
     gem.add_dependency("formtastic")
     gem.add_dependency("cancan")    
-    gem.add_dependency("differ")    
+    # gem.add_dependency("differ")    
   end
 rescue
   puts "Jeweler or one of its dependencies is not installed."

@@ -1,5 +1,4 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-require 'differ'
 
 describe Inkling::Theme do
   
@@ -58,5 +57,10 @@ describe Inkling::Theme do
       word.should == file_words[i]
       i += 1
     end
+  end
+  
+  it "should delete the file when the theme model is deleted" do
+    theme.destroy
+    File.exist?("tmp/inkling/themes/#{theme.file_name}").should be_false  
   end
 end

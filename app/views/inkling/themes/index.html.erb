@@ -1,0 +1,11 @@
+<%= link_to "Add theme", new_inkling_theme_path %> 
+
+<p>
+
+Themes: <%= @themes.size %>
+
+<p>
+  
+<% for theme in @themes %>
+  <%= theme.name %> <br/>
+<% end %>

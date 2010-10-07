@@ -1,0 +1,17 @@
+<% if resource.errors.any? %>
+    <h2><%= pluralize(resource.errors.count, "error") %> stopped this theme from being saved:</h2>
+    <ul>
+    <% resource.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% semantic_form_for [resource] do |form| %>
+  <%= form.input :name %>
+    <%= form.input :body, :input_html => { :class => 'autogrow' } %>
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>
+

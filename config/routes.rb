@@ -1,6 +1,6 @@
 Rails.application.routes.draw do |map|
   namespace :inkling do
-    resources :paths
+    resources :paths, :themes
     match 'update_tree' => 'paths#update_tree', :as => :update_tree    
     match 'proxy_new' => 'proxying#new', :as => :proxy_new
 

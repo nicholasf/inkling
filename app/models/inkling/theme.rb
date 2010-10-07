@@ -10,7 +10,8 @@ class Inkling::Theme < ActiveRecord::Base
   after_save :write_file
   after_destroy :delete_file
   
-  @@path = "tmp/inkling/themes/"
+  @@inkling_path = "tmp/inkling/"
+  @@theme_path = "#{@@inkling_path}themes/"
   
   @@default = <<-DEFAULT
 <html>
@@ -56,18 +57,22 @@ class Inkling::Theme < ActiveRecord::Base
     end
     Inkling::Theme.first
   end
+  
+  # def self.site_file
+  #   
+  # end
     
   def write_file
-    File.open("#{@@path}#{self.file_name}", "w") {|f| f.write(self.body)}
+    File.open("#{@@theme_path}#{self.file_name}", "w") {|f| f.write(self.body)}
   end
   
   def check_init
-    mkdir(@@path) unless File.exist?(@@path)
-    mkdir("#{@@path}themes") unless File.exist?("#{@@path}themes") 
+    mkdir(@@inkling_path) unless File.exist?(@@inkling_path)
+    mkdir("#{@@theme_path}") unless File.exist?("#{@@theme_path}") 
   end
   
   def delete_file
-    rm("#{@@path}#{self.file_name}")
+    rm("#{@@theme_path}#{self.file_name}")
   end
   
   def file_name

@@ -14,12 +14,6 @@ class InklingGenerator < Rails::Generators::Base
   end
 
   def create_migration_file
-    #this file should be lifted to class level, and other engines should be able to hook their migrations into it.
-    
-    # inkling_migrations = [['create_inkling_tables.rb', 'db/migrate/create_inkling_tables.rb']]
-    # migration_template 'create_inkling_tables.rb', 'db/migrate/create_inkling_tables.rb'
-    for migration in Inkling::MIGRATIONS
-      migration_template migration[0], migration[1]
-    end    
+    migration_template 'create_inkling_tables.rb', 'db/migrate/create_inkling_tables.rb'
   end
 end

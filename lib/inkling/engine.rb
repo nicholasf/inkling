@@ -11,8 +11,11 @@ require "rails"
 require "better_nested_set"
 
 module Inkling
-  MIGRATIONS = [['create_inkling_tables.rb', 'db/migrate/create_inkling_tables.rb']]
-
+  TMP_DIR = "tmp/inkling/"
+  THEMES_DIR = "#{TMP_DIR}themes/"
+  THEME_LAYOUTS_DIR = "#{THEMES_DIR}layouts/"
+  BOOTSTRAP_TASKS = []
+  
   class Engine < Rails::Engine
     config.inkling = Inkling
         

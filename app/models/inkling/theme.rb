@@ -2,18 +2,14 @@
 
 class Inkling::Theme < ActiveRecord::Base
   include FileUtils
-  set_table_name "inkling_themes"
+  set_table_name "Inkling::THEMES_DIR"
 
   validates_uniqueness_of :name
   
   after_save :check_init
   after_save :write_file
   after_destroy :delete_file
-  
-  INKLING_TMP = "tmp/inkling/"
-  INKLING_THEMES = "#{INKLING_TMP}themes/"
-  INKLING_THEME_LAYOUTS = "#{INKLING_THEMES}layouts/"
-  
+    
   @@default = <<-DEFAULT
 <html>
 <head>
@@ -60,21 +56,21 @@ class Inkling::Theme < ActiveRecord::Base
   end
 
   def self.site_theme_file
-    "#{INKLING_THEME_LAYOUTS}#{self.site.file_name}"
+    "#{Inkling::THEME_LAYOUTS_DIR}#{self.site.file_name}"
   end
     
   def write_file
-    File.open("#{INKLING_THEME_LAYOUTS}#{self.file_name}", "w") {|f| f.write(self.body)}
+    File.open("#{Inkling::THEME_LAYOUTS_DIR}#{self.file_name}", "w") {|f| f.write(self.body)}
   end
   
   def check_init
-    mkdir(INKLING_TMP) unless File.exist?(INKLING_TMP)
-    mkdir("#{INKLING_THEMES}") unless File.exist?("#{INKLING_THEMES}") 
-    mkdir("#{INKLING_THEME_LAYOUTS}") unless File.exist?("#{INKLING_THEME_LAYOUTS}") 
+    mkdir(INKLING::TMP_DIR) unless File.exist?(INKLING::TMP_DIR)
+    mkdir("#{Inkling::THEMES_DIR}") unless File.exist?("#{Inkling::THEMES_DIR}") 
+    mkdir("#{Inkling::THEME_LAYOUTS_DIR}") unless File.exist?("#{Inkling::THEME_LAYOUTS_DIR}") 
   end
   
   def delete_file
-    rm("#{INKLING_THEME_LAYOUTS}#{self.file_name}")
+    rm("#{Inkling::THEME_LAYOUTS_DIR}#{self.file_name}")
   end
   
   def file_name

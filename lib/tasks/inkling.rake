@@ -1,16 +1,31 @@
+require 'ruby-debug'
+
 namespace :inkling do
 
-  desc "Hard reset (caveat raker). Destroys db, recreates it, regenerates all migrations, migrates, and initializes with inkling data"
-  task :rebuild => ["inkling:destroy_migrations", "inkling:generate", "db:drop", "db:create", "db:migrate", "inkling:init"]
+  desc "Boostraps (calls generators, creates databases, runs migrations, seeds the database) Inkling"
+  task :bootstrap => ["environment", "inkling:generate", "inkling:run_bootstrap_tasks", "db:create", "db:migrate", "inkling:init"]
 
+  desc "Wipes migrations dir Hard reset (caveat raker), then bootstrap. Destroys db, recreates it, regenerates all migrations, migrates, and initializes with inkling data"
+  task :rebuild => ["environment", "inkling:destroy_migrations", "db:drop", "inkling:bootstrap"]
+
+
+  desc "Runs system('rm -rf db/migrate/*')"
   task :destroy_migrations do 
     system("rm -rf db/migrate/*")
   end
   
+  
+  desc "Runs system('rails generate inkling')"
   task :generate do
     system("rails generate inkling")    
   end
-
+  
+  desc "Iterates through array Inkling::REBUILD_TASKS and executes each task it finds (useful to add your bootstrap sequence to inkling:rebuild)"
+  task :run_bootstrap_tasks do
+    for task in Inkling::BOOTSTRAP_TASKS
+      Rake::Task[task].execute
+    end
+  end
 
   desc "Create a default user with login 'admin' and password 'admin'"
   task :default_admin => [:environment] do

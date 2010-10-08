@@ -64,7 +64,7 @@ class Inkling::Theme < ActiveRecord::Base
   end
   
   def check_init
-    mkdir(INKLING::TMP_DIR) unless File.exist?(INKLING::TMP_DIR)
+    mkdir(Inkling::TMP_DIR) unless File.exist?(Inkling::TMP_DIR)
     mkdir("#{Inkling::THEMES_DIR}") unless File.exist?("#{Inkling::THEMES_DIR}") 
     mkdir("#{Inkling::THEME_LAYOUTS_DIR}") unless File.exist?("#{Inkling::THEME_LAYOUTS_DIR}") 
   end

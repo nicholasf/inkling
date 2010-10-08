@@ -42,15 +42,7 @@ namespace :inkling do
   end
   
   task :welcome_msg do
-    msg = <<-MSG
-
-Inkling has been bootstrapped at #{Time.now}. Welcome!
-
-Start the server ('rails server') then visit http://localhost:3000/inkling/users/sign_in
-
-    MSG
-    
-    puts msg
+    puts Inkling::WELCOME_MSG
   end
   
   desc "Runs specs and cukes."

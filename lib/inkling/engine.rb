@@ -23,4 +23,13 @@ module Inkling
       app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
     end
   end
+  
+  WELCOME_MSG = <<-MSG
+
+Welcome!
+Inkling was bootstrapped at #{Time.now}.
+Start the server ('rails server') then visit http://localhost:3000/inkling/users/sign_in. 
+Use the default admin account admin@localhost.com/test123.
+
+  MSG
 end

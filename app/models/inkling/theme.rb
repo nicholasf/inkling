@@ -2,7 +2,7 @@
 
 class Inkling::Theme < ActiveRecord::Base
   include FileUtils
-  set_table_name "Inkling::THEMES_DIR"
+  set_table_name "inkling_themes"
 
   validates_uniqueness_of :name
   

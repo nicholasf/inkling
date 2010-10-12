@@ -29,10 +29,8 @@ class Inkling::HomeController < Inkling::BaseController
     partials = []
     for path in application.paths.app.views
       if path =~ /views/
-        puts " -------- #{path} ---------"
   	    if File.exist?("#{path}/inkling/home/")
   		    for entry in Dir.entries("#{path}/inkling/home/")
-  		      puts "*** #{entry} ****"
   			    if entry =~ /_dashboard\./
   				    partials << "#{path}/inkling/home/#{entry}"		
   			    end

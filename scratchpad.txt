@@ -36,3 +36,32 @@ permissions:
 permission_action_id, content_type_id, role_id
 >>>>>>> f5361c41e2af3727fa6a133c73b863d8da7f0968
 
+
+Project: Error Mirror / Divide the Problem Space
+
+Problem
+---
+Error messages are often underutilized and unshared. Programmers often struggle to share this sort of information.
+
+If you encounter a strange error you often follow these steps:
+
+1. Google it.
+
+2. Hunt down various web pages linked via google - to lighthouse or wherever.
+
+3. Ask a teammate, etc..
+
+4. Debug.
+ 
+
+Solution
+---
+
+Instead of this you should be able to push your error info to a central service and have it tell you about it (if it can). Are other devs elsewhere battling the same problem at the same time? etc.
+
+There could be trending errors. Errors linking back to lighthouse. Error statistics (which library in the entire ruby space has attracted the most errors?!), etc..
+
+
+Plan
+---
+We'd need to think about statistics, how to use error info in a social way. There are some very strange errors floating around in the rails space, and thinking of fun ways to classify errors would be great.

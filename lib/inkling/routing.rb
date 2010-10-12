@@ -3,12 +3,13 @@ module Inkling
     class ContentTypeConstraint
       attr_accessor :type
 
-      def initialize(type)
+      def initialize(prefix = nil, type)
         @type = type
+        @prefix = prefix
       end
 
       def matches?(request)
-        path = request.path.gsub("/inkling", "")
+        path = request.path.gsub(@prefix, "") if @prefix
         matching_path = Inkling::Path.find_by_slug(path)
 
         if matching_path

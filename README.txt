@@ -44,47 +44,17 @@ Installing
 
 Some quick instructions for setting up Inkling and Inkling-CMS to get an idea of what's being built.
 
-Clone inkling and inkling-cms.
+Clone inkling.
 
 Go into inkling, run 'bundle install' (you'll need Ruby 1.9.x).
 
-rake install
-
-
-Go into inkling-cms, run 'bundle install' (you'll need Ruby 1.9.x).
-rake install (take note of the route the installation doc tells you that you need to add)
-
 cd testapp
-
-edit the Gemfile and add the database gem you wish to use, e.g. sqlite.
-
-bundle install
-
-rails generate inkling
 
 Configure your config/database.yml with a database for the test app. 
 
-rake db:migrate 
+rake install
 
-rake inkling:init
-
-Add this to the config/routes.rb in testapp
-
-  match 'home', :to => 'inkling/home#dashboard', :as => "user_root"  
-
-Then run
-
-rails server
-
-And visit
-
-http://localhost:3000/inkling/user/sign_in
-
-Email: admin@localhost.com
-pass: test123
-
-Go to the tree. Choose 'Page' from the drop down. Create the page, then visit it's public URL. 
-
+rake inkling:bootstrap
 
 Running The Tests
 -----------------

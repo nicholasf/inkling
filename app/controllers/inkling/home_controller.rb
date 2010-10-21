@@ -1,7 +1,6 @@
 class Inkling::HomeController < Inkling::BaseController
 
-  layout 'glossy/manage'
-  # before_filter :current_user
+  layout 'inkling/manage'
   helper_method :dashboard_partials
     
   # protected

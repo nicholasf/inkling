@@ -9,7 +9,7 @@ Have your own ActiveRecord object 'acts_as_content' and it will be included in t
 
 Namespacing:
 
-Because Inkling and its extensions are engines with sane namespacing, they'll work happily with other Ruby libraries which have things called Users or Permissions, etc.! All tables are namespaced - e.g. inkling_users - to avoid collision with other tables - e.g. the user table of an ecommerce app..
+Because Inkling and its extensions are engines with sane namespacing, they'll work happily with other Ruby libraries which have things called Users or Permissions, etc.. All tables are namespaced - e.g. inkling_users - to avoid collision with other tables - e.g. the user table of an ecommerce app..
 
 Dashboard:
 

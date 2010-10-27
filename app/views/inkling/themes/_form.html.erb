@@ -9,7 +9,7 @@
 
 <% semantic_form_for [resource] do |form| %>
   <%= form.input :name %>
-    <%= form.input :body, :input_html => { :class => 'autogrow' } %>
+    <%= form.input :body, :input_html => {:cols => 200, :rows => 60} %>
   <% form.buttons do %>
     <%= form.commit_button %>
   <% end %>

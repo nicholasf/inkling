@@ -9,7 +9,7 @@ module Inkling
       end
 
       def matches?(request)
-        path = request.path.gsub(@prefix, "") if @prefix
+        path = @prefix.nil? ? request.path : request.path.gsub(@prefix, "")
         matching_path = Inkling::Path.find_by_slug(path)
 
         if matching_path

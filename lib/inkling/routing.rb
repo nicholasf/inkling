@@ -1,9 +1,9 @@
 module Inkling
   module Routing
-    class ContentTypeConstraint
+    class TypeConstraint
       attr_accessor :type
 
-      def initialize(prefix = nil, type)
+      def initialize(type, prefix = nil)
         @type = type
         @prefix = prefix
       end

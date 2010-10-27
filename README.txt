@@ -56,6 +56,19 @@ rake install
 
 rake inkling:bootstrap
 
+
+Implementing your own System
+----------------------------
+
+1) Define themes.
+
+The administrator account will always be able to see the Inkling administrator layout, which contains configuration information. To implement a system, you must define two themes:
+
+The management theme - this is the layout backend users will see when they use your system.
+The content theme - this is the theme public visitors will see when they look at content.
+
+
+
 Running The Tests
 -----------------
 Inkling is an engine and needs a Rails application to execute its tests against. Tests (rspec examples and cucumber features) are kept in the top level engine directory, and symlinked into the testapp/spec and testapp/featured directories.

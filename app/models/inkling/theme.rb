@@ -9,50 +9,45 @@ class Inkling::Theme < ActiveRecord::Base
   after_save :check_init
   after_save :write_file
   after_destroy :delete_file
-    
-  @@default = <<-DEFAULT
-<html>
-<head>
-  <title>Inkling</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-</head>
-<body>
 
+    @@default_content = <<-DEFAULT
+  <html>
+  <head>
+    <title>Your Inkling CMS</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+  </head>
+  <body>
 
-<div id="header">
-	<div id="logo">
-		<h1><%= link_to 'Inkling', inkling_user_root_path %></h1>
-	</div>
-	<div id="tabs">
-		<%= link_to 'Home', inkling_user_root_path %> | <%= link_to 'Tree', inkling_paths_path %>
-	</div>
-</div>
+  This is the default theme for public users to view content on your site. <br/>
+  
+  An administrator should log into Inkling Administration and configure the 'content' theme. <br/>
 
-<div class="notice"><%= notice %></div>
-<div class="alert"><%= alert %></div>
+  <div class="notice"><%= notice %></div>
+  <div class="alert"><%= alert %></div>
 
-<div id="page">
-  <div id="main">
-      <%= yield %> 
+  <div id="page">
+    <div id="main">
+        <%= yield %> 
+    </div>
   </div>
-</div>
 
-<div id="footer">
-  <span id="version" align='center'>Inkling version <%= Inkling::VERSION %></span>
-</div>
+  <div id="footer">
+    <span id="version" align='center'>Inkling version <%= Inkling::VERSION %></span>
+  </div>
 
 
-</body>
-</html>
-    DEFAULT
- 
-  def self.site
-    if Inkling::Theme.all.empty?
-      @@theme = self.create!(:name => "site", :body => @@default)
+  </body>
+  </html>
+      DEFAULT
+
+  def self.content
+    if Inkling::Theme.find_by_name("content").nil?
+      self.create!(:name => "content", :body =>  @@default_content)
     end
-    Inkling::Theme.first
+    
+    Inkling::Theme.find_by_name("content")
   end
 
   def self.site_theme_file

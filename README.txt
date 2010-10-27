@@ -5,11 +5,11 @@ Feature Overview
 
 Types:
 
-Have your own ActiveRecord object 'acts_as_content' and it will be included in the system with services like menuing, security, routing, workflows, and versioning.
+ActiveRecord objects can be adopted by the framework. Define your ActiveRecord with 'act_as_inkling' and it will be included in the system with menuing, security, routing, workflows.
 
 Namespacing:
 
-Because Inkling and its extensions are engines with sane namespacing, they'll work happily with other Ruby libraries which have things called Users or Permissions, etc.. All tables are namespaced - e.g. inkling_users - to avoid collision with other tables - e.g. the user table of an ecommerce app..
+All tables are namespaced - e.g. inkling_users - to avoid collision with other tables - e.g. the user table of an ecommerce app..
 
 Dashboard:
 

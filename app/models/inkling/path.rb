@@ -1,10 +1,11 @@
 require 'better_nested_set'
 
 module Inkling
+  
+  #an associated object which tracks all the relative URL paths to content in the system
+  
   class Path < ActiveRecord::Base
-    include SymetrieCom::Acts::NestedSet
     set_table_name 'inkling_paths'
-    acts_as_nested_set
     
     belongs_to :content, :polymorphic => true
     has_many :permissions

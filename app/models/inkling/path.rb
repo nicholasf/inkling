@@ -1,14 +1,14 @@
-require 'better_nested_set'
 
-module Inkling
-  
+module Inkling  
   #an associated object which tracks all the relative URL paths to content in the system
   
   class Path < ActiveRecord::Base
-    set_table_name 'inkling_paths'
+    set_table_name :inkling_paths
     
     belongs_to :content, :polymorphic => true
     has_many :permissions
+    belongs_to :parent, :class_name => "Path"
+    has_many :children, :class_name => "Path", :foreign_key => "parent_id"
 
     before_validation :update_slug!
     validate :slug_unique?
@@ -26,7 +26,7 @@ module Inkling
 
     def update_slug!
       slug = self.parent ? "#{self.parent.slug}/" : "/"
-      slug += "#{self.content.name}"
+      slug += "#{self.content.title}"
       self.slug = sluggerize(slug)
     end
 

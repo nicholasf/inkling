@@ -1,3 +1,4 @@
+require 'ruby-debug'
 module Inkling
   module Routing
     class TypeConstraint

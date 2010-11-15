@@ -1,5 +1,3 @@
-require 'ruby-debug'
-
 namespace :inkling do
 
   desc "Boostraps (calls generators, creates databases, runs migrations, seeds the database) Inkling"

@@ -63,4 +63,8 @@ describe Inkling::Theme do
     theme.destroy
     File.exist?("tmp/inkling/themes/#{theme.file_name}").should be_false  
   end
+  
+  # describe "installing theme files" do
+  #   
+  # end
 end

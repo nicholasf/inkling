@@ -53,6 +53,12 @@ class Inkling::Theme < ActiveRecord::Base
   def self.site_theme_file
     "#{Inkling::THEME_LAYOUTS_DIR}#{self.site.file_name}"
   end
+  
+  #takes a directory and recursively interns all structures there as a theme structure
+  # (just like any sub directory in app/views)
+  def self.install_from_dir(dirname)
+    
+  end
     
   def write_file
     File.open("#{Inkling::THEME_LAYOUTS_DIR}#{self.file_name}", "w") {|f| f.write(self.body)}

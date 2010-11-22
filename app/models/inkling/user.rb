@@ -3,6 +3,7 @@ class Inkling::User < ActiveRecord::Base
   set_table_name 'inkling_users' 
   has_many :role_memberships
   has_many :roles, :through => :role_memberships
+  has_many :logs
   
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable    
   

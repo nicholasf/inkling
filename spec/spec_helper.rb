@@ -23,4 +23,6 @@ Rspec.configure do |config|
   # uncomment the following line.
   # config.use_transactional_examples = false
   config.use_transactional_examples = true
+  
+  config.include Devise::TestHelpers, :type => :controller
 end

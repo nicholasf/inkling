@@ -24,10 +24,16 @@ module Inkling
       end
     end
 
+    #this method looks at the content object in case it wants to decide how to update the slug, otherwise
+    #it uses a sluggerize transformation on the title of the content object
     def update_slug!
-      slug = self.parent ? "#{self.parent.slug}/" : "/"
-      slug += "#{self.content.title}"
-      self.slug = sluggerize(slug)
+      if self.content.responds_to :generate_path_slug
+        self.slug = self.content.generate_path_slug
+      else        
+        slug = self.parent ? "#{self.parent.slug}/" : "/"
+        slug += "#{self.content.title}"
+        self.slug = sluggerize(slug)
+      end
     end
 
     #stolen from enki

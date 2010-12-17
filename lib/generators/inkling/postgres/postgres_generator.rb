@@ -1,11 +1,11 @@
 require 'rails/generators'
 
-class Inkling::InstallGenerator < Rails::Generators::Base
+class Inkling::PostgresGenerator < Rails::Generators::Base
   include Rails::Generators::Migration
   
-  desc "Creates migrations for Inkling tables - without any optimisation or db specialization."
+  desc "Creates optimizations for postgres Inkling tables."
   
-  source_root File.expand_path("../../templates", __FILE__)
+  source_root File.expand_path("../../../templates", __FILE__)
 
   def self.next_migration_number(dirname)
     if ActiveRecord::Base.timestamped_migrations
@@ -16,6 +16,6 @@ class Inkling::InstallGenerator < Rails::Generators::Base
   end
 
   def create_migration_file
-    migration_template 'create_inkling_tables.rb', 'db/migrate/create_inkling_tables.rb'
+    migration_template 'create_postgres_optimizations.rb', 'db/migrate/create_inkling_postgres_optimizations'
   end
 end

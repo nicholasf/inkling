@@ -13,9 +13,9 @@ namespace :inkling do
   end
   
   
-  desc "Runs system('rails generate inkling')"
+  desc "Runs system('rails generate inkling:install')"
   task :generate do
-    system("rails generate inkling")    
+    system("rails generate inkling:install")    
   end
   
   desc "Iterates through array Inkling::REBUILD_TASKS and executes each task it finds (useful to add your bootstrap sequence to inkling:rebuild)"

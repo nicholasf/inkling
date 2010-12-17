@@ -1,3 +1,5 @@
+#consider deleting proxying controller - role of inkling becoming obvious that is unnecessary
+
 # require File.dirname(__FILE__) + '/../../spec_helper'
 # 
 # describe Inkling::ProxyingController do

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20101217032702) do
+=======
+ActiveRecord::Schema.define(:version => 20101123224841) do
+>>>>>>> b461225dde30fa82bf10fc759e5a88171529a9cb
 
   create_table "inkling_can_can_actions", :force => true do |t|
     t.string   "name"
@@ -19,9 +23,15 @@ ActiveRecord::Schema.define(:version => 20101217032702) do
   end
 
   create_table "inkling_logs", :force => true do |t|
+<<<<<<< HEAD
     t.datetime "created_at",      :null => false
     t.text     "text",            :null => false
     t.integer  "inkling_user_id"
+=======
+    t.datetime "created_at"
+    t.text     "text",       :null => false
+    t.integer  "user_id"
+>>>>>>> b461225dde30fa82bf10fc759e5a88171529a9cb
   end
 
   create_table "inkling_paths", :force => true do |t|

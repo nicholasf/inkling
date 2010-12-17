@@ -45,7 +45,7 @@ describe Inkling::Theme do
   it "should write the theme to the tmp/inkling/themes directory" do
     theme
     lines = []
-    file = File.open("tmp/inkling/themes/#{theme.file_name}", "rb")
+    file = File.open("tmp/inkling/themes/layouts/#{theme.file_name}", "rb")
     contents =  file.read
     
     file_words = contents.split(/\W/)
@@ -64,7 +64,4 @@ describe Inkling::Theme do
     File.exist?("tmp/inkling/themes/#{theme.file_name}").should be_false  
   end
   
-  # describe "installing theme files" do
-  #   
-  # end
 end

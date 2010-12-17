@@ -3,6 +3,7 @@ require "inkling/types"
 require "inkling/version"
 require "inkling/slugs"
 require "inkling/routing"
+require "inkling/util"
 require 'cancan'
 require "inkling/ability"
 require "devise"

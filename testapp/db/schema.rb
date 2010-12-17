@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101217032702) do
+ActiveRecord::Schema.define(:version => 20101217084343) do
 
   create_table "inkling_can_can_actions", :force => true do |t|
     t.string   "name"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(:version => 20101217032702) do
   end
 
   create_table "inkling_logs", :force => true do |t|
-    t.datetime "created_at",      :null => false
-    t.text     "text",            :null => false
-    t.integer  "inkling_user_id"
+    t.datetime "created_at", :null => false
+    t.text     "text",       :null => false
+    t.integer  "user_id"
   end
 
   create_table "inkling_paths", :force => true do |t|

@@ -13,8 +13,6 @@ gem 'formtastic', '>= 1.1.0'
 group :development, :test do
 	gem "rspec-rails", "= 2.0.1", :group => [:test, :development]
 	gem 'capybara'
-	gem 'cucumber-rails'
-	gem 'cucumber', '>= 0.7.2'
 	gem 'spork'
 	gem 'launchy'    # So you can do Then show me the page
 	gem 'jeweler'

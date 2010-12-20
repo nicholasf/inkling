@@ -26,11 +26,13 @@ module Inkling
         path = Inkling::Path.new
         path.content = self
         path.save!
+        puts "***** path created! ****"
       end
     
       def update_path
         self.path.update_slug!
         self.path.save!
+        puts "***** path updated! ****"
       end
     end
 

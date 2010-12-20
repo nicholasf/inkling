@@ -7,7 +7,6 @@ class CreateInklingPostgresOptimizations < ActiveRecord::Migration
     add_foreign_key(:inkling_permissions, :type_id, :inkling_types)
     add_foreign_key(:inkling_permissions, :role_id, :inkling_roles)
     add_foreign_key(:inkling_logs, :user_id, :inkling_users)
-    
   end
 
   def self.down

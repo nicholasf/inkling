@@ -10,7 +10,7 @@ module Inkling
     belongs_to :parent, :class_name => "Path"
     has_many :children, :class_name => "Path", :foreign_key => "parent_id"
 
-    before_validation :update_slug!
+    before_validation :update_slug!, :unless => "self.new_record?"
     validate :slug_unique?
 
 

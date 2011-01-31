@@ -62,9 +62,7 @@ class Inkling::Theme < ActiveRecord::Base
         body = File.open("#{dir}/#{entry}").readlines
         bits =  entry.split(".")
         name = bits.first
-        extension =  bits[1..-1].join(".")
-        theme = Inkling::Theme.create!(:name => name, :body => body.join, :extension => extension)
-        puts "created #{entry} - #{theme.name}"
+        theme = Inkling::Theme.create!(:name => name, :body => body.join, :extension => entry[name.length..-1])
       end
     end
   end

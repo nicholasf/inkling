@@ -1,3 +1,6 @@
+require 'ruby-debug'
+
+
 module Inkling
   module Types
     module ActsAs
@@ -21,18 +24,16 @@ module Inkling
     end
 
     module InstanceMethods
-      #Creates a path to represent the ContentType instance; the path is used for routing, etc..
+     # Creates a path to represent the ContentType instance; the path is used for routing, etc..
       def create_path
         path = Inkling::Path.new
         path.content = self
         path.save!
-        puts "***** path created! ****"
       end
-    
+          
       def update_path
         self.path.update_slug!
         self.path.save!
-        puts "***** path updated! ****"
       end
     end
 

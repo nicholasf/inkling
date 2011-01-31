@@ -56,8 +56,17 @@ class Inkling::Theme < ActiveRecord::Base
   
   #takes a directory and recursively interns all structures there as a theme structure
   # (just like any sub directory in app/views)
-  def self.install_from_dir(dirname)
-    
+  def self.install_from_dir(dir)
+    for entry in Dir.entries(dir)
+      if File.file?("#{dir}/#{entry}")
+        body = File.open("#{dir}/#{entry}").readlines
+        bits =  entry.split(".")
+        name = bits.first
+        extension =  bits[1..-1].join(".")
+        theme = Inkling::Theme.create!(:name => name, :body => body.join, :extension => extension)
+        puts "created #{entry} - #{theme.name}"
+      end
+    end
   end
     
   def write_file

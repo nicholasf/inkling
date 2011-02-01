@@ -62,7 +62,13 @@ class Inkling::Theme < ActiveRecord::Base
         body = File.open("#{dir}/#{entry}").readlines
         bits =  entry.split(".")
         name = bits.first
-        theme = Inkling::Theme.create!(:name => name, :body => body.join, :extension => entry[name.length..-1])
+        pre_existing = Inkling::Theme.find_by_name(name)
+        
+        if pre_existing
+          pre_existing.save(:body => body.join, :extension => entry[name.length..-1])
+        else
+          Inkling::Theme.create!(:name => name, :body => body.join, :extension => entry[name.length..-1])
+        end
       end
     end
   end

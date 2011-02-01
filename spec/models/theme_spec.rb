@@ -69,10 +69,8 @@ describe Inkling::Theme do
     name = Time.now.to_i.to_s
     tmp_dir = "/tmp/#{name}"
     FileUtils.mkdir_p(tmp_dir)
-    system("touch /tmp/#{name}/main.html.erb")
-    system("touch /tmp/#{name}/footer.html.erb")
-    system("echo 'this is main' >> /tmp/#{name}/main.erb.html")
-    system("echo 'this is footer' >> /tmp/#{name}/footer.erb.html")
+    system("echo 'this is main' >> /tmp/#{name}/main.html.erb")
+    system("echo 'this is footer' >> /tmp/#{name}/footer.html.erb")
     Inkling::Theme.install_from_dir(tmp_dir)
     main = Inkling::Theme.find_by_name("main")
     footer = Inkling::Theme.find_by_name("footer")

@@ -1,5 +1,6 @@
 require "inkling"
 require "inkling/types"
+require "inkling/controllers"
 require "inkling/version"
 require "inkling/util/slugs"
 require "inkling/routing"

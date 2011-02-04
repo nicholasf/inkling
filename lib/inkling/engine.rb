@@ -1,7 +1,7 @@
 require "inkling"
 require "inkling/types"
 require "inkling/version"
-require "inkling/slugs"
+require "inkling/util/slugs"
 require "inkling/routing"
 require "inkling/util"
 require 'cancan'

@@ -1,3 +1,17 @@
+
+task :cruise => ["bundler", "testapp", :environment, "inkling:rebuild", "spec"]
+
+task :bundler do
+  system('bundle install')
+end
+
+task :testapp do
+  include FileUtils
+  FileUtils.cd("testapp")
+  load 'Rakefile'
+end
+
+
 begin
   require "jeweler"
   require "./lib/inkling/version"
@@ -15,16 +29,4 @@ begin
   end
 rescue
   puts "Jeweler or one of its dependencies is not installed."
-end
-
-task :cruise => ["bundler", "testapp", :environment, "inkling:rebuild", "spec"]
-
-task :bundler do
-  system('bundle install')
-end
-
-task :testapp do
-  include FileUtils
-  FileUtils.cd("testapp")
-  load 'Rakefile'
 end

@@ -3,6 +3,7 @@ task :cruise => ["one92", "bundler", "testapp", :environment, "inkling:rebuild",
 
 task :one92 do
   system("rvm use 1.9.2")
+  puts system("ruby -v")
 end
 
 task :bundler do

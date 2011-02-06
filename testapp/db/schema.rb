@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206102701) do
+ActiveRecord::Schema.define(:version => 20110206105004) do
 
   create_table "inkling_can_can_actions", :force => true do |t|
     t.string   "name"

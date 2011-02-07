@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.date = %q{2010-12-17}
+  s.date = %q{2011-02-07}
   s.default_executable = %q{inkling}
   s.description = %q{A content framework engine for Rails 3}
   s.executables = ["inkling"]
@@ -36,7 +36,6 @@ Gem::Specification.new do |s|
     "app/models/inkling/permission.rb",
     "app/models/inkling/role.rb",
     "app/models/inkling/role_membership.rb",
-    "app/models/inkling/session_observer.rb",
     "app/models/inkling/theme.rb",
     "app/models/inkling/type.rb",
     "app/models/inkling/user.rb",
@@ -80,17 +79,21 @@ Gem::Specification.new do |s|
     "config/initializers/init.rb",
     "config/initializers/rspec_generator.rb",
     "config/routes.rb",
-    "lib/generators/inkling_generator.rb",
-    "lib/generators/templates/create_inkling_tables.rb",
+    "lib/generators/inkling/install/install_generator.rb",
+    "lib/generators/inkling/postgres/postgres_generator.rb",
+    "lib/generators/inkling/templates/create_inkling_tables.rb",
+    "lib/generators/inkling/templates/create_postgres_optimizations.rb",
     "lib/inkling.rb",
     "lib/inkling/ability.rb",
     "lib/inkling/commands.rb",
     "lib/inkling/commands/generator.rb",
+    "lib/inkling/controllers.rb",
     "lib/inkling/engine.rb",
     "lib/inkling/routing.rb",
-    "lib/inkling/slugs.rb",
     "lib/inkling/types.rb",
+    "lib/inkling/util.rb",
     "lib/inkling/util/migration_helpers.rb",
+    "lib/inkling/util/slugs.rb",
     "lib/inkling/version.rb",
     "lib/tasks/cucumber.rake",
     "lib/tasks/inkling.rake",
@@ -123,9 +126,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<inherited_resources>, [">= 0"])
       s.add_runtime_dependency(%q<formtastic>, [">= 1.1.0"])
       s.add_development_dependency(%q<rspec-rails>, ["= 2.0.1"])
-      s.add_development_dependency(%q<capybara>, [">= 0"])
-      s.add_development_dependency(%q<cucumber-rails>, [">= 0"])
-      s.add_development_dependency(%q<cucumber>, [">= 0.7.2"])
+      s.add_development_dependency(%q<capybara>, [">= 0.4.1.1"])
       s.add_development_dependency(%q<spork>, [">= 0"])
       s.add_development_dependency(%q<launchy>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -149,9 +150,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<inherited_resources>, [">= 0"])
       s.add_dependency(%q<formtastic>, [">= 1.1.0"])
       s.add_dependency(%q<rspec-rails>, ["= 2.0.1"])
-      s.add_dependency(%q<capybara>, [">= 0"])
-      s.add_dependency(%q<cucumber-rails>, [">= 0"])
-      s.add_dependency(%q<cucumber>, [">= 0.7.2"])
+      s.add_dependency(%q<capybara>, [">= 0.4.1.1"])
       s.add_dependency(%q<spork>, [">= 0"])
       s.add_dependency(%q<launchy>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -176,9 +175,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<inherited_resources>, [">= 0"])
     s.add_dependency(%q<formtastic>, [">= 1.1.0"])
     s.add_dependency(%q<rspec-rails>, ["= 2.0.1"])
-    s.add_dependency(%q<capybara>, [">= 0"])
-    s.add_dependency(%q<cucumber-rails>, [">= 0"])
-    s.add_dependency(%q<cucumber>, [">= 0.7.2"])
+    s.add_dependency(%q<capybara>, [">= 0.4.1.1"])
     s.add_dependency(%q<spork>, [">= 0"])
     s.add_dependency(%q<launchy>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])

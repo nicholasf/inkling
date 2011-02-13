@@ -67,7 +67,7 @@ class Inkling::Theme < ActiveRecord::Base
         if pre_existing
           pre_existing.save(:body => body.join, :extension => entry[name.length..-1])
           if Rails.env.test? or Rails.env.development?
-            pre_existing.reload!
+            pre_existing.reload
           end
         else
           Inkling::Theme.create!(:name => name, :body => body.join, :extension => entry[name.length..-1])

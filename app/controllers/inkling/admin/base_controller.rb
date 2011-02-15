@@ -1,5 +1,5 @@
 class Inkling::Admin::BaseController < ApplicationController
 
-  layout 'inkling/manage'
+  layout 'manage'
 
 end

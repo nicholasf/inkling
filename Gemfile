@@ -11,7 +11,7 @@ gem 'formtastic', '>= 1.1.0'
 
  
 group :development, :test do
-	gem "rspec-rails", "= 2.0.1", :group => [:test, :development]
+	gem "rspec-rails", ">= 2.5.1", :group => [:test, :development]
 	gem 'capybara', ">= 0.4.1.1"
 	gem 'spork'
 	gem 'launchy'    # So you can do Then show me the page

@@ -165,8 +165,8 @@ DEPENDENCIES
   inherited_resources
   jeweler
   launchy
-  machinist (= 1.0.6)
+  machinist (>= 1.0.6)
   rails (>= 3.0.3)
-  rspec-rails (= 2.0.1)
+  rspec-rails (>= 2.0.1)
   spork
   steak (>= 1.0.0.rc.1)

@@ -59,18 +59,18 @@ class Inkling::Theme < ActiveRecord::Base
   def self.install_from_dir(dir)
     for entry in Dir.entries(dir)
       if File.file?("#{dir}/#{entry}")
-        body = File.open("#{dir}/#{entry}").readlines
+        template = File.open("#{dir}/#{entry}").readlines
         bits =  entry.split(".")
         name = bits.first
         pre_existing = Inkling::Theme.find_by_name(name)
         
         if pre_existing
-          pre_existing.save(:body => body.join, :extension => entry[name.length..-1])
+          pre_existing.save(:body => template.join, :extension => entry[name.length..-1])
           if Rails.env.test? or Rails.env.development?
             pre_existing.reload
           end
         else
-          Inkling::Theme.create!(:name => name, :body => body.join, :extension => entry[name.length..-1])
+          Inkling::Theme.create!(:name => name, :body => template.join, :extension => entry[name.length..-1])
         end
       end
     end

@@ -79,4 +79,21 @@ describe Inkling::Theme do
     main.extension.should == ".html.erb"
     FileUtils.rm_rf(tmp_dir)
   end
+
+  it "install_from_dir should overwrite existing themes with the same name" do
+    include FileUtils
+    name = Time.now.to_i.to_s
+    tmp_dir = "/tmp/#{name}"
+    FileUtils.mkdir_p(tmp_dir)
+    system("echo 'this is main' >> /tmp/#{name}/main.html.erb")
+    system("echo 'this is footer' >> /tmp/#{name}/footer.html.erb")
+    Inkling::Theme.install_from_dir(tmp_dir)
+    main = Inkling::Theme.find_by_name("main")
+    footer = Inkling::Theme.find_by_name("footer")
+    main.body.strip.should == "this is main"
+    footer.body.strip.should == "this is footer"
+    main.extension.should == ".html.erb"
+    FileUtils.rm_rf(tmp_dir)
+  end
+  
 end

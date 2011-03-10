@@ -1,8 +1,11 @@
+
+Inkling has been moved to http://github.com/tfw/inkling. 
+
+----
+
 Inkling is a DSL and framework for Rails 3 providing for defining your own knowledge management system. 
 
 It isn't ready for general use yet, and will be refactored heavily in December; to reflect an emerging DSL for defining knowledge management systems.
-
-
 
 
 Feature Overview
